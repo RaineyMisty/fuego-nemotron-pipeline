@@ -6,7 +6,7 @@ import time
 import urllib.error
 import urllib.request
 
-MODEL = "nvidia/nvidia-nemotron-nano-9b-v2"
+MODEL = "nvidia/nemotron-3.5-lightning-30b-a3b"
 ENDPOINT = "https://integrate.api.nvidia.com/v1/chat/completions"
 
 
@@ -53,24 +53,40 @@ class NvidiaClient:
         self.opener = urllib.request.build_opener(NoRedirect)
 
     def complete(self, system, payload):
+        print(f"[NVIDIA] model={self.model}", flush=True)
+        print(f"[NVIDIA] task={payload.get('task')}", flush=True)
+        # 这里是模型的参数
         body = json.dumps({
             "model": self.model,
             "messages": [
-                {"role": "system", "content": "/no_think\n" + system},
-                {"role": "user", "content": json.dumps(payload, ensure_ascii=False)},
+                {
+                    "role": "system",
+                    "content": system
+                },
+                {
+                    "role": "user",
+                    "content": json.dumps(payload, ensure_ascii=False)
+                }
             ],
             "temperature": 0,
-            "max_tokens": 4096,
-            "stream": False,
+            "max_tokens": 16384,
+            "chat_template_kwargs": {
+                "enable_thinking": False # 思考会浪费token导致模型卡死
+            },
+            "stream": False
         }).encode()
+        print(f"[NVIDIA] request bytes={len(body)}", flush=True)
+        print("[NVIDIA] sending request...", flush=True)
         for attempt in range(3):
             request = urllib.request.Request(ENDPOINT, data=body, headers={
                 "Authorization": "Bearer " + self.key,
                 "Content-Type": "application/json",
             })
             try:
-                with self.opener.open(request, timeout=90) as response:
+                with self.opener.open(request, timeout=20) as response: # timeout=90
+                    print("[NVIDIA] response headers received", flush=True)
                     raw = response.read(2_000_001)
+                    print(f"[NVIDIA] response bytes={len(raw)}", flush=True)
                 if len(raw) > 2_000_000:
                     raise PipelineError("The API response is too large.")
                 result = json.loads(raw)
