@@ -567,6 +567,62 @@ The runner does not load .env. Exit codes: 0 success, 1 request/database failure
 2 input/configuration error, 3 invalid model response, 130 cancelled.
 Offline tests mock the API reply while using the real processor and SQLite.
 
+## Output packaging
+
+`fuego/write_output.py` builds the response shape shown in `output/fuego_output_example.json`.
+It reads SQLite in read-only mode and makes no AI call. It does not write or send JSON.
+
+```python
+from fuego.write_output import build_output, serialize_output
+
+response = build_output([
+    {"id": "technology", "description": "Technology news.",
+     "synthesis": synthesis_result},  # title and summary from topic_synthesis.
+], db_path="db/articles.sqlite3", request_type="fixed")
+json_text = serialize_output(response)
+```
+
+Bucket specs need an id and a synthesis object with title and summary.
+Description is optional. The synthesis title becomes the output bucket name.
+Bucket IDs are used exactly as given; no prefix is added.
+Members and similarities come from article_buckets. Store the selected links before packaging.
+The module does not select topics, apply a similarity threshold, or run synthesis itself.
+A bucket with no stored links has an empty members list.
+
+The default request_type is fixed. query and cluster are also accepted.
+The default articles_per_bucket is 10. Members sort by descending similarity, then article ID.
+Ranks start at one. Each referenced article is included once, in first-seen order.
+Article bucket links include all stored links, even links to buckets outside this response.
+A missing member article raises ValueError instead of producing a broken reference.
+
+The schema_version is fuego-response.v1. Published timestamps become UTC ISO strings.
+generated_at defaults to the current UTC time; pass an aware datetime for a fixed time.
+parameters.bucket_count is the number of supplied bucket specs.
+stats.total_articles_considered is the total article count in the SQLite snapshot.
+activity.current_count counts all stored links for that bucket, before the output limit.
+These are stored counts, not measurements of a time window.
+Historical counts and change ratios are null, with status insufficient_data.
+Direction uses an insufficient-data message and no related topics. No trend is invented.
+
+SQLite does not store embeddings or original metadata. Their default outputs are [] and {}.
+Pass embeddings={article_id: vector} and metadata={article_id: object} to include available data.
+Supplied vectors must contain 384 finite numbers. Extras are copied, not modified.
+The shortened vectors in the example JSON are illustrative.
+serialize_output uses UTF-8-friendly strict JSON and rejects NaN or Infinity.
+No optional unique_story_count is emitted because story deduplication is not implemented.
+Database errors remain sqlite3 errors. Input errors raise ValueError.
+
+```bash
+python -B -m integration.smoke_write_output
+python -B -m unittest discover -s test -p 'test_write_output.py' -v
+```
+
+Direct run: `python -B integration/smoke_write_output.py`.
+The smoke uses two articles, two buckets, sample synthesis results, and a temporary SQLite file.
+It prints the JSON response and checks ranks, IDs, deduplication, stats, dates, and JSON round trip.
+It needs no API key or extra package. It does not change your database or output examples.
+Exit code 0 means success; 1 means failure.
+
 ## Fixed buckets
 
 - Politics
