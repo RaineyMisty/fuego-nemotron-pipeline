@@ -1,28 +1,49 @@
 {
   "schema_version": "fuego-response.v1",
   "request_type": "fixed",
-  "generated_at": "2026-09-20T12:59:50.632000Z",
+  "generated_at": "2026-09-20T13:22:58.966000Z",
   "parameters": {
     "bucket_count": 20,
     "articles_per_bucket": 10
   },
   "stats": {
-    "total_articles_considered": 35,
+    "total_articles_considered": 123,
     "returned_buckets": 20
   },
   "buckets": [
     {
       "id": "bucket-politics",
       "type": "fixed",
-      "name": "Politics",
+      "name": "The party of democracy keeps editing the results",
       "description": "elections; government; parliament; public policy; political parties; voting; legislation",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "Democrats increasingly treat their voters' choices as provisional, allowing party activists and the press to influence election outcomes. This habit weakens party credibility and may damage the establishment. While some interventions, like Maine and Wisconsin, show how leaders can override primary results, the pattern persists as voters rarely punish the process and the political press treats each episode as isolated. This approach undermines the integrity of democratic processes and sets the stage for long-term challenges.",
+      "members": [
+        {
+          "article_id": "20260919173000-147",
+          "similarity": 0.6103518735513842,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919164500-751",
+          "similarity": 0.5045305480181062,
+          "rank": 2
+        },
+        {
+          "article_id": "20260919194500-367",
+          "similarity": 0.4363618843019435,
+          "rank": 3
+        },
+        {
+          "article_id": "20260919191500-203",
+          "similarity": 0.4300348285099673,
+          "rank": 4
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 4,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -32,23 +53,33 @@
     {
       "id": "bucket-world-affairs",
       "type": "fixed",
-      "name": "Shift from Support to Tolerance in the Post-9/11 World",
+      "name": "Saudi Arabia's Response to Yemeni Houthi Attacks",
       "description": "international relations; diplomacy; foreign policy; treaties; armed conflict; peace talks; humanitarian aid",
-      "summary": "Bill Maher's critique highlights how the left has shifted from supporting the West to supporting a system that tolerates terrorism, while ignoring progress in areas like Gaza. The article shows the left's moral confusion and the broader implications of their actions. The U.S. following the midterm elections faces ongoing challenges, including immigration policies, economic issues, and conflicts in Iran and the Persian Gulf. The article points out three attitudes that worry Democrats and progressives: complacency, defeatism, and cynicism, emphasizing the need to work hard to secure both chambers of Congress.",
+      "summary": "Saudi Arabia confirmed that Yemen’s Houthi rebels attempted to attack its capital with a ballistic missile, which was intercepted. The statement came after the first attack targeting Riyadh since the escalation in fighting between Iran-backed Houthis and Yemeni government forces backed by Saudi Arabia. The Houthis also attempted to attack civilian infrastructure in the Red Sea port city of Yanbu and in Taif, Baysh, and Farasan but were thwarted. The report highlights the ongoing conflict in Yemen, with reports from CNN, MS NOW, and Politico denying access to the White House, which is a result of President Trump’s ban on these organizations. Oil prices are high but could worsen due to tensions in the Middle East. China’s strategy to stabilize energy prices has helped, but tensions in the region remain. Saudi Arabia has issued emergency alerts in its capital since an escalation with Iran-backed rebels in Yemen. In Gaza, Israeli strikes killed three people. Meanwhile, the Democratic National Committee is investing in voter registration efforts. Yabloko’s election observer lost consciousness during arrest, and there are concerns about the impact of the election on voter turnout. In Los Angeles, Jewish heirs are filing lawsuits to reclaim Nazi-looted art in museums. Congo is vaccinating health workers against Ebola in Bunia, the epicenter of the fastest-growing outbreak.",
       "members": [
+        {
+          "article_id": "20260919173000-491",
+          "similarity": 0.4727105212308158,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919181500-491",
+          "similarity": 0.4648493295011264,
+          "rank": 2
+        },
         {
           "article_id": "20260912233000-591",
           "similarity": 0.44243911663215635,
-          "rank": 1
+          "rank": 3
         },
         {
           "article_id": "20260919211500-317",
           "similarity": 0.4230259831889375,
-          "rank": 2
+          "rank": 4
         }
       ],
       "activity": {
-        "current_count": 1,
+        "current_count": 3,
         "previous_count": 0,
         "change_ratio": null,
         "status": "new"
@@ -103,15 +134,31 @@
     {
       "id": "bucket-technology",
       "type": "fixed",
-      "name": "Technology",
+      "name": "AI Task Force and Czar Amid Concerns",
       "description": "software; computing; artificial intelligence; semiconductors; cybersecurity; digital products; robotics",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "President Trump announced the creation of an AI task force and the appointment of a new AI czar amid concerns about the rapid development of artificial intelligence. He emphasized supporting the industry and calling for industry regulation, while acknowledging the need for a criminal justice system to handle AI-related issues. The White House has not provided further details on the initiative, and lawmakers are still discussing the issue.",
+      "members": [
+        {
+          "article_id": "20260919194500-238",
+          "similarity": 0.5715979126969903,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919194500-563",
+          "similarity": 0.4522814907754145,
+          "rank": 2
+        },
+        {
+          "article_id": "20260919201500-79",
+          "similarity": 0.43454093359236806,
+          "rank": 3
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 3,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -139,21 +186,31 @@
     {
       "id": "bucket-health",
       "type": "fixed",
-      "name": "Vaccination Misinformation and Parental Health in Pennsylvania",
+      "name": "Health and Vaccination Concerns in Pennsylvania",
       "description": "medicine; public health; hospitals; disease prevention; clinical trials; treatments; mental health",
-      "summary": "The article discusses recent measles deaths in Pennsylvania and the challenges faced by parents due to misinformation from political figures. It emphasizes the importance of routine childhood vaccinations and the need for medical guidance to protect children's health. The Marin Independent Journal highlights the need for parents to seek medical advice rather than relying on political figures for information, underscoring the critical role of public health initiatives in safeguarding children's well-being.",
+      "summary": "Proposed health regulations in Pennsylvania, including those related to infectious disease management, are being scrutinized by Republicans for perceived partisan nature and transparency issues. The article highlights ongoing political battles surrounding these rules, emphasizing the need for clarity and civic engagement in public health matters. In contrast, the article discusses unintended consequences of a school anti-vaping law, which stigmatizes students and harms their academic and social well-being. It argues that such laws are ineffective and that education should be prioritized over the legal system. Lastly, the article addresses measles deaths in Pennsylvania and the challenges faced by parents due to misinformation from political figures, stressing the importance of routine childhood vaccinations and medical guidance to protect children's health.",
       "members": [
+        {
+          "article_id": "20260919164500-751",
+          "similarity": 0.5881947145062242,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919163000-129",
+          "similarity": 0.5722995967977991,
+          "rank": 2
+        },
         {
           "article_id": "20260912233000-567",
           "similarity": 0.49361831081915314,
-          "rank": 1
+          "rank": 3
         }
       ],
       "activity": {
-        "current_count": 0,
+        "current_count": 2,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -199,18 +256,23 @@
     {
       "id": "bucket-education",
       "type": "fixed",
-      "name": "Islamophobia and Indoctrination in Education",
+      "name": "A short word or phrase",
       "description": "schools; universities; students; teachers; tuition; curriculum; scholarships; campus life",
-      "summary": "The article discusses how schools in Virginia and other places are teaching students not to center the 9/11 attacks or the individuals involved, focusing on Islamophobia and the teaching of extremist ideologies. The curriculum is seen as a radical attempt to indoctrinate students, leading to systemic issues and long-term consequences. The article highlights the ongoing efforts to address these issues through education and the broader societal context of indoctrination.",
+      "summary": "The article discusses a surgeon who found his former counselor who helped him navigate college after failing high school, and a school in Virginia and other places teaching students not to center the 9/11 attacks or individuals involved, focusing on Islamophobia and the teaching of extremist ideologies. The curriculum is seen as a radical attempt to indoctrinate students, leading to systemic issues and long-term consequences. The article highlights the ongoing efforts to address these issues through education and the broader societal context of indoctrination.",
       "members": [
+        {
+          "article_id": "20260919173000-79",
+          "similarity": 0.4917969005353856,
+          "rank": 1
+        },
         {
           "article_id": "20260919213000-551",
           "similarity": 0.41372572435740906,
-          "rank": 1
+          "rank": 2
         }
       ],
       "activity": {
-        "current_count": 1,
+        "current_count": 2,
         "previous_count": 0,
         "change_ratio": null,
         "status": "new"
@@ -223,18 +285,53 @@
     {
       "id": "bucket-crime-justice",
       "type": "fixed",
-      "name": "FBI Director's Role in Political Manipulation",
+      "name": "Serial Killer Investigation and Related Cases",
       "description": "crime; policing; criminal investigations; courts; trials; sentencing; justice system",
-      "summary": "The article discusses how the FBI Director, Kash Patel, is seen as a problematic figure in the administration, with his unconfirmed appointment and lack of legal expertise. The focus is on the ongoing efforts to unmake democracy through the cancellation of prominent figures, including those involved in the fake electors and cancel culture schemes. The article also highlights the broader implications of these actions and the potential for them to influence political outcomes.",
+      "summary": "The articles discuss ongoing investigations into serial killers linked to a dead pornographer, Raymond Horsch, who was involved in the industry. Police found evidence of 'snuff' videos and chemicals linked to missing women, suggesting potential profit from distributing such content. Forensic psychologist Dr. Mohandie highlights possible additional motives beyond sadistic acts, and the investigation is ongoing. In another article, a Dominican Republic resident pleaded guilty to a money laundering conspiracy in connection with a grandparent fraud scheme, involving impersonating a grandchild to collect funds. The charges include receiving proceeds, laundering, and transferring money to the Dominican Republic. The case involves a $65,000 scheme with prior criminal history and federal law enforcement involvement. Another article highlights ongoing challenges in the U.S. political landscape, with state-level prosecutors facing re-election and re-election challenges. Despite efforts to maintain public safety, many state legislators and prosecutors continue to prioritize pro-crime policies, leading to ongoing issues with public safety. The article also emphasizes the need for systemic change to address the challenges faced by state-level prosecutors and legislators.",
       "members": [
+        {
+          "article_id": "20260919181500-645",
+          "similarity": 0.5859660862450246,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919170000-567",
+          "similarity": 0.5434072724900318,
+          "rank": 2
+        },
+        {
+          "article_id": "20260919190000-78",
+          "similarity": 0.5434072724900318,
+          "rank": 3
+        },
+        {
+          "article_id": "20260919194500-367",
+          "similarity": 0.5432804872538172,
+          "rank": 4
+        },
+        {
+          "article_id": "20260919180000-1",
+          "similarity": 0.44298889200757857,
+          "rank": 5
+        },
+        {
+          "article_id": "20260919173000-391",
+          "similarity": 0.44174842793554026,
+          "rank": 6
+        },
         {
           "article_id": "20260919211500-379",
           "similarity": 0.4252198012621769,
-          "rank": 1
+          "rank": 7
+        },
+        {
+          "article_id": "20260919173000-345",
+          "similarity": 0.40123707516308166,
+          "rank": 8
         }
       ],
       "activity": {
-        "current_count": 1,
+        "current_count": 8,
         "previous_count": 0,
         "change_ratio": null,
         "status": "new"
@@ -247,15 +344,21 @@
     {
       "id": "bucket-transportation",
       "type": "fixed",
-      "name": "Transportation",
+      "name": "Proposed Health Regulations in Pennsylvania",
       "description": "public transit; railways; roads; traffic; aviation; cycling; transport infrastructure",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "Proposed state health department rules in Pennsylvania are being scrutinized by Republicans for their perceived partisan nature, with concerns over transparency and the handling of public health during the pandemic. The article highlights ongoing political battles surrounding these rules, emphasizing the need for clarity and civic engagement in public health matters.",
+      "members": [
+        {
+          "article_id": "20260919164500-751",
+          "similarity": 0.403687478499098,
+          "rank": 1
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 1,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -283,15 +386,46 @@
     {
       "id": "bucket-sports",
       "type": "fixed",
-      "name": "Sports",
+      "name": "Ex-DU lacrosse coach Bill Tierney's memoir and the Padres' NL wild-card race",
       "description": "competitive sports; athletes; teams; leagues; tournaments; match results; championships",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "Bill Tierney, a former DU lacrosse coach, is preparing to publish his memoir, which he calls a process of looking back on his career. He plans to share it with his family and daughter-in-law, who reads it. The Waterdogs, led by Tierney, have won multiple championships, including the NCAA and the Tewaaraton Award. The Waterdogs are set to compete in the PLL for their first championship, which they won in 2026. Meanwhile, the San Diego Padres are currently leading the NL wild-card standings with a 5-0 record against Miami, while their magic number is reduced to four. They are expected to improve to 5-0 this season, with a focus on their home series against Miami. The team is in a good position to secure a playoff spot, with the Yankees' performance in the NL being a key factor. The Padres are in a good spot with a strong record in Petco Park, and there are signs of improvement in their lineup, including Casey Mize and Eury Perez. However, the team is facing challenges with the bullpen and injuries. The article also highlights the importance of the fourth seed and finding rest for select players, while the Padres aim to secure a playoff berth as soon as possible, take homefield advantage, and find rest for their players.",
+      "members": [
+        {
+          "article_id": "20260919181500-729",
+          "similarity": 0.47540730852127705,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919170000-159",
+          "similarity": 0.43223481929741614,
+          "rank": 2
+        },
+        {
+          "article_id": "20260919181500-0",
+          "similarity": 0.43223481929741614,
+          "rank": 3
+        },
+        {
+          "article_id": "20260919164500-751",
+          "similarity": 0.4076172665163235,
+          "rank": 4
+        },
+        {
+          "article_id": "20260919170000-285",
+          "similarity": 0.4040797896956094,
+          "rank": 5
+        },
+        {
+          "article_id": "20260919174500-148",
+          "similarity": 0.40197058986312156,
+          "rank": 6
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 6,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -301,9 +435,9 @@
     {
       "id": "bucket-entertainment",
       "type": "fixed",
-      "name": "Ed Sheeran's tour cancellation and reorganization",
+      "name": "Ed Sheeran's tour affected by openers and supporting acts' withdrawal",
       "description": "movies; television; music; celebrities; concerts; streaming shows; film releases",
-      "summary": "Ed Sheeran's tour has been canceled due to pro-Palestinian protests, with his supporting acts and band pulling out. He will perform at Lincoln Financial Field, marking the first of his Loop Tour since Macklemore's removal. The event is pushed back from 5:30 p.m. to 8 p.m. ET, and ticket prices have dropped. The article highlights the reasons behind the changes, including the removal of Macklemore and the impact on fans and the music industry.",
+      "summary": "Ed Sheeran's tour has been impacted by the withdrawal of key supporting acts and openers, including Macklemore and his band, leading to a push back from 5:30 p.m. to 8 p.m. ET and lower ticket prices. The event is scheduled to mark the first of his Loop Tour since Macklemore's removal. Pro-Palestinian organizations plan to protest outside the show, and there are ongoing discussions about the financial and political aspects of the events. The article highlights the reasons behind the changes, including the removal of Macklemore and the impact on fans and the music industry.",
       "members": [
         {
           "article_id": "20260919204500-75",
@@ -316,28 +450,48 @@
           "rank": 2
         },
         {
+          "article_id": "20260919174500-497",
+          "similarity": 0.5244849804820256,
+          "rank": 3
+        },
+        {
+          "article_id": "20260919181500-559",
+          "similarity": 0.5207520616525403,
+          "rank": 4
+        },
+        {
           "article_id": "20260919213000-144",
           "similarity": 0.5076330691396397,
-          "rank": 3
+          "rank": 5
+        },
+        {
+          "article_id": "20260919201500-419",
+          "similarity": 0.43329520403073696,
+          "rank": 6
+        },
+        {
+          "article_id": "20260919203000-369",
+          "similarity": 0.42702093429993787,
+          "rank": 7
         },
         {
           "article_id": "20260912233000-255",
           "similarity": 0.41823204534132763,
-          "rank": 4
+          "rank": 8
         },
         {
-          "article_id": "20260912233000-171",
-          "similarity": 0.4056153586463224,
-          "rank": 5
+          "article_id": "20260919184500-417",
+          "similarity": 0.41718861425204334,
+          "rank": 9
         },
         {
-          "article_id": "20260912233000-591",
-          "similarity": 0.4054477232702524,
-          "rank": 6
+          "article_id": "20260919181500-645",
+          "similarity": 0.41413911763276356,
+          "rank": 10
         }
       ],
       "activity": {
-        "current_count": 3,
+        "current_count": 9,
         "previous_count": 0,
         "change_ratio": null,
         "status": "new"
@@ -352,11 +506,80 @@
       "type": "fixed",
       "name": "Legal battles over Nazi-looted art in Los Angeles and Auschwitz museums",
       "description": "museums; visual arts; literature; theater; cultural heritage; exhibitions; books",
-      "summary": "New laws in California and Congress allow Jewish heirs to claim Nazi-looted art from museums, sparking legal battles over stolen artworks. The lawsuits involve prominent museums and Jewish families, with the issue of ownership and historical significance being central. The legal framework is being strengthened to ensure fair recovery of these artworks, while museums and advocates hope cases will be heard on their merits.",
+      "summary": "New laws in California and Congress are enabling Jewish heirs to claim ownership of Nazi-looted paintings and watercolor artworks, with lawsuits aimed at returning these artifacts. These cases involve prominent museums and Jewish families, highlighting the ongoing struggle for the rightful ownership of historical artifacts. The legal framework allows for indefinite recovery, while some institutions argue the documents should not be classified as Nazi-looted art due to coercion. The issue is part of a broader debate over the role of museums in preserving history and ensuring restitution, with the Norton Simon Museum and others involved in the process. The lawsuits seek to protect these artworks from being misappropriated, emphasizing the importance of preserving the legacy of the Holocaust and justice for those involved.",
       "members": [
+        {
+          "article_id": "20260919163000-605",
+          "similarity": 0.5749021278279649,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919170000-434",
+          "similarity": 0.5749021278279649,
+          "rank": 2
+        },
+        {
+          "article_id": "20260919204500-494",
+          "similarity": 0.5749021278279649,
+          "rank": 3
+        },
+        {
+          "article_id": "20260919183000-338",
+          "similarity": 0.5661771624505338,
+          "rank": 4
+        },
+        {
+          "article_id": "20260919191500-75",
+          "similarity": 0.5661496186994031,
+          "rank": 5
+        },
+        {
+          "article_id": "20260919201500-20",
+          "similarity": 0.5099150974849267,
+          "rank": 6
+        },
+        {
+          "article_id": "20260919184500-243",
+          "similarity": 0.4834508044011166,
+          "rank": 7
+        },
         {
           "article_id": "20260919213000-56",
           "similarity": 0.4809114331888378,
+          "rank": 8
+        },
+        {
+          "article_id": "20260919164500-85",
+          "similarity": 0.4733196539589565,
+          "rank": 9
+        },
+        {
+          "article_id": "20260919190000-552",
+          "similarity": 0.40354564200742804,
+          "rank": 10
+        }
+      ],
+      "activity": {
+        "current_count": 10,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "new"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-gaming",
+      "type": "fixed",
+      "name": "DraftKings Promo Code: $200 in Bonuses Over 14 Days!",
+      "description": "video games; game studios; console games; PC gaming; esports; game releases; game design",
+      "summary": "New bettors can earn $200 in bonuses by spending $5 with the DraftKings promo code. The promo code offers a 14-day bonus for qualifying first bets, with terms and conditions including new user restrictions and minimum deposit requirements. The promo code is available through the DraftKings website and requires a minimum deposit of $5. The app offers features like same-game parlays, live betting, and extensive prop markets, with fast withdrawals via PayPal and Venmo.",
+      "members": [
+        {
+          "article_id": "20260919170000-285",
+          "similarity": 0.4170163165562159,
           "rank": 1
         }
       ],
@@ -372,35 +595,28 @@
       }
     },
     {
-      "id": "bucket-gaming",
-      "type": "fixed",
-      "name": "Gaming",
-      "description": "video games; game studios; console games; PC gaming; esports; game releases; game design",
-      "summary": "No matching articles.",
-      "members": [],
-      "activity": {
-        "current_count": 0,
-        "previous_count": 0,
-        "change_ratio": null,
-        "status": "stable"
-      },
-      "direction": {
-        "description": "Insufficient temporal data.",
-        "related_topics": []
-      }
-    },
-    {
       "id": "bucket-food",
       "type": "fixed",
-      "name": "Food",
+      "name": "Food safety issues in Lebanon County restaurants and festival history in Lancaster",
       "description": "restaurants; cooking; recipes; chefs; cuisine; dining; food festivals; local food",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "The article discusses several food safety issues in Lebanon County restaurants, including food residue on soda fountain nozzles, improper handling of food items, lack of proper pest control, and food waste management. These issues were noted in multiple inspections, and the food facility needs to address these problems to maintain food safety standards. The Lancaster Capital Day festival, which runs from 10 a.m. to 5 p.m., celebrates the city's rich history, including its role as a historic meeting place for the Second Continental Congress. The event features performances, speeches, and activities that highlight the city's past, such as the history of the Lancaster Courthouse and the contributions of local organizations. The festival aims to educate visitors about the city's diverse history and its current significance as a cultural hub.",
+      "members": [
+        {
+          "article_id": "20260919164500-220",
+          "similarity": 0.43952615252831145,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919164500-85",
+          "similarity": 0.4330957169847869,
+          "rank": 2
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 2,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -410,15 +626,21 @@
     {
       "id": "bucket-travel",
       "type": "fixed",
-      "name": "Travel",
+      "name": "Canadian visitors boost Palm Beach County tourism",
       "description": "tourism; destinations; vacations; hotels; sightseeing; travel guides; visitor attractions",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "Canadian visitors helped fuel tourism in Palm Beach County, with a 6.4% increase over the same period last year despite a U.S. trade war. The organization, founded in 1983, supports 39 cities and towns in Southeast Florida. Key markets like New York, Dallas, and Houston show strong growth, while international visitors and lodging sales also contribute significantly. The Palm Beaches' economic impact is substantial, with $11.6 billion in annual economic impact and 95,000 local jobs. The event in West Palm Beach highlights the region's success as a premier destination.",
+      "members": [
+        {
+          "article_id": "20260919203000-631",
+          "similarity": 0.545076515933229,
+          "rank": 1
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 1,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -446,6 +668,160 @@
   ],
   "warnings": [],
   "articles": [
+    {
+      "id": "20260919173000-147",
+      "title": "The party of democracy keeps editing the results",
+      "url": "https://www.theblaze.com/columns/opinion/the-party-of-democracy-keeps-editing-the-results",
+      "source": "theblaze.com",
+      "summary": "Democrats increasingly treat their voters' choices as provisional, allowing party activists and the press to influence election outcomes. This habit weakens party credibility and may damage the establishment. While some interventions, like Maine and Wisconsin, show how leaders can override primary results, the pattern persists as voters rarely punish the process and the political press treats each episode as isolated. This approach undermines the integrity of democratic processes and sets the stage for long-term challenges.",
+      "semantic_text": "election integrity; democratic party; procedural reforms; voter choices",
+      "published_at": "2026-09-19T17:30:00Z",
+      "metadata": {
+        "record_id": "20260919173000-147",
+        "publication_date_raw": 1789839000000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-politics",
+          "similarity": 0.6103518735513842
+        }
+      ]
+    },
+    {
+      "id": "20260919164500-751",
+      "title": "Proposed state Health Department rules on infectious diseases shouldn't be partisan punching bag [editorial]",
+      "url": "https://lancasteronline.com/opinion/editorials/proposed-state-health-department-rules-on-infectious-diseases-shouldnt-be-partisan-punching-bag-editorial/article_a56d6090-ba64-4da6-969e-8df1e9c6c008.html",
+      "source": "lancasteronline.com",
+      "summary": "Proposed health regulations in Pennsylvania are being scrutinized by Republicans for their perceived partisan nature, with concerns over transparency and the handling of public health during the pandemic. The article highlights the ongoing political battles surrounding these rules, emphasizing the need for clarity and civic engagement in public health matters.",
+      "semantic_text": "health regulations; infectious diseases; state health department; public health; political game",
+      "published_at": "2026-09-19T16:45:00Z",
+      "metadata": {
+        "record_id": "20260919164500-751",
+        "publication_date_raw": 1789836300000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-health",
+          "similarity": 0.5881947145062242
+        },
+        {
+          "bucket_id": "bucket-politics",
+          "similarity": 0.5045305480181062
+        },
+        {
+          "bucket_id": "bucket-sports",
+          "similarity": 0.4076172665163235
+        },
+        {
+          "bucket_id": "bucket-transportation",
+          "similarity": 0.403687478499098
+        }
+      ]
+    },
+    {
+      "id": "20260919194500-367",
+      "title": "Oust Philly DA Larry Krasner &#x2014; and keep nixing progs' sabotage of  public safety",
+      "url": "https://nypost.com/2026/09/19/opinion/oust-philly-da-larry-krasner-and-keep-nixing-progs-sabotage-of-public-safety/",
+      "source": "nypost.com",
+      "summary": "The article highlights ongoing challenges in the U.S. political landscape, with several state-level prosecutors facing re-election and re-election challenges. Despite efforts to maintain public safety, many state legislators and prosecutors continue to prioritize pro-crime policies, leading to ongoing issues with public safety. The article emphasizes the ongoing struggle for public safety and the need for systemic change to address the challenges faced by state-level prosecutors and legislators.",
+      "semantic_text": "pro-crime; DA; public safety; perjury; sabotage; state legislatures; voters",
+      "published_at": "2026-09-19T19:45:00Z",
+      "metadata": {
+        "record_id": "20260919194500-367",
+        "publication_date_raw": 1789847100000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-crime-justice",
+          "similarity": 0.5432804872538172
+        },
+        {
+          "bucket_id": "bucket-politics",
+          "similarity": 0.4363618843019435
+        }
+      ]
+    },
+    {
+      "id": "20260919191500-203",
+      "title": "This swing state Republican keeps distancing himself from Trump. It may not save him in the midterms",
+      "url": "https://www.capitalgazette.com/2026/09/19/this-swing-state-republican-keeps-distancing-himself-from-trump-it-may-not-save-him-in-the-midterms/",
+      "source": "capitalgazette.com",
+      "summary": "Mary Ryan, a Republican from Philadelphia, has consistently backed her party's Congressman Brian Fitzpatrick despite his political challenges. Fitzpatrick, who has consistently supported his party's agenda, is now running against a Democrat for the 1st Congressional District, a district where he has already won by 13 points. The race may not save Fitzpatrick from the midterms, as he faces challenges in his district and is seen as a vulnerable figure by Democrats. Fitzpatrick has spent millions on attacks against his opponent, and his public service as an FBI agent has earned him support.",
+      "semantic_text": "Republican; Congressman; Fitzpatrick; distancing; election; Congress",
+      "published_at": "2026-09-19T19:15:00Z",
+      "metadata": {
+        "record_id": "20260919191500-203",
+        "publication_date_raw": 1789845300000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-politics",
+          "similarity": 0.4300348285099673
+        }
+      ]
+    },
+    {
+      "id": "20260919173000-491",
+      "title": "AP News Summary at 1:04 p.m. EDT",
+      "url": "http://www.hngnews.com/nation_world/ap-news-summary-at-1-04-p-m-edt/article_95969125-3421-5760-b663-7ea8f12809a5.html",
+      "source": "hngnews.com",
+      "summary": "Saudi Arabia confirmed that Yemen’s Houthi rebels attempted to attack its capital with a ballistic missile, which was intercepted. The statement came after the first attack targeting Riyadh since the escalation in fighting between Iran-backed Houthis and Yemeni government forces backed by Saudi Arabia. The Houthis also attempted to attack civilian infrastructure in the Red Sea port city of Yanbu and in Taif, Baysh, and Farasan but were thwarted. Reporters from CNN, MS NOW, and Politico have been denied access to the White House, which is a result of President Trump’s ban on these organizations. Oil prices are high but could worsen due to tensions in the Middle East. China’s strategy to stabilize energy prices has helped, but tensions in the region remain. Saudi Arabia has issued emergency alerts in its capital since an escalation with Iran-backed rebels in Yemen. In Gaza, Israeli strikes killed three people. Meanwhile, the Democratic National Committee is investing in voter registration efforts. Yabloko’s election observer lost consciousness during arrest, and there are concerns about the impact of the election on voter turnout. In Los Angeles, Jewish heirs are filing lawsuits to reclaim Nazi-looted art in museums. Congo is vaccinating health workers against Ebola in Bunia, the epicenter of the fastest-growing outbreak.",
+      "semantic_text": "Saudi Arabia; Houthi rebels; ballistic missile; Yemen; Iran; Saudi-led coalition; White House; CNN; MS NOW; Politico; oil prices; China; energy strategy; strait of Hormuz; Middle East; elections; Russia; Yabloko",
+      "published_at": "2026-09-19T17:30:00Z",
+      "metadata": {
+        "record_id": "20260919173000-491",
+        "publication_date_raw": 1789839000000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-world-affairs",
+          "similarity": 0.4727105212308158
+        }
+      ]
+    },
+    {
+      "id": "20260919181500-491",
+      "title": "George Washington's Farewell Address | Council on Foreign Relations",
+      "url": "https://www.cfr.org/articles/george-washingtons-farewell-address",
+      "source": "cfr.org",
+      "summary": "George Washington's Farewell Address, published in 1796, outlines his foreign policy principles, emphasizing the importance of avoiding political connections with other nations. The address, which was less about setting a permanent foreign policy axiom than shaping the debate over who would succeed him, highlights the warning against partisan and regional strife. Washington's address warned against permanent alliances with Europe, and his main purpose was to defend his foreign policy record against criticism and warn his contemporaries about a specific foreign policy choice he thought would endanger the young republic. The Neutrality Proclamation and the Farewell Address's subtext suggest that no rigid foreign policy rule could be followed without considering the circumstances of the country.",
+      "semantic_text": "Washington's Farewell Address; foreign policy; farewell address; farewell address summary; Washington's foreign policy",
+      "published_at": "2026-09-19T18:15:00Z",
+      "metadata": {
+        "record_id": "20260919181500-491",
+        "publication_date_raw": 1789841700000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-world-affairs",
+          "similarity": 0.4648493295011264
+        }
+      ]
+    },
     {
       "id": "20260912233000-591",
       "title": "Bill Maher Destroys the Left Over 9/11, and It's Brilliant",
@@ -501,6 +877,98 @@
       ]
     },
     {
+      "id": "20260919194500-238",
+      "title": "Trump says he's creating an AI force and appointing a czar amid concerns over the rapidly developing tech",
+      "url": "https://www.nbcnews.com/politics/white-house/artificial-intelligence-task-force-czar-technology-trump-rcna598688",
+      "source": "nbcnews.com",
+      "summary": "President Trump announced the creation of an AI task force and a new AI czar amid concerns about the rapid development of artificial intelligence. He emphasized supporting the industry and calling for industry regulation, while acknowledging the need for a criminal justice system to handle AI-related issues. The White House has not provided further details on the initiative.",
+      "semantic_text": "AI; president; task force; regulation; technology",
+      "published_at": "2026-09-19T19:45:00Z",
+      "metadata": {
+        "record_id": "20260919194500-238",
+        "publication_date_raw": 1789847100000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-technology",
+          "similarity": 0.5715979126969903
+        }
+      ]
+    },
+    {
+      "id": "20260919194500-563",
+      "title": "Potential Democratic candidates race to respond to AI threat amid Trump's dismissals",
+      "url": "https://www.whec.com/ap-top-news/potential-democratic-candidates-race-to-respond-to-ai-threat-amid-trumps-dismissals/",
+      "source": "whec.com",
+      "summary": "Potential Democratic candidates are racing to address AI threats, while Trump dismisses concerns. California and Pennsylvania leaders are pushing for AI regulations, while AI leaders warn of potential dangers. The issue is gaining attention, with a growing divide between Democrats and Republicans over AI's impact. Both sides are considering legislation to address AI risks.",
+      "semantic_text": "AI; presidential candidates; government oversight; AI regulations; AI risks; democratic candidates",
+      "published_at": "2026-09-19T19:45:00Z",
+      "metadata": {
+        "record_id": "20260919194500-563",
+        "publication_date_raw": 1789847100000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-technology",
+          "similarity": 0.4522814907754145
+        }
+      ]
+    },
+    {
+      "id": "20260919201500-79",
+      "title": "Trump says he's creating an AI force and appointing a czar amid concerns over the rapidly developing tech",
+      "url": "https://www.aol.com/articles/trump-says-creating-ai-force-192044000.html",
+      "source": "aol.com",
+      "summary": "President Trump announced a new AI task force and appointing a czar amid concerns about AI's rapid development and potential risks. He emphasizes supporting AI growth and highlights his focus on regulating it, while acknowledging industry regulation challenges. The White House has not provided further details, and lawmakers are still discussing the issue.",
+      "semantic_text": "AI force; czar; regulation; industry; regulatory",
+      "published_at": "2026-09-19T20:15:00Z",
+      "metadata": {
+        "record_id": "20260919201500-79",
+        "publication_date_raw": 1789848900000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-technology",
+          "similarity": 0.43454093359236806
+        }
+      ]
+    },
+    {
+      "id": "20260919163000-129",
+      "title": "Opinion: Saucon Valley anti-vaping law is the wrong approach",
+      "url": "https://www.mcall.com/2026/09/19/opinion-saucon-valley-anti-vaping-law-is-the-wrong-approach-it-will-stigmatize-students-not-deter-them/",
+      "source": "mcall.com",
+      "summary": "The article discusses the unintended consequences of a school anti-vaping law, which stigmatizes students and harms their academic and social well-being. It highlights the lack of effectiveness of such laws, which instead lead to unnecessary legal consequences and a loss of public health. The author argues that the approach is flawed and that education should be prioritized over the legal system.",
+      "semantic_text": "smoking; vaping; school; cultural; public health",
+      "published_at": "2026-09-19T16:30:00Z",
+      "metadata": {
+        "record_id": "20260919163000-129",
+        "publication_date_raw": 1789835400000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-health",
+          "similarity": 0.5722995967977991
+        }
+      ]
+    },
+    {
       "id": "20260912233000-567",
       "title": "Another View: Don't let Washington confuse you about vaccines. Talk with your pediatrician &#x2013; Marin Independent Journal",
       "url": "https://www.marinij.com/2026/09/12/another-view-dont-let-washington-confuse-you-about-vaccines-talk-with-your-pediatrician/",
@@ -520,6 +988,29 @@
         {
           "bucket_id": "bucket-health",
           "similarity": 0.49361831081915314
+        }
+      ]
+    },
+    {
+      "id": "20260919173000-79",
+      "title": "Surgeon who failed high school finds counselor who saved him &#x2013; NBC10 Philadelphia",
+      "url": "https://www.nbcphiladelphia.com/news/national-international/surgeon-stole-cars-failed-high-school-finds-counselor-changed-his-life/4465997/",
+      "source": "nbcphiladelphia.com",
+      "summary": "Dr. James Harris, a 48-year-old general surgeon and chair of surgery at Johns Hopkins, found his former counselor, Ray, who helped him navigate college after failing high school. Harris, who grew up in Fresno with a history of challenges, eventually succeeded in UCLA Medical School and became a surgeon. Ray, who helped his son, now a 47-year-old, remains private about his own journey.",
+      "semantic_text": "surgeon; counselor; medical school; fresno; education; survival",
+      "published_at": "2026-09-19T17:30:00Z",
+      "metadata": {
+        "record_id": "20260919173000-79",
+        "publication_date_raw": 1789839000000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-education",
+          "similarity": 0.4917969005353856
         }
       ]
     },
@@ -547,6 +1038,125 @@
       ]
     },
     {
+      "id": "20260919181500-645",
+      "title": "Radio Station WHMI 93.5 FM &#x2014; Livingston County Michigan News, Weather, Traffic, Sports, School Updates, and the Best Classic Hit",
+      "url": "https://www.whmi.com/news/fox/philly-serial-killer-probe-expose-larger-network-apparent-snuff-films-expert-says",
+      "source": "whmi.com",
+      "summary": "The article discusses a serial killer investigation involving gruesome images linked to a dead pornographer, Raymond Horsch, who was involved in the industry. Police found evidence of 'snuff' videos and chemicals linked to missing women, suggesting potential profit from distributing such content. Forensic psychologist Dr. Mohandie highlights possible additional motives beyond sadistic acts, and the investigation is ongoing.",
+      "semantic_text": "serial killer investigation; pornography; snuff films; forensic psychologist; digital evidence; missing women",
+      "published_at": "2026-09-19T18:15:00Z",
+      "metadata": {
+        "record_id": "20260919181500-645",
+        "publication_date_raw": 1789841700000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-crime-justice",
+          "similarity": 0.5859660862450246
+        },
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.41413911763276356
+        }
+      ]
+    },
+    {
+      "id": "20260919170000-567",
+      "title": "Illegal Alien Pleads Guilty in Grandparent Scam Money Laundering Case, Faces Up to 20 Years",
+      "url": "https://townhall.com/news/scott-mcclallen/2026/09/19/illegal-alien-pleads-guilty-in-grandparent-scam-money-laundering-case-faces-up-to-20-years-n2683240",
+      "source": "townhall.com",
+      "summary": "A Dominican Republic resident pleaded guilty to a money laundering conspiracy in connection with a grandparent fraud scheme, which involved impersonating a grandchild in a crisis to collect funds. The charges include receiving proceeds, laundering, and transferring money to the Dominican Republic. Valerio, a co-conspirator, was sentenced to two years in prison and supervised release. The case involves a $65,000 scheme with prior criminal history and federal law enforcement involvement.",
+      "semantic_text": "money laundering conspiracy; grandparent fraud scheme; illegal alien; sentencing guidelines; federal law",
+      "published_at": "2026-09-19T17:00:00Z",
+      "metadata": {
+        "record_id": "20260919170000-567",
+        "publication_date_raw": 1789837200000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-crime-justice",
+          "similarity": 0.5434072724900318
+        }
+      ]
+    },
+    {
+      "id": "20260919190000-78",
+      "title": "Illegal Alien Pleads Guilty in Grandparent Scam Money Laundering Case, Faces Up to 20 Years",
+      "url": "https://wcbm.com/national-headline/illegal-alien-pleads-guilty-in-grandparent-scam-money-laundering-case-faces-up-to-20-years/",
+      "source": "wcbm.com",
+      "summary": "A Dominican Republic resident pleaded guilty to a money laundering conspiracy in connection with a grandparent fraud scheme, which involved organizing a rideshare driver to collect and transfer funds from elderly victims. The charges include receiving proceeds, laundering, and transferring money to the Dominican Republic. The defendant was involved in multiple transactions between January and July 2025, totaling over $65,000. The case is being prosecuted by the U.S. Attorney General, and the charges could result in a sentence of up to 20 years in prison.",
+      "semantic_text": "money laundering conspiracy; grandparent fraud scheme; illegal alien; sentencing guidelines; federal law",
+      "published_at": "2026-09-19T19:00:00Z",
+      "metadata": {
+        "record_id": "20260919190000-78",
+        "publication_date_raw": 1789844400000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-crime-justice",
+          "similarity": 0.5434072724900318
+        }
+      ]
+    },
+    {
+      "id": "20260919180000-1",
+      "title": "White Male Fragility and America's Women's Equality Fight",
+      "url": "https://eurweb.com/womens-equality/",
+      "source": "eurweb.com",
+      "summary": "The article discusses historical issues in America regarding women's equality, including the role of white male fragility, the restriction of married women's property rights, the delay in achieving voting rights for women, and the lack of equal credit protection. It highlights the historical context and the ongoing struggle for equality, emphasizing that America has spent over a century debating an amendment that supports equality regardless of sex.",
+      "semantic_text": "white male fragility; equal rights; equality of rights; constitutional equality; marriage; property rights; credit; supreme court",
+      "published_at": "2026-09-19T18:00:00Z",
+      "metadata": {
+        "record_id": "20260919180000-1",
+        "publication_date_raw": 1789840800000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-crime-justice",
+          "similarity": 0.44298889200757857
+        }
+      ]
+    },
+    {
+      "id": "20260919173000-391",
+      "title": "Philly serial killer probe could expose larger network behind apparent 'snuff' films, expert says",
+      "url": "https://www.wfmd.com/2026/09/19/philly-serial-killer-probe-could-expose-larger-network-behind-apparent-snuff-films-expert-says/",
+      "source": "wfmd.com",
+      "summary": "A prominent police and forensic psychologist claims that the Horsch family home's alleged 'snuff' videos may have been part of a larger network of people distributing such content, potentially involving multiple missing women. The investigation is ongoing, with some evidence found, and the case is being revisited as more victims are identified.",
+      "semantic_text": "Philly serial killer probe; snuff films; forensic psychologist; missing women; digital evidence",
+      "published_at": "2026-09-19T17:30:00Z",
+      "metadata": {
+        "record_id": "20260919173000-391",
+        "publication_date_raw": 1789839000000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-crime-justice",
+          "similarity": 0.44174842793554026
+        }
+      ]
+    },
+    {
       "id": "20260919211500-379",
       "title": "FBI at the polls? And another Jan. 6 rioter is up to no good.",
       "url": "https://www.dailykos.com/stories/2026/9/19/800100103/series/fbi-at-the-polls-and-another-jan-6-rioter-is-up-to-no-good/",
@@ -566,6 +1176,148 @@
         {
           "bucket_id": "bucket-crime-justice",
           "similarity": 0.4252198012621769
+        }
+      ]
+    },
+    {
+      "id": "20260919173000-345",
+      "title": "MS NOW, CNN, Politico say journalists denied access to White House &#x2013; NBC10 Philadelphia",
+      "url": "https://www.nbcphiladelphia.com/news/national-international/after-trump-ban-ms-now-cnn-say-journalists-denied-access-white-house/4465973/",
+      "source": "nbcphiladelphia.com",
+      "summary": "Reporters from CNN, MS NOW, and Politico were denied access to the White House on Saturday, a day after President Trump barred them for reporting",
+      "semantic_text": "news coverage; first amendment; journalists; press freedom; white house",
+      "published_at": "2026-09-19T17:30:00Z",
+      "metadata": {
+        "record_id": "20260919173000-345",
+        "publication_date_raw": 1789839000000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-crime-justice",
+          "similarity": 0.40123707516308166
+        }
+      ]
+    },
+    {
+      "id": "20260919181500-729",
+      "title": "Ex-DU lacrosse coach on doorstep professional championship",
+      "url": "https://www.denverpost.com/2026/09/19/bill-tierney-waterdogs-outlaws-pll-2026-championship/",
+      "source": "denverpost.com",
+      "summary": "Bill Tierney, a former DU lacrosse coach, is preparing to publish his memoir, which he calls a process of looking back on his career. He plans to share it with his family and daughter-in-law, who reads it. The Waterdogs, led by Tierney, have won multiple championships, including the NCAA and the Tewaaraton Award. The Waterdogs are set to compete in the PLL for their first championship, which they won in 2026.",
+      "semantic_text": "Bill Tierney; waterdogs; du lacrosse; memoir; memo; lacrosse; championship",
+      "published_at": "2026-09-19T18:15:00Z",
+      "metadata": {
+        "record_id": "20260919181500-729",
+        "publication_date_raw": 1789841700000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-sports",
+          "similarity": 0.47540730852127705
+        }
+      ]
+    },
+    {
+      "id": "20260919170000-159",
+      "title": "Torrid Padres take on Marlins, hoping to keep pace in NL wild-card race",
+      "url": "http://www.heraldglobe.com/news/279317343/torrid-padres-take-on-marlins-hoping-to-keep-pace-in-nl-wild-card-race",
+      "source": "heraldglobe.com",
+      "summary": "The San Diego Padres are currently leading the NL wild-card standings with a 5-0 record against Miami, while the New York Yankees are in contention. The team has a strong record and is set to host a wild-card series. The Padres are in a good position, and their manager hopes to keep the pace going. The team has a strong home record and is in a good spot for the upcoming games.",
+      "semantic_text": "San Diego Padres; NL wild-card standings; field level media; playoff; NHL",
+      "published_at": "2026-09-19T17:00:00Z",
+      "metadata": {
+        "record_id": "20260919170000-159",
+        "publication_date_raw": 1789837200000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-sports",
+          "similarity": 0.43223481929741614
+        }
+      ]
+    },
+    {
+      "id": "20260919181500-0",
+      "title": "Torrid Padres take on Marlins, hoping to keep pace in NL wild-card race",
+      "url": "http://www.newyorktelegraph.com/news/279317343/torrid-padres-take-on-marlins-hoping-to-keep-pace-in-nl-wild-card-race",
+      "source": "newyorktelegraph.com",
+      "summary": "The San Diego Padres are currently leading the NL wild-card standings with a 5-0 record against Miami, while their magic number is reduced to four. They are expected to improve to 5-0 this season, with a focus on their home series against Miami. The team is in a good position to secure a playoff spot, with the Yankees' performance in the NL being a key factor. The Padres are in a good spot with a strong record in Petco Park, and there are signs of improvement in their lineup, including Casey Mize and Eury Perez. However, the team is facing challenges with the bullpen and injuries.",
+      "semantic_text": "San Diego Padres; NL wild-card standings; field level media; playoff; NHL",
+      "published_at": "2026-09-19T18:15:00Z",
+      "metadata": {
+        "record_id": "20260919181500-0",
+        "publication_date_raw": 1789841700000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-sports",
+          "similarity": 0.43223481929741614
+        }
+      ]
+    },
+    {
+      "id": "20260919170000-285",
+      "title": "DraftKings Promo Code: $200 in Bonuses Over 14 Days!",
+      "url": "https://www.rotowire.com/news/draftkings-promo-code-spend-5-get-200-in-bonuses-919-135337",
+      "source": "rotowire.com",
+      "summary": "New bettors can earn $200 in bonuses by spending $5 with the DraftKings promo code. The promo code offers a 14-day bonus for qualifying first bets, with terms and conditions including new user restrictions and minimum deposit requirements. The promo code is available through the DraftKings website and requires a minimum deposit of $5. The app offers features like same-game parlays, live betting, and extensive prop markets, with fast withdrawals via PayPal and Venmo.",
+      "semantic_text": "DraftKings Promo Code; sports betting promo code; bonus; promotional code; DraftKings",
+      "published_at": "2026-09-19T17:00:00Z",
+      "metadata": {
+        "record_id": "20260919170000-285",
+        "publication_date_raw": 1789837200000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-gaming",
+          "similarity": 0.4170163165562159
+        },
+        {
+          "bucket_id": "bucket-sports",
+          "similarity": 0.4040797896956094
+        }
+      ]
+    },
+    {
+      "id": "20260919174500-148",
+      "title": "Tom Krasovic: Craig Stammen has decisions to make as Padres push to playoffs",
+      "url": "https://www.sandiegouniontribune.com/2026/09/18/tom-krasovic-craig-stammen-has-decisions-fo-make-as-padres-push-to-playoffs/",
+      "source": "sandiegouniontribune.com",
+      "summary": "The Padres aim to secure a playoff berth as soon as possible, take homefield advantage, and find rest for their players. They have a chance to finish ahead of the Phillies and Cubs, who are likely first-round qualifiers. Stammen emphasizes the importance of the fourth seed and finding rest for select players. The Padres have a homefield advantage, and their fans are known for their environment. They face challenges with the home environment and the seeding context. The final week will bring many variables to consider as they try to secure a playoff spot.",
+      "semantic_text": "playoff berth; homefield advantage; wild-card playoff series; playoff seeding; playoff games",
+      "published_at": "2026-09-19T17:45:00Z",
+      "metadata": {
+        "record_id": "20260919174500-148",
+        "publication_date_raw": 1789839900000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-sports",
+          "similarity": 0.40197058986312156
         }
       ]
     },
@@ -616,6 +1368,52 @@
       ]
     },
     {
+      "id": "20260919174500-497",
+      "title": "Ed Sheeran is set to return to stage for 1st time since Macklemore was cut and other acts withdrew",
+      "url": "https://www.wptf.com/2026/09/19/ed-sheeran-is-set-to-return-to-stage-for-1st-time-since-macklemore-was-cut-and-other-acts-withdrew/",
+      "source": "wptf.com",
+      "summary": "Ed Sheeran is set to resume his tour after all his supporting acts withdrew in solidarity with Macklemore, who was dropped after making pro-Palestinian comments. The tour at Philadelphia's Lincoln Financial Field is affected by the departure of his opening acts and supporting band. Other artists, including Finneas and Billie Eilish, are also withdrawing. Sheeran has not publicly commented on the decision, and his website still lists available tickets. Pro-Palestinian organizations plan to protest outside the show.",
+      "semantic_text": "Ed Sheeran; Macklemore; supporting acts; tour; Lincoln Financial Field; pro-Palestinian",
+      "published_at": "2026-09-19T17:45:00Z",
+      "metadata": {
+        "record_id": "20260919174500-497",
+        "publication_date_raw": 1789839900000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.5244849804820256
+        }
+      ]
+    },
+    {
+      "id": "20260919181500-559",
+      "title": "Ed Sheeran forced to make major concert change after openers drop out amid Macklemore drama",
+      "url": "https://pagesix.com/2026/09/19/celebrity-news/ed-sheeran-forced-to-make-major-concert-change-after-openers-drop-out-amid-macklemore-drama/",
+      "source": "pagesix.com",
+      "summary": "Ed Sheeran has changed the start time of his concert in Philadelphia after openers dropped out of the tour due to Macklemore's removal from the Loop Tour. The original openers, including Finneas, Lukas Graham, Aaron Rowe, and Beoga, all dropped out in solidarity with Macklemore. Macklemore was removed from the lineup after performing his 2024 protest song",
+      "semantic_text": "Ed Sheeran; Macklemore; concert change; openers; free Palestine; Philadelphia; Lincoln Financial Field; Loop Tour; Macklemore's removal; Gillette Stadium; Hind Rajab; Page Six",
+      "published_at": "2026-09-19T18:15:00Z",
+      "metadata": {
+        "record_id": "20260919181500-559",
+        "publication_date_raw": 1789841700000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.5207520616525403
+        }
+      ]
+    },
+    {
       "id": "20260919213000-144",
       "title": "Sheeran has not commented publicly since losing the artists' support",
       "url": "https://www.wsaw.com/2026/09/19/ed-sheeran-return-stage-1st-time-since-macklemore-was-cut-other-acts-withdrew/",
@@ -635,6 +1433,52 @@
         {
           "bucket_id": "bucket-entertainment",
           "similarity": 0.5076330691396397
+        }
+      ]
+    },
+    {
+      "id": "20260919201500-419",
+      "title": "Ed Sheeran set for Philadelphia show after opening acts withdraw",
+      "url": "https://kesq.com/entertainment/cnn-entertainment/2026/09/19/ed-sheeran-set-for-philadelphia-show-after-opening-acts-withdraw/",
+      "source": "kesq.com",
+      "summary": "Ed Sheeran is set to perform at Philadelphia's Lincoln Financial Field, with his opening acts potentially withdrawing due to controversy surrounding Macklemore's remarks. The event has sparked debate over free speech, antisemitism, and the ownership of Gillette Stadium. The singer's statement in response to Macklemore's removal highlights his commitment to peace and the importance of civil discourse. The controversy has led to concerns about security and public safety, while some attendees and organizers support the event despite the challenges.",
+      "semantic_text": "Ed Sheeran; Philadelphia; Lincoln Financial Field; Macklemore; pro-Palestinian; controversy; free speech",
+      "published_at": "2026-09-19T20:15:00Z",
+      "metadata": {
+        "record_id": "20260919201500-419",
+        "publication_date_raw": 1789848900000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.43329520403073696
+        }
+      ]
+    },
+    {
+      "id": "20260919203000-369",
+      "title": "Documentary series spotlights political divides in 'Bucks County, USA'",
+      "url": "https://whyy.org/articles/bucks-county-usa-documentary-pbs/",
+      "source": "whyy.org",
+      "summary": "A documentary series exploring political tensions in Bucks County, USA, focusing on community conflicts during the pandemic, with themes of dialogue and understanding across differences. The series highlights the impact of political divisions on individuals and the importance of fostering respectful conversations between people of differing views.",
+      "semantic_text": "political divides; documentary series; Bucks County, USA; PBS; WHYY",
+      "published_at": "2026-09-19T20:30:00Z",
+      "metadata": {
+        "record_id": "20260919203000-369",
+        "publication_date_raw": 1789849800000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.42702093429993787
         }
       ]
     },
@@ -662,25 +1506,186 @@
       ]
     },
     {
-      "id": "20260912233000-171",
-      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF",
-      "url": "https://www.1049thewolf.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
-      "source": "1049thewolf.com",
-      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case that centers on Brian Wells, a man with bipolar disorder who was convicted of a robbery. The film follows the convoluted plot of the case, highlighting the emotional and tragic elements of the story, including the love story between Marjorie Diehl-Armstrong and Bill Rothstein. The film is based on a 2018 Netflix documentary series and features Academy Award winner Patricia Arquette and 'Stranger Things' actor David Harbour.",
-      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; Brian Wells; pizza bomber case; dysfunctional love story; movie; film",
-      "published_at": "2026-09-12T23:30:00Z",
+      "id": "20260919184500-417",
+      "title": "Madonna confirms Charli XCX collab 'Danceteria Afterhours' dancefloor remix",
+      "url": "https://www.thepinknews.com/2026/09/19/madonna-charli-xcx-afterhours-2026/",
+      "source": "thepinknews.com",
+      "summary": "Madonna confirmed a collaboration with Charli XCX, 'Danceteria Afterhours', a reimagined version of her album Confessions II. The teaser features Madonna and Charli in a white studio, with Madonna teasing a late-night dance scene. The collaboration is set to be released next Thursday, 24 September. Charli's Paris tour and VMAs performance are also teased. The article mentions Madonna's return to VMAs and her nominations.",
+      "semantic_text": "Madonna; Charli XCX; Danceteria Afterhours; reworked dancefloor remix; Instagram preview; live performance; VMAs",
+      "published_at": "2026-09-19T18:45:00Z",
       "metadata": {
-        "record_id": "20260912233000-171",
-        "publication_date_raw": 1789255800000,
-        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
-        "people": "Brian Wells,691;Patricia Arquette,300;Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Courteney Cox,72;Alistair Bell,2364;James Roden,1294;David Harbour,338",
-        "organizations": "Netflix,483;Reuters,50;Academy Award,275",
-        "gdelt_themes": "TAX_FNCACT_HIT_MAN,1053;TAX_FNCACT_DIRECTOR,401;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;TAX_ETHNICITY_BLACK,430;KILL,857;KILL,1350;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;TRIAL,970;TAX_FNCACT_DELIVERY_MAN,679;TAX_FNCACT_ACTOR,324;UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_WOMAN,913;CRISISLEX_CRISISLEXREC,152;TAX_FNCACT_PROSECUTORS,995;SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;TAX_DISEASE_BIPOLAR_DISORDER,935;CRIME_COMMON_ROBBERY,698;TAX_FNCACT_FATHER,1090;CRISISLEX_T03_DEAD,1911;"
+        "record_id": "20260919184500-417",
+        "publication_date_raw": 1789843500000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
       },
       "buckets": [
         {
           "bucket_id": "bucket-entertainment",
-          "similarity": 0.4056153586463224
+          "similarity": 0.41718861425204334
+        }
+      ]
+    },
+    {
+      "id": "20260919163000-605",
+      "title": "New laws trigger a fresh legal fight over Nazi-looted art in Los Angeles and Auschwitz museums",
+      "url": "https://mymotherlode.com/news/state/11152350/new-laws-trigger-a-fresh-legal-fight-over-nazi-looted-art-in-los-angeles-and-auschwitz-museums.html",
+      "source": "mymotherlode.com",
+      "summary": "Jewish heirs of Holocaust victims and their representatives have filed lawsuits in California to reclaim Nazi-looted paintings. These include oil-on-panel masterpieces and watercolors from the 1530s and 1939s, which were seized by the Nazis. The lawsuits aim to protect these artworks from being misappropriated. New laws in California allow for indefinite recovery of these works, while museums claim they hold proper titles to the artworks. The issue is a complex legal battle between Jewish families and museums, with ongoing cases expected to be heard in federal court.",
+      "semantic_text": "Jewish heirs; Nazi-looted art; museums; LOSA; Auschwitz",
+      "published_at": "2026-09-19T16:30:00Z",
+      "metadata": {
+        "record_id": "20260919163000-605",
+        "publication_date_raw": 1789835400000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.5749021278279649
+        }
+      ]
+    },
+    {
+      "id": "20260919170000-434",
+      "title": "New laws trigger a fresh legal fight over Nazi-looted art in Los Angeles and Auschwitz museums",
+      "url": "https://santamariatimes.com/ap/national/new-laws-trigger-a-fresh-legal-fight-over-nazi-looted-art-in-los-angeles-and/article_3ea223ce-f008-5b6b-a71b-3f0d8365bb30.html",
+      "source": "santamariatimes.com",
+      "summary": "Jewish heirs of Holocaust victims and their representatives have filed two lawsuits in California to claim ownership of Nazi-looted paintings. These lawsuits are part of a broader legal battle over the recovery of artworks seized during World War II. The cases involve the return of paintings from the Rosenkrein family and watercolors from the Mengele family. New laws in California and the U.S. are enabling lawsuits to be heard on their merits, ensuring the rightful owners of these artworks can reclaim them.",
+      "semantic_text": "Jewish heirs; Nazi-looted art; museums; LOSA; Auschwitz",
+      "published_at": "2026-09-19T17:00:00Z",
+      "metadata": {
+        "record_id": "20260919170000-434",
+        "publication_date_raw": 1789837200000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.5749021278279649
+        }
+      ]
+    },
+    {
+      "id": "20260919204500-494",
+      "title": "New laws trigger a legal fight over Nazi-looted art in L.A. and Auschwitz museums",
+      "url": "https://www.nbcnews.com/news/us-news/new-laws-trigger-legal-fight-nazi-looted-art-l-auschwitz-museums-rcna598715",
+      "source": "nbcnews.com",
+      "summary": "Jewish heirs of Holocaust victims and their representatives have filed lawsuits in California to claim ownership of Nazi-looted paintings. These lawsuits, following new laws, seek to recover works seized during World War II. The cases involve paintings from the Stroganoff family and those of Holocaust survivors, highlighting the legal and emotional struggle over Nazi-looted art. The issue is part of a broader debate over the role of museums in preserving history. The lawsuits aim to ensure these works are returned to their rightful owners, while advocates hope cases will be heard on their merits.",
+      "semantic_text": "Jewish heirs; Nazi-looted art; museums; LOSA; Auschwitz",
+      "published_at": "2026-09-19T20:45:00Z",
+      "metadata": {
+        "record_id": "20260919204500-494",
+        "publication_date_raw": 1789850700000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.5749021278279649
+        }
+      ]
+    },
+    {
+      "id": "20260919183000-338",
+      "title": "Holocaust survivors' heirs sue California museums for return of Nazi-looted art",
+      "url": "https://www.aol.com/articles/holocaust-survivors-heirs-sue-california-171045000.html",
+      "source": "aol.com",
+      "summary": "Holocaust survivors are suing California museums for returning Nazi-looted art, including paintings and watercolor portraits. The legal actions aim to recover stolen artworks from the Nazi era, with the Norton Simon Museum and other institutions claiming legal ownership. The issue highlights tensions between descendants of Jewish families and institutions seeking to preserve historical evidence. The lawsuits are part of broader efforts to address the legacy of the Holocaust and ensure restitution.",
+      "semantic_text": "Holocaust survivors; Nazi-looted art; California museums; Jewish families; recovery of Nazi-looted art",
+      "published_at": "2026-09-19T18:30:00Z",
+      "metadata": {
+        "record_id": "20260919183000-338",
+        "publication_date_raw": 1789842600000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.5661771624505338
+        }
+      ]
+    },
+    {
+      "id": "20260919191500-75",
+      "title": "Holocaust survivors' heirs sue California museums for return of Nazi-looted art",
+      "url": "https://www.independent.co.uk/news/world/americas/jewish-art-holocaust-nazi-paintings-auschwitz-museums-b3052948.html",
+      "source": "independent.co.uk",
+      "summary": "Holocaust survivors' heirs in California sue museums for returning Nazi-looted art, including paintings and watercolor portraits. Legal actions are initiated by Jewish Federation of Greater Los Angeles and its board chair, targeting specific institutions. The lawsuits seek to reclaim artworks seized during World War II, with the Norton Simon Museum and others involved in the process. The issue highlights tensions over the ownership and restitution of historical artifacts, with the museum stating they retain legal title. The legal framework allows for indefinite art recovery, while some institutions argue the documents should not be classified as Nazi-looted art due to coercion.",
+      "semantic_text": "Holocaust survivors; Nazi-looted art; California museums; Jewish families; art restitution",
+      "published_at": "2026-09-19T19:15:00Z",
+      "metadata": {
+        "record_id": "20260919191500-75",
+        "publication_date_raw": 1789845300000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.5661496186994031
+        }
+      ]
+    },
+    {
+      "id": "20260919201500-20",
+      "title": "New laws trigger a fresh legal fight over Nazi-looted art in Los Angeles and Auschwitz museums",
+      "url": "https://www.kob.com/ap-top-news/new-laws-trigger-a-fresh-legal-fight-over-nazi-looted-art-in-los-angeles-and-auschwitz-museums/",
+      "source": "kob.com",
+      "summary": "New laws in California and Congress are enabling lawsuits to recover Nazi-looted art in Los Angeles and Auschwitz museums. Jewish heirs are filing lawsuits to reclaim paintings and watercolors, citing historical and ethical claims. These cases highlight ongoing legal and ethical challenges surrounding the treatment of Holocaust survivors and their artifacts. The issue is a complex and emotionally charged topic, with museums and families seeking to preserve history and justice.",
+      "semantic_text": "Nazi-looted art; Jewish families; museums; legal battles",
+      "published_at": "2026-09-19T20:15:00Z",
+      "metadata": {
+        "record_id": "20260919201500-20",
+        "publication_date_raw": 1789848900000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.5099150974849267
+        }
+      ]
+    },
+    {
+      "id": "20260919184500-243",
+      "title": "",
+      "url": "https://lasvegassun.com/news/2026/sep/19/new-laws-trigger-a-fresh-legal-fight-over-nazi-loo/",
+      "source": "lasvegassun.com",
+      "summary": "New laws in California and Congress are enabling Jewish heirs to claim Nazi-looted art in museums like those in Los Angeles and Auschwitz. These lawsuits, filed by Jewish families, seek to return paintings and watercolors from the Nazis. The issue is emotionally charged, with museums and families fighting for the rightful ownership of these artworks. The legal battles highlight the ongoing struggle for the past and the importance of preserving history.",
+      "semantic_text": "Nazi-looted art; Jewish heirs; Los Angeles; Auschhausen museums; California laws",
+      "published_at": "2026-09-19T18:45:00Z",
+      "metadata": {
+        "record_id": "20260919184500-243",
+        "publication_date_raw": 1789843500000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.4834508044011166
         }
       ]
     },
@@ -704,6 +1709,102 @@
         {
           "bucket_id": "bucket-arts-culture",
           "similarity": 0.4809114331888378
+        }
+      ]
+    },
+    {
+      "id": "20260919164500-85",
+      "title": "Lancaster Capital Day festival to move through 350 years with music, food, history",
+      "url": "https://lancasteronline.com/features/entertainment/lancaster-capital-day-festival-to-move-through-350-years-with-music-food-history/article_8c54b8bc-2c4a-4e17-acf4-1fea2233590a.html",
+      "source": "lancasteronline.com",
+      "summary": "The Lancaster Capital Day festival, which runs from 10 a.m. to 5 p.m., celebrates the city's rich history, including its role as a historic meeting place for the Second Continental Congress. The event features performances, speeches, and activities that highlight the city's past, such as the history of the Lancaster Courthouse and the contributions of local organizations. The festival aims to educate visitors about the city's diverse history and its current significance as a cultural hub.",
+      "semantic_text": "Lancaster Capital Day festival; history and culture; festival; musical entertainment; food and art",
+      "published_at": "2026-09-19T16:45:00Z",
+      "metadata": {
+        "record_id": "20260919164500-85",
+        "publication_date_raw": 1789836300000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.4733196539589565
+        },
+        {
+          "bucket_id": "bucket-food",
+          "similarity": 0.4330957169847869
+        }
+      ]
+    },
+    {
+      "id": "20260919190000-552",
+      "title": "Hitting the Right Note: Nittany Valley Symphony Celebrates Diamond Anniversary",
+      "url": "https://www.statecollege.com/articles/community/hitting-the-right-note-nittany-valley-symphony-celebrates-diamond-anniversary/",
+      "source": "statecollege.com",
+      "summary": "The Nittany Valley Symphony, a community orchestra with 60-80 members, has been a hub for music and collaboration for over 60 years. Jones, a member, has dedicated her life to playing the viola, leading the symphony, and has contributed to its growth and development. The symphony has evolved from a small group to a thriving organization, with current conductor Timothy Farrand and members like Jones expressing gratitude for their role. The anniversary season will feature performances and events, highlighting the symphony's impact on the community and its members.",
+      "semantic_text": "violin; symphony; nittany valley symphony; music; anniversary",
+      "published_at": "2026-09-19T19:00:00Z",
+      "metadata": {
+        "record_id": "20260919190000-552",
+        "publication_date_raw": 1789844400000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.40354564200742804
+        }
+      ]
+    },
+    {
+      "id": "20260919164500-220",
+      "title": "Food residue on soda fountain nozzles: Lebanon County restaurant inspections, Sept. 19, 2026",
+      "url": "https://lancasteronline.com/business/restaurant_inspections/food-residue-on-soda-fountain-nozzles-lebanon-county-restaurant-inspections-sept-19-2026/article_0c0ecf87-5385-4285-b1c5-7adf387d4491.html",
+      "source": "lancasteronline.com",
+      "summary": "The article discusses several food safety issues in Lebanon County restaurants, including food residue on soda fountain nozzles, improper handling of food items, lack of proper pest control, and food waste management. These issues were noted in multiple inspections, and the food facility needs to address these problems to maintain food safety standards.",
+      "semantic_text": "food safety inspections; restaurant inspections; food residue; food handling; food waste",
+      "published_at": "2026-09-19T16:45:00Z",
+      "metadata": {
+        "record_id": "20260919164500-220",
+        "publication_date_raw": 1789836300000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-food",
+          "similarity": 0.43952615252831145
+        }
+      ]
+    },
+    {
+      "id": "20260919203000-631",
+      "title": "Canadian visitors help fuel tourism record in Palm Beach County",
+      "url": "https://www.wpbf.com/article/florida-canadian-visitors-help-fuel-tourism-record-palm-beach-county/73800778",
+      "source": "wpbf.com",
+      "summary": "Canadian visitors helped fuel tourism in Palm Beach County, with a 6.4% increase over the same period last year despite a U.S. trade war. The organization, founded in 1983, supports 39 cities and towns in Southeast Florida. Key markets like New York, Dallas, and Houston show strong growth, while international visitors and lodging sales also contribute significantly. The Palm Beaches' economic impact is substantial, with $11.6 billion in annual economic impact and 95,000 local jobs. The event in West Palm Beach highlights the region's success as a premier destination.",
+      "semantic_text": "tourism; Palm Beach County; Canadian visitors; Florida; Palm Beaches",
+      "published_at": "2026-09-19T20:30:00Z",
+      "metadata": {
+        "record_id": "20260919203000-631",
+        "publication_date_raw": 1789849800000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-travel",
+          "similarity": 0.545076515933229
         }
       ]
     }
