@@ -15,3 +15,7 @@ export NVIDIA_MODEL='nvidia/nemotron-3.5-lightning-30b-a3b'
 ```{bash}
 python3 -m unittest discover -s tests -p "test_ai.py" -v
 ```
+3. 运行Smoke测试文件
+```{bash}
+python3 -B -m integration.smoke_ai --timeout 20
+```

@@ -62,3 +62,35 @@ python3 -B -m unittest discover -s test -v
 Tests use mocked API responses. They do not send requests or spend API quota.
 They cover settings, request data, raw responses, errors, retries, timeouts, and limits.
 Live NVIDIA access is not verified by these tests.
+
+
+## Live smoke test
+
+Run from the repository root. This makes a real API request and uses NVIDIA quota.
+
+```bash
+source .env
+python3 -B -m integration.smoke_ai --timeout 120
+```
+
+You can also run the file directly:
+
+```bash
+python3 -B integration/smoke_ai.py --timeout 120
+```
+
+The smoke test reads exported environment variables. It does not load `.env`.
+It defaults to 64 output tokens and zero retries. Other settings come from AIConfig.
+Use `--max-tokens 256` or `--retries 1` if needed. Use `--help` for options.
+It prints the endpoint, model, settings, elapsed time, and model reply.
+It does not print the key or write result files.
+
+Exit codes: 0 means a complete text reply, 1 means a request failure,
+2 means a configuration error, 3 means an incomplete or invalid reply,
+and 130 means the request was interrupted.
+A valid API connection alone does not count as a pass: the response must have
+nonempty text and `finish_reason: stop`.
+
+`fuego/ai.py` is a library. Running that file alone does not send a request.
+The smoke test calls `NemotronClient.complete` through that library.
+The unit tests also check this runner with mocked responses; they do not run the live check.
