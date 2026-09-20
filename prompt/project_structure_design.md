@@ -2,8 +2,8 @@
 fuego/
 ├── __init__.py
 ├── __main__.py
-├── contracts.py
 │
+├── ai.py
 ├── article_input.py
 ├── article_processing.py
 ├── embedding.py
@@ -20,6 +20,7 @@ fuego/
 
 tests/
 ├── unit/
+│   ├── test_ai.py
 │   ├── test_article_input.py
 │   ├── test_article_processing.py
 │   ├── test_embedding.py
