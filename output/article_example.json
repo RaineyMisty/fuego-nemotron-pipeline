@@ -1,0 +1,30 @@
+{
+  "id": "article-001",
+  "title": "NVIDIA announces new robotics platform",
+  "url": "https://example.com/article",
+  "source": "example.com",
+  "published_at": "2026-09-19T14:30:00Z",
+  "summary": "NVIDIA announced a new robotics platform focused on autonomous systems.",
+  "semantic_text": "NVIDIA robotics autonomous systems AI inference model release",
+  "embedding": [
+    0.012,
+    -0.281,
+    0.441
+  ],
+  "buckets": [
+    {
+      "bucket_id": "ai",
+      "similarity": 0.91
+    },
+    {
+      "bucket_id": "technology",
+      "similarity": 0.86
+    }
+  ],
+  "metadata": {
+    "gdelt_themes": [
+      "TECHNOLOGY"
+    ],
+    "tone": 1.24
+  }
+}

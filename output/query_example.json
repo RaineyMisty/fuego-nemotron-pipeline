@@ -1,0 +1,17 @@
+{
+  "schema_version": "fuego-response.v1",
+  "request_type": "fixed",
+  "generated_at": "2026-09-19T20:00:00Z",
+  "parameters": {
+    "bucket_count": 20,
+    "articles_per_bucket": 10
+  },
+  "stats": {
+    "total_articles_considered": 1000,
+    "returned_buckets": 20
+  },
+
+  "buckets": [],
+
+  "articles": []
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "fuego-response.v1",
+  "request_type": "fixed",
+  "generated_at": "2026-09-19T20:00:00Z",
+  "parameters": {
+    "bucket_count": 20,
+    "articles_per_bucket": 10
+  },
+  "stats": {
+    "total_articles_considered": 1000,
+    "returned_buckets": 20
+  },
+
+  "buckets": [
+    {
+      "id": "bucket-ai",
+      "type": "fixed",
+      "name": "Artificial Intelligence",
+      "description": "Artificial intelligence, machine learning, agents, models, inference, and related technologies.",
+      "summary": "Recent AI coverage is increasingly focused on inference infrastructure and autonomous agents.",
+      "members": [
+        {
+          "article_id": "article-001",
+          "similarity": 0.91,
+          "rank": 1
+        },
+        {
+          "article_id": "article-037",
+          "similarity": 0.87,
+          "rank": 2
+        }
+      ],
+      "activity": {
+        "current_count": 83,
+        "previous_count": 51,
+        "change_ratio": 0.627,
+        "status": "increasing"
+      },
+      "direction": {
+        "description": "Coverage is shifting toward inference infrastructure and robotics.",
+        "related_topics": [
+          {
+            "name": "Robotics",
+            "similarity": 0.76
+          }
+        ]
+      }
+    }
+  ],
+
+  "articles": [
+    {
+      "id": "article-001",
+      "title": "NVIDIA announces new robotics platform",
+      "url": "https://example.com/article",
+      "source": "example.com",
+      "published_at": "2026-09-19T14:30:00Z",
+      "summary": "NVIDIA announced a new robotics platform focused on autonomous systems.",
+      "semantic_text": "NVIDIA robotics autonomous systems AI inference model release",
+      "embedding": [
+        0.012,
+        -0.281,
+        0.441
+      ],
+      "buckets": [
+        {
+          "bucket_id": "ai",
+          "similarity": 0.91
+        },
+        {
+          "bucket_id": "technology",
+          "similarity": 0.86
+        }
+      ],
+      "metadata": {
+        "gdelt_themes": [
+          "TECHNOLOGY"
+        ],
+        "tone": 1.24
+      }
+    }
+  ]
+}

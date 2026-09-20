@@ -1,0 +1,34 @@
+{
+  "id": "bucket-ai",
+  "type": "fixed",
+  "name": "Artificial Intelligence",
+  "description": "Artificial intelligence, machine learning, agents, models, inference, and related technologies.",
+  "summary": "Recent AI coverage is increasingly focused on inference infrastructure and autonomous agents.",
+  "members": [
+    {
+      "article_id": "article-001",
+      "similarity": 0.91,
+      "rank": 1
+    },
+    {
+      "article_id": "article-037",
+      "similarity": 0.87,
+      "rank": 2
+    }
+  ],
+  "activity": {
+    "current_count": 83,
+    "previous_count": 51,
+    "change_ratio": 0.627,
+    "status": "increasing"
+  },
+  "direction": {
+    "description": "Coverage is shifting toward inference infrastructure and robotics.",
+    "related_topics": [
+      {
+        "name": "Robotics",
+        "similarity": 0.76
+      }
+    ]
+  }
+}
