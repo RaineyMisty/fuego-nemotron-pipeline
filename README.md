@@ -435,6 +435,71 @@ It checks assignments, exact mean centers, inertia 0.4, saved results, the 99/10
 boundary, explicit updates, and empty maps. It leaves your map unchanged.
 No dependencies are installed or models downloaded. Exit code 0 means success; 1 means failure.
 
+## Topic synthesis
+
+`fuego/topic_synthesis.py` combines related article summaries into a topic title and summary.
+It uses `fuego.ai` and the current Nemotron settings.
+The default model is `nvidia/nemotron-3.5-lightning-30b-a3b`.
+
+```python
+from fuego.topic_synthesis import synthesize_topic
+
+result = synthesize_topic([
+    {"summary": "The city will test ten electric buses.",
+     "metadata": {"source": "City report", "date": "2026-09-20"}},
+    {"summary": "The city finished chargers for its electric bus trial."},
+])
+print(result["title"])
+print(result["summary"])
+```
+
+Input is a list of one to ten article objects. Each needs a nonempty summary.
+Optional metadata must be a JSON object. Put source, date, URL, or other context there.
+Other article fields are ignored. Full article text is not sent.
+Each summary is limited to 4000 characters. The full input JSON is limited to 60000 characters.
+Input is not truncated. `build_messages(articles)` builds the English prompt and source data.
+`synthesize_topic(articles, client=None)` calls the AI client.
+`parse_response(response)` validates the reply and returns only title and summary.
+
+The prompt asks for the strongest supported shared topic and a short, clear topic phrase.
+It asks for about four to five natural sentences, using fewer when evidence is limited.
+It merges repeated facts, keeps uncertainty and disagreements, and avoids invented trends.
+Unrelated items must not be forced into a common story. A single article uses its own topic.
+Output uses the main language of the supplied summaries.
+If the model reports no shared topic, TopicSynthesisError is raised.
+The title is limited to 120 characters and the summary to 4000 characters.
+Incomplete, refused, or invalid replies also raise TopicSynthesisError.
+Bad input raises ValueError. API failures remain AIError. No extra retries are added here.
+The module writes no files. Format validation cannot prove factual quality.
+
+## Topic synthesis smoke test
+
+Run from the repository root with your NVIDIA API key exported:
+
+```bash
+source .env
+python -B -m integration.smoke_topic_synthesis
+```
+
+This calls the real AI client with four related fictional article summaries.
+It prints the returned title and summary as JSON. It uses NVIDIA API quota.
+Use your own UTF-8 JSON article list with:
+
+```bash
+python -B -m integration.smoke_topic_synthesis --articles /path/to/summaries.json --timeout 120
+python -B -m unittest discover -s test -p 'test*topic_synthesis.py' -v
+```
+
+Use --articles - for stdin. Direct run: `python -B integration/smoke_topic_synthesis.py`.
+Defaults are 120 seconds per attempt, 2048 output tokens, and zero retries.
+Use --max-tokens and --retries to change them. The script does not load .env itself.
+The bundled sample is in `integration/topic_synthesis_sample.json`.
+Check that the output connects the bus trial, chargers, training, and evaluation plans,
+without claiming that expansion is approved or that winter performance is known.
+PASS means the response has valid title and summary fields; review its actual facts.
+Exit codes: 0 success, 1 request failure, 2 input/configuration error, 3 invalid response, 130 cancelled.
+Offline unit tests use mocked AI replies and do not spend API quota.
+
 ## Fixed buckets
 
 - Politics
