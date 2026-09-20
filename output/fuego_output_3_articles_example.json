@@ -1,0 +1,209 @@
+{
+  "schema_version": "fuego-response.v1",
+  "request_type": "fixed",
+  "generated_at": "2026-09-19T21:45:00Z",
+  "parameters": {
+    "bucket_count": 20,
+    "articles_per_bucket": 10
+  },
+  "stats": {
+    "total_articles_considered": 3,
+    "returned_buckets": 3,
+    "unique_story_count": 2
+  },
+  "buckets": [
+    {
+      "id": "bucket-sports",
+      "type": "fixed",
+      "name": "Sports",
+      "description": "Professional, collegiate, amateur sports, athletes, teams, competitions, related developments.",
+      "summary": "Philadelphia Flyers prospect Denver Barkey is being evaluated for a move from wing to center after showing promise there in last season's playoffs. Barkey believes his skating, hockey IQ, versatility, and video study can help offset his smaller frame and relative lack of NHL experience at center. The Flyers already have established options in the middle, so the move is an opportunity rather than an immediate roster necessity. Barkey plans to learn from captain Sean Couturier, while coach Rick Tocchet has said the team sees enough potential to keep exploring the switch. The two articles in this sample are syndicated versions of the same report from different local outlets.",
+      "members": [
+        {
+          "article_id": "20260919211500-382",
+          "similarity": 0.94,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919211500-550",
+          "similarity": 0.94,
+          "rank": 2
+        }
+      ],
+      "activity": {
+        "current_count": 2,
+        "previous_count": null,
+        "change_ratio": null,
+        "status": "insufficient_data"
+      },
+      "direction": {
+        "description": "Insufficient temporal data in this three-article example to calculate a reliable semantic direction.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-health",
+      "type": "fixed",
+      "name": "Health",
+      "description": "Health, medicine, disease, treatment, public health, medical research, health-related community activity.",
+      "summary": "Paint the Planet Pink brought survivors, families, and supporters together in Scranton to raise money and awareness for breast cancer research. The event highlights personal stories such as Aliah Hughes, who credits research and treatment with helping her survive breast cancer diagnosed at age 35. The organization began in 2014 and has grown into a regional fundraising tradition supporting cancer research at the University of Pennsylvania. Organizers say the effort has raised about $1 million over its first twelve years, with the 5K, family events, and Gentlemen's Dash among its best-known fundraisers. Additional fundraising events are scheduled through early October.",
+      "members": [
+        {
+          "article_id": "20260919210000-499",
+          "similarity": 0.96,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 1,
+        "previous_count": null,
+        "change_ratio": null,
+        "status": "insufficient_data"
+      },
+      "direction": {
+        "description": "Insufficient temporal data in this three-article example to calculate a reliable semantic direction.",
+        "related_topics": [
+          {
+            "name": "Community",
+            "similarity": 0.81
+          }
+        ]
+      }
+    },
+    {
+      "id": "bucket-community",
+      "type": "fixed",
+      "name": "Community",
+      "description": "Local events, civic activity, volunteering, fundraising, public participation, community organizations.",
+      "summary": "A large regional fundraising effort is using races, family activities, and community events to support breast cancer research and awareness. Paint the Planet Pink has developed from a three-day fundraiser into a recurring regional tradition involving survivors, families, local participants, and longtime supporters. The event combines personal cancer-survival stories with public fundraising, including the Gentlemen's Dash and several upcoming community events. Organizers emphasize both the money raised for University of Pennsylvania research and the continuing participation of people who return year after year. The story illustrates how local civic events can sustain long-term support for medical research.",
+      "members": [
+        {
+          "article_id": "20260919210000-499",
+          "similarity": 0.88,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 1,
+        "previous_count": null,
+        "change_ratio": null,
+        "status": "insufficient_data"
+      },
+      "direction": {
+        "description": "Insufficient temporal data in this three-article example to calculate a reliable semantic direction.",
+        "related_topics": [
+          {
+            "name": "Health",
+            "similarity": 0.81
+          }
+        ]
+      }
+    }
+  ],
+  "articles": [
+    {
+      "id": "20260919211500-382",
+      "title": "Denver Barkey hoping to be center of attention for Flyers",
+      "url": "https://www.dailylocal.com/2026/09/19/denver-barkey-hoping-to-be-center-of-attention-for-flyers/",
+      "source": "dailylocal.com",
+      "published_at": "2026-09-19T21:15:00Z",
+      "summary": "Denver Barkey is being considered for a move from wing to center after filling the position during two Flyers playoff games last season. The 21-year-old believes his speed, hockey IQ, prior junior experience at center, and willingness to study video can help him adapt despite being smaller than many NHL centers. Philadelphia already has several established centers, so Barkey is competing to prove that his versatility can create another lineup option. He plans to seek advice from captain Sean Couturier, a former Selke Trophy winner known for strong two-way play. Coach Rick Tocchet says Barkey's intelligence and defensive reliability make the position change worth exploring.",
+      "semantic_text": "Philadelphia Flyers Denver Barkey position change wing to center NHL versatility hockey IQ Sean Couturier Rick Tocchet",
+      "embedding": [
+        0.812,
+        -0.174,
+        0.293,
+        0.647,
+        -0.118,
+        0.431
+      ],
+      "buckets": [
+        {
+          "bucket_id": "bucket-sports",
+          "similarity": 0.94
+        }
+      ],
+      "metadata": {
+        "record_id": "20260919211500-382",
+        "publication_date_raw": 1789852500000,
+        "tone_raw": "0.308641975308642,2.16049382716049,1.85185185185185,4.01234567901235,26.6975308641975,1.54320987654321,581",
+        "people": "Sean Couturier;Trevor Zegras;Christian Dvorak;Denver Barkey;Rick Tocchet;Logan Stankoven",
+        "organizations": "Flyers Training Center",
+        "gdelt_themes": null
+      }
+    },
+    {
+      "id": "20260919211500-550",
+      "title": "Denver Barkey hoping to be center of attention for Flyers",
+      "url": "https://www.thereporteronline.com/2026/09/19/denver-barkey-hoping-to-be-center-of-attention-for-flyers/",
+      "source": "thereporteronline.com",
+      "published_at": "2026-09-19T21:15:00Z",
+      "summary": "Denver Barkey is being considered for a move from wing to center after filling the position during two Flyers playoff games last season. The 21-year-old believes his speed, hockey IQ, prior junior experience at center, and willingness to study video can help him adapt despite being smaller than many NHL centers. Philadelphia already has several established centers, so Barkey is competing to prove that his versatility can create another lineup option. He plans to seek advice from captain Sean Couturier, a former Selke Trophy winner known for strong two-way play. Coach Rick Tocchet says Barkey's intelligence and defensive reliability make the position change worth exploring.",
+      "semantic_text": "Philadelphia Flyers Denver Barkey position change wing to center NHL versatility hockey IQ Sean Couturier Rick Tocchet",
+      "embedding": [
+        0.812,
+        -0.174,
+        0.293,
+        0.647,
+        -0.118,
+        0.431
+      ],
+      "buckets": [
+        {
+          "bucket_id": "bucket-sports",
+          "similarity": 0.94
+        }
+      ],
+      "metadata": {
+        "record_id": "20260919211500-550",
+        "publication_date_raw": 1789852500000,
+        "tone_raw": "0.308641975308642,2.16049382716049,1.85185185185185,4.01234567901235,26.6975308641975,1.54320987654321,581",
+        "people": "Denver Barkey;Rick Tocchet;Sean Couturier;Trevor Zegras;Christian Dvorak;Logan Stankoven",
+        "organizations": "Flyers Training Center",
+        "gdelt_themes": null
+      }
+    },
+    {
+      "id": "20260919210000-499",
+      "title": "In the pink: Painting the Planet Pink for cancer research, awareness",
+      "url": "https://www.thetimes-tribune.com/2026/09/19/in-the-pink-painting-the-planet-pink-for-cancer-research-awareness/",
+      "source": "thetimes-tribune.com",
+      "published_at": "2026-09-19T21:00:00Z",
+      "summary": "Paint the Planet Pink brought breast cancer survivors, families, and supporters together in Scranton for a 5K and related fundraising events. Participants including Aliah and Christopher Hughes described the event as a way to support the research and treatment that helped Aliah after her 2024 breast cancer diagnosis. The initiative began in 2014 and has grown into a regional tradition supporting cancer research at the University of Pennsylvania. Organizers say the effort has raised about $1 million over its first twelve years, while events such as the Gentlemen's Dash have become recurring community fundraisers. More fundraising events are scheduled through early October, continuing the campaign's focus on research, awareness, and local participation.",
+      "semantic_text": "Paint the Planet Pink Scranton breast cancer research fundraising survivors community University of Pennsylvania awareness immunotherapy",
+      "embedding": [
+        -0.226,
+        0.701,
+        0.164,
+        -0.512,
+        0.838,
+        0.205
+      ],
+      "buckets": [
+        {
+          "bucket_id": "bucket-health",
+          "similarity": 0.96
+        },
+        {
+          "bucket_id": "bucket-community",
+          "similarity": 0.88
+        }
+      ],
+      "metadata": {
+        "record_id": "20260919210000-499",
+        "publication_date_raw": 1789851600000,
+        "tone_raw": "1.35458167330677,3.26693227091633,1.91235059760956,5.1792828685259,22.2310756972112,0,1100",
+        "people": "Barbara Sciandra;Qiana Lehman;Christopher Hughes;Aliah Hughes;Russell Keeler;Paige Cognetti",
+        "organizations": "University Of Pennsylvania;Maria Goretti Church Banquet Hall",
+        "gdelt_themes": [
+          "TAX_DISEASE_BREAST_CANCER",
+          "GENERAL_HEALTH",
+          "UNGP_HEALTHCARE",
+          "TAX_DISEASE_CANCER",
+          "WB_1431_CANCER",
+          "EDUCATION"
+        ]
+      }
+    }
+  ]
+}
