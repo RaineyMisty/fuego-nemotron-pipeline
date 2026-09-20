@@ -330,6 +330,52 @@ Only the embedder is replaced with fixed vectors. This does not test real model 
 It uses a temporary folder, needs no extra packages, and does not change your map.
 Exit code 0 means success; 1 means failure.
 
+## Query buckets
+
+`fuego/query_buckets.py` finds articles for one user topic.
+It embeds the topic directly with the same MiniLM model used for article vectors.
+It does not rewrite the topic, call Nemotron, or use an LLM prompt.
+
+```python
+from fuego.embedding import Embedder
+from fuego.map_store import MapStore
+from fuego.query_buckets import QueryBuckets
+
+queries = QueryBuckets(
+    MapStore(),
+    embedder=Embedder(cache_folder="work/onnx-models", local_files_only=True),
+)
+article_ids = queries.query("University of Pittsburgh", min_score=0.4)
+```
+
+Use your existing model cache folder. Keep one QueryBuckets object to reuse its embedder.
+The default Embedder can download the model on first use.
+`query(topic, min_score=0.4)` calls `MapStore.search` with top_k=10.
+It returns article IDs, not article text. The backend can load articles by ID.
+Scores equal to min_score are included. Lower scores are dropped.
+Results keep descending cosine order. Ties keep map row order.
+The default threshold is a starting value, not a measured quality guarantee.
+Small maps can return fewer than ten IDs. No matches return an empty list.
+Empty maps do not load the model. Queries do not write map files or cache user topics.
+
+Topics must be nonempty strings of at most 20,000 characters.
+Outer spaces are removed. The embedder also checks its 256-token limit when used.
+Input is never silently truncated. English topics best match this model's design.
+Article vectors and query vectors must use the same embedding model.
+Input errors raise ValueError. EmbeddingError and MapStoreError pass through unchanged.
+
+```bash
+python -B -m integration.smoke_query_buckets
+python -B -m unittest discover -s test -p 'test_query_buckets.py' -v
+```
+
+Direct run: `python -B integration/smoke_query_buckets.py`.
+The smoke test uses real map storage and queries with known sample vectors.
+Only the embedder is replaced. It checks scores, ranking, thresholds, different queries,
+no matches, the ten-ID limit, and empty maps. It does not test model quality.
+It uses a temporary folder and needs no API key, model download, or extra package.
+Exit code 0 means success; 1 means failure.
+
 ## Fixed buckets
 
 - Politics

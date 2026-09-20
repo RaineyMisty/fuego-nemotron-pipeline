@@ -1,0 +1,1 @@
+根据/prompt里的<filename>.md文件，写<filename>.py模块，实现所需功能。添加单元测试。添加smoke测试，关于smoke测试，测试内容为<测试内容>。关于prompt和代码里的提示词，请理解我的意思之后再进行编写。
