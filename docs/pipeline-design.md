@@ -12,8 +12,8 @@ A lock serializes model work and state updates inside one process. Run one proce
 
 1. Enqueue each input record by Record_ID. Keep raw input until processing succeeds.
 2. Normalize CSV-style date strings and null text fields at the boundary.
-3. Use ArticleInput and article_processing. Retry API and model-output failures at most five times total. Pipeline alone owns retries.
-   NVIDIA timeout is fixed at five seconds and client retries at zero. No retry sleeps are added.
+3. Use ArticleInput and article_processing. Retry API and model-output failures at most four times total (one call plus three retries). Pipeline alone owns retries.
+   NVIDIA and Ollama timeout is fixed at eight seconds and client retries at zero. No retry sleeps are added.
 4. Embed semantic_text. Add to MapStore. Retry unfinished jobs without repeating successful article processing.
 5. Keep metadata separately for output. Clear successful raw input from the queue.
 6. Run the cluster update check. A full update can be requested explicitly.

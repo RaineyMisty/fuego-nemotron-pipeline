@@ -25,7 +25,7 @@ class OllamaTests(unittest.TestCase):
         config = self.config(NVIDIA_API_KEY="private", NVIDIA_MODEL="old", NVIDIA_TIMEOUT="bad")
         self.assertEqual(config.model, "qwen3:0.6b")
         self.assertEqual(config.endpoint, "http://localhost:11434/api/chat")
-        self.assertEqual((config.timeout, config.max_retries), (120, 0))
+        self.assertEqual((config.timeout, config.max_retries), (20, 0))
         self.assertEqual(config.api_key, "")
         self.assertFalse(config.enable_thinking)
 
@@ -101,9 +101,9 @@ class OllamaTests(unittest.TestCase):
             config = PipelineConfig(Path(tmp))
             pipeline = Pipeline(config, embedder=TinyEmbedder())
             self.assertEqual(pipeline.ai_model, "qwen3:0.6b")
-            self.assertEqual(pipeline.ai_timeout, 80)
+            self.assertEqual(pipeline.ai_timeout, 8)
             client = pipeline._ai()
-            self.assertEqual((client.config.timeout, client.config.max_retries), (80, 0))
+            self.assertEqual((client.config.timeout, client.config.max_retries), (8, 0))
             with sqlite3.connect(pipeline.store.db_path) as db:
                 signature = json.loads(db.execute("SELECT value FROM settings WHERE key='signature'").fetchone()[0])
             self.assertEqual(signature["provider"], "ollama")
@@ -112,17 +112,17 @@ class OllamaTests(unittest.TestCase):
             with redirect_stdout(io.StringIO()):
                 report = pipeline.run_pending(refresh=False)
             self.assertEqual(report["retry_policy"]["ai_provider"], "ollama")
-            self.assertEqual(report["retry_policy"]["ai_timeout"], 80)
+            self.assertEqual(report["retry_policy"]["ai_timeout"], 8)
             self.assertEqual(report["retry_policy"]["ai_max_retries"], 0)
             for env in ({"OLLAMA_MODEL": "qwen3:4b"}, {"OLLAMA_BASE_URL": "http://localhost:11435"}, {"AI_PROVIDER": "nvidia"}):
                 with patch.dict(os.environ, env), self.assertRaisesRegex(ValueError, "State mode"):
                     Pipeline(config, embedder=TinyEmbedder())
 
-    def test_injected_client_keeps_local_timeout(self):
+    def test_pipeline_overrides_injected_local_timeout(self):
         client = NemotronClient(self.config(OLLAMA_TIMEOUT="90", OLLAMA_MAX_RETRIES="2"))
         with tempfile.TemporaryDirectory() as tmp:
             pipeline = Pipeline(PipelineConfig(Path(tmp)), client=client, embedder=TinyEmbedder())
-            self.assertEqual((client.config.timeout, client.config.max_retries), (90, 0))
+            self.assertEqual((client.config.timeout, client.config.max_retries), (8, 0))
             self.assertEqual(pipeline.ai_model, "qwen3:0.6b")
 
     def test_smoke_uses_local_endpoint(self):

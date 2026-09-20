@@ -29,7 +29,7 @@ class PipelineRetryTests(unittest.TestCase):
     def pipeline(self, client=None):
         return Pipeline(PipelineConfig(self.root, mock_ai=client is None), client=client, embedder=TinyEmbedder())
 
-    def test_exactly_five_transport_calls_with_no_nested_retries(self):
+    def test_exactly_four_transport_calls_with_no_nested_retries(self):
         client = NemotronClient(AIConfig(api_key="test-key", timeout=120, max_retries=4))
         client._opener = Mock()
         client._opener.open.side_effect = TimeoutError()
@@ -37,41 +37,55 @@ class PipelineRetryTests(unittest.TestCase):
         pipeline.enqueue([record()])
         with patch('fuego.ai.time.sleep') as sleep:
             report = pipeline.run_pending(refresh=False)
-        self.assertEqual(client.config.timeout, 5)
+        self.assertEqual(client.config.timeout, 8)
         self.assertEqual(client.config.max_retries, 0)
-        self.assertEqual(client._opener.open.call_count, 5)
-        self.assertTrue(all(call.kwargs['timeout'] == 5 for call in client._opener.open.call_args_list))
+        self.assertEqual(client._opener.open.call_count, 4)
+        self.assertTrue(all(call.kwargs['timeout'] == 8 for call in client._opener.open.call_args_list))
         sleep.assert_not_called()
         self.assertEqual(report['summary']['loss_rate'], 1.0)
-        self.assertEqual(report['failed_articles'][0]['attempts'], 5)
+        self.assertEqual(report['failed_articles'][0]['attempts'], 4)
         self.assertEqual(report['failed_articles'][0]['error_stage'], 'article_ai')
-        self.assertIn('attempt=5/5', self.log.getvalue())
+        self.assertIn('attempt=4/4', self.log.getvalue())
         self.assertIn('LOST (input retained)', self.log.getvalue())
         self.assertNotIn('test-key', self.log.getvalue())
+
+    def test_ollama_has_three_retries_and_eight_second_timeout(self):
+        with patch.dict(os.environ, {"AI_PROVIDER": "ollama", "OLLAMA_TIMEOUT": "bad", "OLLAMA_MAX_RETRIES": "bad"}, clear=True):
+            pipeline = Pipeline(PipelineConfig(self.root), embedder=TinyEmbedder())
+            client = pipeline._ai()
+        pipeline.enqueue([record()])
+        with patch.object(client._opener, "open", side_effect=TimeoutError()) as send:
+            report = pipeline.run_pending(refresh=False)
+        self.assertEqual(send.call_count, 4)
+        self.assertTrue(all(call.kwargs["timeout"] == 8 for call in send.call_args_list))
+        self.assertEqual(client.config.max_retries, 0)
+        self.assertEqual(report["retry_policy"]["pipeline_retries"], 3)
+        self.assertEqual(report["retry_policy"]["pipeline_attempts"], 4)
+        self.assertEqual(report["failed_articles"][0]["attempts"], 4)
 
     def test_pipeline_overrides_environment_even_if_values_are_invalid(self):
         with patch.dict(os.environ, {'NVIDIA_API_KEY': 'test-key', 'NVIDIA_TIMEOUT': 'bad', 'NVIDIA_MAX_RETRIES': 'bad'}):
             pipeline = Pipeline(PipelineConfig(self.root), embedder=TinyEmbedder())
             client = pipeline._ai()
-        self.assertEqual((client.config.timeout, client.config.max_retries), (5, 0))
+        self.assertEqual((client.config.timeout, client.config.max_retries), (8, 0))
         with patch.dict(os.environ, {'NVIDIA_API_KEY': 'test-key', 'NVIDIA_TIMEOUT': '17', 'NVIDIA_MAX_RETRIES': '2'}):
             standalone = AIConfig.from_env()
         self.assertEqual((standalone.timeout, standalone.max_retries), (17, 2))
 
-    def test_fifth_attempt_can_succeed(self):
+    def test_fourth_attempt_can_succeed(self):
         pipeline = self.pipeline()
         real = pipeline.client.complete
         count = 0
         def reply(messages):
             nonlocal count
             count += 1
-            if count < 5:
+            if count < 4:
                 raise AIError('offline')
             return real(messages)
         pipeline.client.complete = reply
         pipeline.enqueue([record()])
         report = pipeline.run_pending(refresh=False)
-        self.assertEqual(count, 5)
+        self.assertEqual(count, 4)
         self.assertEqual(report['summary']['done'], 1)
         self.assertEqual(report['summary']['loss_rate'], 0)
 
@@ -118,7 +132,7 @@ class PipelineRetryTests(unittest.TestCase):
         self.assertEqual(report['summary']['pending'], 1)
         self.assertEqual(report['summary']['failed'], 0)
 
-    def test_synthesis_uses_same_five_attempt_budget(self):
+    def test_synthesis_uses_same_four_attempt_budget(self):
         client = NemotronClient(AIConfig(api_key='test-key', timeout=120, max_retries=4))
         client._opener = Mock()
         client._opener.open.side_effect = TimeoutError()
@@ -127,7 +141,7 @@ class PipelineRetryTests(unittest.TestCase):
         with patch('fuego.ai.time.sleep') as sleep:
             _, state = pipeline._synthesize(['a'], {'a': article}, 'Transit')
         self.assertEqual(state, 'failed')
-        self.assertEqual(client._opener.open.call_count, 5)
+        self.assertEqual(client._opener.open.call_count, 4)
         sleep.assert_not_called()
 
     def test_heartbeat_during_slow_embedding(self):
@@ -165,7 +179,7 @@ class PipelineRetryTests(unittest.TestCase):
         self.assertEqual(report['summary']['loss_rate'], 0)
         failed = report['synthesis']['failed_buckets']
         self.assertTrue(failed)
-        self.assertEqual(synthesize.call_count, 5*len(failed))
+        self.assertEqual(synthesize.call_count, 4*len(failed))
         self.assertEqual(report['synthesis']['ai_attempts'], synthesize.call_count)
 
     def test_old_job_schema_and_remaining_attempts_resume(self):
@@ -179,8 +193,8 @@ class PipelineRetryTests(unittest.TestCase):
             db.execute('UPDATE jobs SET attempts=3')
         pipeline.client.complete = Mock(side_effect=AIError('offline'))
         report = pipeline.run_pending(refresh=False)
-        self.assertEqual(pipeline.client.complete.call_count, 2)
-        self.assertEqual(report['failed_articles'][0]['attempts'], 5)
+        self.assertEqual(pipeline.client.complete.call_count, 1)
+        self.assertEqual(report['failed_articles'][0]['attempts'], 4)
         self.assertEqual(report['failed_articles'][0]['error_stage'], 'article_ai')
 
     def test_first_nonempty_batch_after_empty_refresh_builds_clusters(self):

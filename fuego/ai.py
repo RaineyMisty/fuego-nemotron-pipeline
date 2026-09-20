@@ -82,7 +82,7 @@ class AIConfig:
                 provider=provider,
                 base_url=os.environ.get("OLLAMA_BASE_URL", OLLAMA_BASE_URL),
                 model=os.environ.get(prefix + "_MODEL", OLLAMA_MODEL if provider == "ollama" else DEFAULT_MODEL),
-                timeout=float(os.environ.get(prefix + "_TIMEOUT", "120" if provider == "ollama" else "20")) if timeout is None else timeout,
+                timeout=float(os.environ.get(prefix + "_TIMEOUT", "20" if provider == "ollama" else "20")) if timeout is None else timeout,
                 max_tokens=int(os.environ.get(prefix + "_MAX_TOKENS", "16384")),
                 temperature=float(os.environ.get(prefix + "_TEMPERATURE", "0")),
                 enable_thinking=thinking == "true",

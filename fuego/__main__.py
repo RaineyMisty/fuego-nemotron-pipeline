@@ -9,7 +9,7 @@ import sys
 import tempfile
 import threading
 
-from fuego.pipeline import Pipeline, PipelineConfig
+from fuego.pipeline import Pipeline, PipelineConfig, PIPELINE_ATTEMPTS, PIPELINE_RETRIES
 from fuego.write_output import serialize_output
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -116,7 +116,8 @@ def main(argv=None):
     parser.add_argument("--local-files-only", action="store_true")
     parser.add_argument("--min-score", type=float, default=0.4)
     parser.add_argument("--clusters", type=int, default=20)
-    parser.add_argument("--attempts", type=int, choices=(5,), default=5, help="Fixed at 5: one attempt plus four retries.")
+    parser.add_argument("--attempts", type=int, choices=(PIPELINE_ATTEMPTS,), default=PIPELINE_ATTEMPTS,
+                        help=f"Fixed at {PIPELINE_ATTEMPTS}: one call plus {PIPELINE_RETRIES} retries.")
     commands = parser.add_subparsers(dest="command", required=True)
     ingest = commands.add_parser("ingest", help="Queue a JSON article list. Processing is separate.")
     ingest.add_argument("input", type=Path)

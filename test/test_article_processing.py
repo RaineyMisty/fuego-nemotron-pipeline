@@ -45,11 +45,11 @@ class ArticleProcessingTests(unittest.TestCase):
             process_article("ADVERTISEMENT: Buy shoes today.")
         client.assert_not_called()
 
-    def test_too_few_keywords_are_not_filled_or_retried(self):
+    def test_short_keyword_list_is_accepted_without_filling_or_retrying(self):
         client = Mock()
         client.complete.return_value = response({**RESULT, "keywords": KEYWORDS[:12]})
-        with self.assertRaisesRegex(ArticleProcessingError, "at least 20"):
-            process_article("A short article.", client=client)
+        result = process_article("A short article.", client=client)
+        self.assertEqual(result["keywords"], KEYWORDS[:12])
         client.complete.assert_called_once()
 
     def test_ollama_receives_schema_and_returns_same_contract(self):
@@ -95,12 +95,23 @@ class ArticleProcessingTests(unittest.TestCase):
             message["content"] = fence + message["content"] + "\n```"
             self.assertEqual(parse_response(value)["keywords"],KEYWORDS)
 
-    def test_keywords_reject_wrong_count_duplicates_function_words(self):
-        for keywords in [KEYWORDS[:-1], "words", [" "]+KEYWORDS[1:],
-                         [None]+KEYWORDS[1:], ["the"]+KEYWORDS[1:], ["IN"]+KEYWORDS[1:],
-                         ["---"]+KEYWORDS[1:], [" ROBOTICS "]+KEYWORDS[1:], ["x"*81]+KEYWORDS[1:]]:
+    def test_keywords_are_cleaned_in_order(self):
+        keywords = [" Knicks ", "knicks", "the", "IN", "---", "", None, 123,
+                    "x" * 81, "Atlantic   Division", "ATLANTIC DIVISION", "NBA"]
+        result = parse_response(response({**RESULT, "keywords": keywords}))
+        self.assertEqual(result["keywords"], ["Knicks", "Atlantic Division", "NBA"])
+        self.assertEqual(result["overview"], "Knicks; Atlantic Division; NBA")
+        self.assertEqual(result["summary"], RESULT["summary"])
+
+    def test_empty_or_wrong_keyword_list_is_rejected(self):
+        for keywords in ([], "words", None, ["the", "---", None, " "]):
             with self.subTest(keywords=keywords), self.assertRaises(ArticleProcessingError):
-                parse_response(response({**RESULT,"keywords":keywords}))
+                parse_response(response({**RESULT, "keywords": keywords}))
+
+    def test_one_keyword_is_enough(self):
+        result = parse_response(response({**RESULT, "keywords": ["NBA"]}))
+        self.assertEqual(result["keywords"], ["NBA"])
+        self.assertEqual(result["overview"], "NBA")
 
     def test_names_can_contain_prepositions(self):
         value = {**RESULT,"keywords":["University of Pittsburgh"]+KEYWORDS[1:]}

@@ -1,6 +1,7 @@
 from contextlib import redirect_stdout, redirect_stderr
 import io
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -28,6 +29,16 @@ class MainTests(unittest.TestCase):
                     output = root/f'{kind}.json'
                     self.assertEqual(main(args+['export', kind, '--output', str(output)]), 0)
                     self.assertEqual(json.loads(output.read_text())['request_type'], kind)
+
+    def test_ollama_ingest_uses_current_attempt_default(self):
+        with tempfile.TemporaryDirectory() as directory, patch.dict(os.environ, {"AI_PROVIDER": "ollama"}), redirect_stdout(io.StringIO()) as out:
+            source = Path(directory) / "input.json"
+            source.write_text(json.dumps([record()]))
+            with patch("fuego.ai.NemotronClient.complete") as call:
+                code = main(["--state", directory, "--local-files-only", "ingest", str(source)])
+            self.assertEqual(code, 0)
+            self.assertEqual(json.loads(out.getvalue())["queued"], 1)
+            call.assert_not_called()
 
     def test_cli_bad_input_returns_failure(self):
         with tempfile.TemporaryDirectory() as directory, redirect_stderr(io.StringIO()):

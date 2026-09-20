@@ -55,12 +55,13 @@ class SmokeArticleTests(unittest.TestCase):
         self.assertIn("to ollama", err)
         call.assert_called_once()
 
-    def test_default_sample_uses_real_processor_and_removes_ads(self):
+    def test_default_sample_uses_current_file(self):
         code, _, _, call = self.run_smoke(args=[], env={"AI_PROVIDER": "ollama"})
         self.assertEqual(code, 0)
         payload = json.loads(call.call_args.args[0][1]["content"])
-        self.assertIn("robotics laboratory", payload["article"])
-        self.assertNotIn("discount shoes", payload["article"])
+        from fuego.article_processing import build_messages
+        expected = build_messages((ROOT / "integration/article_sample.txt").read_text())[1]["content"]
+        self.assertEqual(payload, json.loads(expected))
 
     def test_reports_actual_keyword_count(self):
         body = json.dumps({"keywords": KEYWORDS + ["Maya Chen"], "summary": "A laboratory opened."})
@@ -68,11 +69,12 @@ class SmokeArticleTests(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertIn("21 keywords", err)
 
-    def test_rejects_duplicate_keywords(self):
+    def test_cleans_duplicate_keywords(self):
         body = json.dumps({"keywords": KEYWORDS + ["robotics"], "summary": "A laboratory opened."})
-        code, _, err, call = self.run_smoke(content=body)
-        self.assertEqual(code, 3)
-        self.assertIn("distinct", err)
+        code, out, err, call = self.run_smoke(content=body)
+        self.assertEqual(code, 0)
+        self.assertEqual(json.loads(out)["keywords"], KEYWORDS)
+        self.assertIn("20 keywords", err)
         call.assert_called_once()
 
     def test_missing_file(self):

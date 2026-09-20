@@ -29,8 +29,9 @@ from fuego.trend_direction import direction
 from fuego.write_output import build_output
 
 
-AI_TIMEOUT = 5
-PIPELINE_ATTEMPTS = 5
+AI_TIMEOUT = 8
+PIPELINE_RETRIES = 3
+PIPELINE_ATTEMPTS = 1 + PIPELINE_RETRIES
 HEARTBEAT_SECONDS = 5
 
 
@@ -54,7 +55,7 @@ class PipelineConfig:
         if type(self.min_score) not in (int, float) or not math.isfinite(self.min_score) or not -1 <= self.min_score <= 1:
             raise ValueError("min_score must be in [-1, 1].")
         if type(self.attempts) is not int or self.attempts != PIPELINE_ATTEMPTS:
-            raise ValueError("Pipeline attempts is fixed at 5 (one call plus four retries).")
+            raise ValueError(f"Pipeline attempts is fixed at {PIPELINE_ATTEMPTS} (one call plus {PIPELINE_RETRIES} retries).")
         for value in (self.cluster_count, self.window_ms):
             if type(value) is not int or value <= 0:
                 raise ValueError("Counts and window size must be positive integers.")
@@ -94,11 +95,11 @@ class Pipeline:
         self._ai_config = None
         self.ai_timeout = AI_TIMEOUT
         if isinstance(self.client, NemotronClient):
-            timeout = AI_TIMEOUT if self.client.config.provider == "nvidia" else self.client.config.timeout
+            timeout = AI_TIMEOUT
             self.client.config = replace(self.client.config, timeout=timeout, max_retries=0)
             self._ai_config = self.client.config
         elif client is None and os.environ.get("AI_PROVIDER", "nvidia").strip().lower() == "ollama":
-            self._ai_config = AIConfig.from_env(max_retries=0)
+            self._ai_config = AIConfig.from_env(timeout=AI_TIMEOUT, max_retries=0)
         if self._ai_config is not None:
             self.ai_timeout = self._ai_config.timeout
         self._stage = "idle"
@@ -231,7 +232,7 @@ class Pipeline:
                       elapsed_seconds=round(time.monotonic()-started, 3), interrupted=interrupted,
                       refresh_status=refresh_status, refresh_error=refresh_error,
                       retry_policy={"nvidia_timeout": AI_TIMEOUT, "nvidia_max_retries": 0,
-                                    "pipeline_attempts": PIPELINE_ATTEMPTS,
+                                    "pipeline_attempts": PIPELINE_ATTEMPTS, "pipeline_retries": PIPELINE_RETRIES,
                                     "ai_provider": self._ai_config.provider if self._ai_config else "nvidia",
                                     "ai_timeout": self.ai_timeout, "ai_max_retries": 0},
                       failed_articles=[job for job in report["jobs"] if job["status"] == "failed"],
@@ -265,7 +266,7 @@ class Pipeline:
 
     def run_pending(self, *, refresh=True):
         started = time.monotonic()
-        self._info(f"WORK starting | AI timeout={self.ai_timeout:g}s, AI retries=0, Pipeline attempts=5")
+        self._info(f"WORK starting | AI timeout={self.ai_timeout:g}s, AI retries=0, Pipeline attempts={PIPELINE_ATTEMPTS}")
         with self._heartbeat(started), self.lock:
             self._synthesis_events = []
             self._synthesis_calls = 0
@@ -288,20 +289,20 @@ class Pipeline:
                     for attempt in range(attempts+1, PIPELINE_ATTEMPTS+1):
                         attempt_started = time.monotonic()
                         stage = "input"
-                        self._info(f"{label} attempt={attempt}/5 stage={stage}")
+                        self._info(f"{label} attempt={attempt}/{PIPELINE_ATTEMPTS} stage={stage}")
                         try:
                             record = json.loads(payload)
                             prepared = prepare_article(record)
                             if prepared is not None and self.store.get(article_id) is None:
                                 stage = "article_ai"
-                                self._info(f"{label} attempt={attempt}/5 stage={stage} timeout={self.ai_timeout:g}s")
+                                self._info(f"{label} attempt={attempt}/{PIPELINE_ATTEMPTS} stage={stage} timeout={self.ai_timeout:g}s")
                                 self.store.client = self._ai()
                             result = self.store.ingest(record)
                             if result["status"] != "filtered":
                                 article = self.store.get(article_id)
                                 if article_id not in self.map.get_map()["article_ids"]:
                                     stage = "embedding"
-                                    self._info(f"{label} attempt={attempt}/5 stage={stage}")
+                                    self._info(f"{label} attempt={attempt}/{PIPELINE_ATTEMPTS} stage={stage}")
                                     vector = self.embedder.embed(article["semantic_text"])
                                     stage = "map"
                                     self._info(f"{label} stage={stage}")
@@ -321,7 +322,7 @@ class Pipeline:
                                             attempt, type(exc).__name__, stage, article_id))
                                 db.commit()
                             outcome = "LOST (input retained)" if attempt == PIPELINE_ATTEMPTS else "RETRY"
-                            self._info(f"{label} attempt={attempt}/5 stage={stage} {type(exc).__name__} "
+                            self._info(f"{label} attempt={attempt}/{PIPELINE_ATTEMPTS} stage={stage} {type(exc).__name__} "
                                        f"elapsed={time.monotonic()-attempt_started:.1f}s -> {outcome}")
                 if refresh:
                     refresh_status = "running"
@@ -363,7 +364,7 @@ class Pipeline:
         for attempt in range(1, PIPELINE_ATTEMPTS+1):
             self._synthesis_calls += 1
             started = time.monotonic()
-            self._info(f"SYNTHESIS topic={name!r} articles={len(inputs)} attempt={attempt}/5 timeout={self.ai_timeout:g}s")
+            self._info(f"SYNTHESIS topic={name!r} articles={len(inputs)} attempt={attempt}/{PIPELINE_ATTEMPTS} timeout={self.ai_timeout:g}s")
             try:
                 result = synthesize_topic(inputs, client=self._ai())
                 with self._db() as db:
@@ -372,7 +373,7 @@ class Pipeline:
                 self._info(f"SYNTHESIS topic={name!r} DONE elapsed={time.monotonic()-started:.1f}s")
                 return result, "ready"
             except Exception as exc:
-                self._info(f"SYNTHESIS topic={name!r} attempt={attempt}/5 {type(exc).__name__} "
+                self._info(f"SYNTHESIS topic={name!r} attempt={attempt}/{PIPELINE_ATTEMPTS} {type(exc).__name__} "
                            f"elapsed={time.monotonic()-started:.1f}s -> {'FAILED' if attempt == PIPELINE_ATTEMPTS else 'RETRY'}")
         return {"title": name[:120], "summary": "Summary unavailable. Source articles are listed below."}, "failed"
 

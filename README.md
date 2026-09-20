@@ -30,9 +30,9 @@ python -B -m fuego --state work/pipeline-ollama --local-files-only work
 ```
 
 Use the same environment and state directory for later commands.
-Pipeline uses `OLLAMA_TIMEOUT` (120 seconds by default) and five attempts.
+Pipeline uses an eight-second timeout and three retries (four calls in total).
 Pipeline disables client retries. It is the only retry owner.
-NVIDIA still uses the fixed five-second Pipeline timeout.
+This policy applies to both Ollama and NVIDIA.
 The report includes `ai_provider`, `ai_timeout`, and `ai_max_retries` in `retry_policy`.
 The old `nvidia_*` fields describe the NVIDIA policy only.
 `--local-files-only` only controls the MiniLM cache. It does not select the AI provider.
@@ -92,11 +92,11 @@ python -B -m fuego --mock-ai --local-files-only export query --topic "New York K
 These commands use `work/pipeline-demo/`. Set --state to use another directory.
 Use `work --retry-failed` to retry failed jobs. Inputs remain in SQLite until success or filtering.
 Completed records clear raw text from the queue. Metadata remains available for output.
-NVIDIA Pipeline settings are fixed: NVIDIA_TIMEOUT=5, NVIDIA_MAX_RETRIES=0, and attempts=5.
+Pipeline settings are fixed: timeout=8, client retries=0, and attempts=4.
 The code enforces these values even if the environment has different timeout or retry values.
-Pipeline is the only retry owner: one initial call plus at most four retries, with no retry sleep.
-This applies to article processing and topic synthesis. --attempts accepts only 5.
-Standalone AI clients keep their own settings. Ollama uses its configured timeout in Pipeline.
+Pipeline is the only retry owner: one initial call plus at most three retries, with no retry sleep.
+This applies to article processing and topic synthesis. --attempts accepts only 4.
+Standalone AI clients keep their own settings. Pipeline overrides both NVIDIA and Ollama timeout and retry settings.
 A vector failure can be retried without processing the article again.
 Duplicate Record_ID values keep the first queued record. Correct a bad queued input in a new state/import;
 this CLI does not overwrite existing records silently. The original input file is never changed.
@@ -104,12 +104,12 @@ Publication_Date strings of digits become integer milliseconds; null optional te
 Other invalid records remain failed jobs with their payload and error type.
 
 During work, progress goes to stderr and is flushed immediately. It shows the article ID,
-position in the batch, stage, attempt out of five, result, and elapsed time.
+position in the batch, stage, attempt out of four, result, and elapsed time.
 A heartbeat prints the active stage every five seconds during long work.
 Embedding, K-means, bucket processing, and cache hits are visible too.
-The five-second timeout applies to NVIDIA transport I/O, not the whole work command or embedding.
+The eight-second timeout applies to AI transport I/O, not the whole work command or embedding.
 
-After five failed attempts, the article is marked failed (LOST in the log). Its raw input stays
+After four failed attempts, the article is marked failed (LOST in the log). Its raw input stays
 in the job queue. No original input file is deleted. Use work --retry-failed to try again.
 At the end, a human-readable summary goes to stderr and the full JSON report goes to stdout.
 Reports are also saved under the state directory:
@@ -184,7 +184,7 @@ python -B -m fuego --local-files-only work
 python -B -m fuego --local-files-only serve
 ```
 
-Live mode uses `work/pipeline-live/`. Pipeline fixes timeout to 5 seconds and client retries to zero; other NVIDIA settings still apply.
+Live mode uses `work/pipeline-live/`. Pipeline fixes timeout to 8 seconds and client retries to zero; other NVIDIA settings still apply.
 No key is needed just to enqueue or inspect jobs. Processing and synthesis need a key.
 Use --model-cache to select your cached model folder. Omit --local-files-only to allow model downloads.
 No packages are installed automatically. The delivered run used mock AI, not a live NVIDIA request.
@@ -253,7 +253,7 @@ Only text messages with system, user, or assistant roles are supported. Streamin
 
 ## Settings
 
-These defaults apply to standalone AI calls. Pipeline overrides timeout to 5 seconds and retries to zero.
+These defaults apply to standalone AI calls. Pipeline overrides timeout to 8 seconds and retries to zero.
 
 | Variable | Default |
 | --- | --- |
@@ -331,21 +331,23 @@ print(result["overview"])
 print(result["summary"])
 ```
 
-`keywords` contains at least 20 distinct content words or short phrases.
-The Ollama schema requests exactly 20. The parser still accepts larger valid lists.
+`keywords` is a short list of useful words or phrases. There is no fixed count.
+The parser removes duplicates, stop words, blank items, symbols, non-text items,
+and phrases over 80 characters. It keeps the first spelling and input order.
+At least one usable keyword must remain.
 `overview` joins these terms with semicolons for later embedding. It is not a second summary.
 `summary` is a short text for a reader. The model uses the article's language.
 Names can include small words, such as "University of Pittsburgh". Standalone articles
-and common English prepositions are rejected as keywords.
+and common English prepositions are filtered out.
 The processor removes paragraphs that start with `ADVERTISEMENT:` or `ADVERT:`.
 It keeps news about advertising. The prompt asks the model to ignore other ads
 and keep facts, names, numbers, and uncertainty.
 Ollama uses a [JSON schema](https://docs.ollama.com/capabilities/structured-outputs)
-to constrain the fields and keyword count. Python still checks the result.
+to constrain the JSON fields. Python still checks and cleans the result.
 The schema also allows an insufficient-content error. It does not prove factual accuracy.
 Metadata is source context. It cannot override article facts or the instructions.
-If there is not enough news for 20 useful terms, the model must report insufficient content.
-The processor never fills missing keywords with invented values.
+The processor does not add words to reach a target count.
+An empty cleaned list or empty summary still raises an error.
 
 Input limits: 60,000 article characters and 16,000 serialized metadata characters.
 Metadata must be a JSON object. Nothing is silently truncated.
@@ -363,7 +365,7 @@ The bundled fictional sample is the default input.
 ```bash
 export AI_PROVIDER=ollama
 export OLLAMA_MODEL=qwen3:0.6b
-python3 -B -m integration.smoke_article_processing
+python3 -B -m integration.smoke_article_processing --timeout 120
 ```
 
 Use another article and save the JSON:

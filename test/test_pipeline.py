@@ -29,7 +29,7 @@ class PipelineTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.config = PipelineConfig(Path(self.temp.name), mock_ai=True, mock_query="solar", attempts=5)
+        self.config = PipelineConfig(Path(self.temp.name), mock_ai=True, mock_query="solar", attempts=4)
         self.pipeline = Pipeline(self.config, embedder=TinyEmbedder())
 
     def process(self, records=None):
@@ -70,7 +70,7 @@ class PipelineTests(unittest.TestCase):
         def fail_once(messages):
             calls.append(1)
             if len(calls) == 1:
-                return {"choices": [{"finish_reason": "stop", "message": {"content": '{"keywords":["one"],"summary":"short"}'}}]}
+                return {"choices": [{"finish_reason": "stop", "message": {"content": '{"keywords":[],"summary":"short"}'}}]}
             return original(messages)
         with patch.object(self.pipeline.client, "complete", side_effect=fail_once):
             self.pipeline.enqueue([record()])
