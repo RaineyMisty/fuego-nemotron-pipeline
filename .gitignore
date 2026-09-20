@@ -1,3 +1,7 @@
+# input
+input/sep_week_3/
+2026-9-*.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
