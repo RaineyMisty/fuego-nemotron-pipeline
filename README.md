@@ -222,3 +222,61 @@ python3 -B -m unittest discover -s test -p 'test*embedding.py' -v
 
 [Model card](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
 [FastEmbed guide](https://qdrant.github.io/fastembed/Getting%20Started/)
+
+## Vector map
+
+`fuego/map_store.py` stores article vectors. It uses the standard library only.
+It does not call AI or load an embedding model.
+
+```python
+from fuego.map_store import MapStore
+
+store = MapStore()  # Use the map folder at the project root.
+store.save(["article-1", "article-2"], [vector_1, vector_2])
+added = store.add("article-3", vector_3)
+data = store.get_map()
+hits = store.search(query_vector, top_k=5)
+batches = store.search_many(bucket_vectors, top_k=5)
+```
+
+These are the five interfaces:
+
+- `save(article_ids, vectors)` replaces the full map. Duplicate IDs are rejected.
+- `add(article_id, vector)` adds one row. It returns True if added, or False if the ID exists.
+- `get_map()` returns `article_ids`, `checksums`, and `vectors` in matching row order.
+- `search(vector, top_k=5)` returns a list of `{article_id, score}` objects.
+- `search_many(vectors, top_k=5)` returns one such list for each query, in query order.
+
+IDs must be nonempty strings. Use the same stable ID for the same article.
+Each checksum is a SHA-256 hash of the exact article ID. It is an ID index, not a content hash.
+An existing ID is skipped even if its new vector differs. Different IDs can share a vector.
+Vectors must have 384 finite numbers and a nonzero norm. They are normalized before use.
+The map is an N by 384 matrix. IDs and checksums are separate lists in the same JSON file.
+1000 rows and 20 queries are supported; these are not fixed limits.
+
+Scores are cosine similarities: the dot product of unit vectors.
+Batch scores follow B times A transpose. Higher scores come first.
+Ties keep stored row order. Exact matches are included. A large top_k returns all available rows.
+An empty map returns no hits. An empty query batch returns an empty list.
+
+The default file is `map/articles.json`. Pass `MapStore("path/to/map")` to use another folder.
+Each write replaces the file atomically. Use one writer at a time; concurrent writes are not supported.
+Bad input raises ValueError. File errors raise MapStoreError.
+Missing files mean an empty map. Invalid files raise an error when read.
+Generated map files are ignored by Git.
+
+## Map smoke test
+
+Run from the repository root:
+
+```bash
+python -B -m integration.smoke_map_store
+python -B -m unittest discover -s test -p 'test_map_store.py' -v
+```
+
+You can also run `python -B integration/smoke_map_store.py` directly.
+The smoke test calls all five real interfaces with known 384-dimensional vectors.
+It checks disk reload, duplicate IDs, matrix values, and single and batch scores.
+Expected scores are 1, 0.707107, and 0. It prints five PASS lines.
+It uses a temporary folder and removes it when done. Your map is not changed.
+No API key, model download, or extra package is needed. Exit code 0 means success; 1 means failure.

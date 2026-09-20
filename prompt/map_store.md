@@ -17,3 +17,13 @@
 
 ## 文件
 - 建一个/map文件夹，然后往里面存地图就好
+
+## 测试
+1. 单独运行 smoke 测试
+```{bash}
+python -B -m integration.smoke_map_store
+```
+2. 运行模块单元测试
+```{bash}
+python -B -m unittest discover -s test -p 'test_map_store.py' -v
+```

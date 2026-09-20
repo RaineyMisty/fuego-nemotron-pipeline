@@ -221,3 +221,7 @@ __marimo__/
 work/
 .env.*
 !.env.example
+
+# Local vector maps
+/map/*
+!/map/.gitkeep
