@@ -229,3 +229,7 @@ work/
 # Local vector maps
 /map/*
 !/map/.gitkeep
+
+# Local article database
+/db/*
+!/db/.gitkeep

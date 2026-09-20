@@ -500,6 +500,73 @@ PASS means the response has valid title and summary fields; review its actual fa
 Exit codes: 0 success, 1 request failure, 2 input/configuration error, 3 invalid response, 130 cancelled.
 Offline unit tests use mocked AI replies and do not spend API quota.
 
+## Article input and SQLite
+
+`fuego/article_input.py` reads an input article, calls article_processing, and stores the result.
+It uses the standard library SQLite module. No extra package is needed.
+
+```python
+from fuego.article_input import ArticleInput
+
+store = ArticleInput()  # db/articles.sqlite3 at the project root.
+status = store.ingest(record)
+article = store.get(record["Record_ID"])
+store.set_buckets(record["Record_ID"], [
+    {"bucket_id": "technology", "similarity": 0.78},
+])
+```
+
+Input is one JSON object with Record_ID, Publication_Date, and Article_Text.
+Record_ID must be a nonempty string. Publication_Date is an integer Unix timestamp in milliseconds.
+Source_Name, Title, Article_Link, Tone, People, Organizations, and Themes are optional text fields.
+Missing text fields become empty strings. Article_Text must be nonempty.
+Articles longer than 10000 characters are filtered before any AI call or article write.
+Exactly 10000 characters is allowed. No text is truncated.
+
+`prepare_article(record)` splits text, metadata, and stored article fields.
+Text and metadata stay in memory during processing. They are not saved as raw article content.
+The existing article_processing prompt is reused without another prompt or LLM step.
+`ingest(record)` returns `{status, id}`. Status is stored, duplicate, or filtered.
+An existing ID is not reprocessed or overwritten. Failed processing leaves no article row.
+Concurrent callers may both call AI, but the database stores an ID only once.
+
+The articles table stores id, published_at, source, title, url, summary, and semantic_text.
+The processor's overview becomes semantic_text. Publication dates keep millisecond units.
+The article_buckets table stores article_id, bucket_id, and similarity.
+This module does not classify articles. Bucket links start empty and are supplied later.
+`set_buckets()` replaces all links in one transaction. Similarities must be finite and in [-1, 1].
+Duplicate bucket IDs are rejected. An empty list clears the links.
+`get(id)` returns the article with a buckets list, or None if the article is missing.
+The backend can use SQLite for other queries. Values are bound as SQL parameters.
+
+Use `ArticleInput(db_path="path/to/articles.sqlite3", client=client)` to set the file or AI client.
+Connections are closed after each operation. Invalid input raises ValueError.
+AIError, ArticleProcessingError, and sqlite3 errors keep their original types.
+Generated database files are ignored by Git.
+
+## Article input smoke test
+
+Run from the repository root with a configured NVIDIA key:
+
+```bash
+source .env
+python -B -m integration.smoke_article_input
+python -B -m unittest discover -s test -p 'test_article_input.py' -v
+```
+
+The smoke uses the bundled fictional article by default and makes one real NVIDIA call.
+Use `--input /path/to/article.json` for one article object in the documented input format.
+Direct run: `python -B integration/smoke_article_input.py`.
+Options include --timeout (default 120 seconds) and --max-tokens (default 2048). Retries are off.
+It checks long-input filtering, real article_processing output, SQLite reload, duplicate IDs,
+a sample bucket relation, row count, and database integrity. The sample bucket score is a
+storage test value, not a computed relevance score.
+It prints the stored article as JSON. Review the actual summary and semantic text for quality.
+The database is temporary and is removed after the test. Your database is not changed.
+The runner does not load .env. Exit codes: 0 success, 1 request/database failure,
+2 input/configuration error, 3 invalid model response, 130 cancelled.
+Offline tests mock the API reply while using the real processor and SQLite.
+
 ## Fixed buckets
 
 - Politics
