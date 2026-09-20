@@ -376,6 +376,65 @@ no matches, the ten-ID limit, and empty maps. It does not test model quality.
 It uses a temporary folder and needs no API key, model download, or extra package.
 Exit code 0 means success; 1 means failure.
 
+## Topic clusters
+
+`fuego/topic_clusters.py` runs Euclidean K-means on the full article map.
+It uses the standard library. No model, prompt, or extra package is needed.
+
+```python
+from fuego.map_store import MapStore
+from fuego.topic_clusters import TopicClusters
+
+store = MapStore()
+clusters = TopicClusters(store, k=20)
+result = clusters.update()  # Recompute now.
+centers = result["centers"]
+assignments = result["assignments"]  # Article ID -> zero-based cluster index.
+
+store.add(article_id, vector)
+updated = clusters.update_if_needed()
+last_result = clusters.load()
+```
+
+The backend must call `update_if_needed()` after adding articles or after a batch.
+There is no background worker or automatic hook in MapStore.
+The first check builds the result. Later checks wait for 100 new unique article IDs.
+Duplicate adds do not count. Pending articles are not in the saved assignments yet.
+An explicit `update()` includes them at once. Removing an old article, changing its
+vector, or changing k causes the next check to rebuild immediately.
+
+The default file is `map/clusters/topics.json`. Set directory to change the result folder.
+`load()` returns the last saved snapshot, or None if there is no result.
+Results also include the requested k, iteration count, inertia, and source vector hashes.
+Inertia is the sum of squared Euclidean distances to assigned centers.
+Writes are atomic. Use one writer and one consistent k per result folder.
+Corrupt results raise TopicClustersError; use `update()` to rebuild them.
+Map errors pass through as MapStoreError. Invalid settings raise ValueError.
+
+The default k is 20 and max_iterations is 100. Both must be positive integers.
+Initialization is deterministic: start with the first row, then pick farthest rows.
+Ties keep the first center. Empty groups are removed. Duplicate points or small maps
+can produce fewer than k centers. An empty map produces no centers or assignments.
+Cluster IDs are local to a saved result and may change after an update.
+K-means finds a local solution; it does not guarantee the best possible grouping.
+If it does not converge, it raises TopicClustersError and keeps the old result.
+
+Article vectors are unit vectors. For two unit vectors, squared Euclidean distance
+is 2 minus 2 times cosine similarity. K-means centers are arithmetic means and are
+not normalized. They can even be zero. Do not treat center dot products as cosine
+scores or pass zero centers to map search. Clusters have no generated topic names.
+
+```bash
+python -B -m integration.smoke_topic_clusters
+python -B -m unittest discover -s test -p 'test_topic_clusters.py' -v
+```
+
+Direct run: `python -B integration/smoke_topic_clusters.py`.
+The smoke test uses real map files and the real clustering algorithm in a temporary folder.
+It checks assignments, exact mean centers, inertia 0.4, saved results, the 99/100 update
+boundary, explicit updates, and empty maps. It leaves your map unchanged.
+No dependencies are installed or models downloaded. Exit code 0 means success; 1 means failure.
+
 ## Fixed buckets
 
 - Politics
