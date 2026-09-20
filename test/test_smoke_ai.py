@@ -26,7 +26,7 @@ class SmokeTests(unittest.TestCase):
         self.assertIn("PASS", out)
         self.assertEqual(err, "")
         self.assertEqual(client.call_args.args[0].max_retries, 0)
-        self.assertEqual(client.call_args.args[0].max_tokens, 256)
+        self.assertEqual(client.call_args.args[0].max_tokens, 64)
         self.assertEqual(client.return_value.complete.call_args.args[0][1]["content"], "Reply with OK.")
 
     def test_overrides(self):

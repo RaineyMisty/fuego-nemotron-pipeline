@@ -1,7 +1,8 @@
 # Fuego AI
 
-This version only calls NVIDIA Nemotron.
-The implementation is in `fuego/ai.py`. It has no news processing or storage.
+The AI client in `fuego/ai.py` calls NVIDIA Nemotron.
+The article processor in `fuego/article_processing.py` extracts keywords and a reader summary.
+Neither module stores articles.
 The files in `prompt/` describe future work. They are read-only.
 
 Use Python 3.11 or newer. No extra packages are needed.
@@ -94,3 +95,63 @@ nonempty text and `finish_reason: stop`.
 `fuego/ai.py` is a library. Running that file alone does not send a request.
 The smoke test calls `NemotronClient.complete` through that library.
 The unit tests also check this runner with mocked responses; they do not run the live check.
+
+
+## Process an article
+
+The module has three steps:
+
+1. `build_messages(article, metadata=None)` builds English instructions and input data.
+2. `process_article(article, metadata=None, client=None)` calls `fuego.ai`.
+3. `parse_response(response)` checks the model JSON and returns the result.
+
+```python
+from fuego.article_processing import process_article
+
+result = process_article(article_text, {"source": "News source"})
+print(result["overview"])
+print(result["summary"])
+```
+
+`keywords` contains exactly 20 distinct content words or short phrases.
+`overview` joins these terms with semicolons for later embedding. It is not a second summary.
+`summary` is a short text for a reader. The model uses the article's language.
+Names can include small words, such as "University of Pittsburgh". Standalone articles
+and common English prepositions are rejected as keywords.
+The prompt asks the model to remove ads and keep facts, names, numbers, and uncertainty.
+Metadata is source context. It cannot override article facts or the instructions.
+If there is not enough news for 20 useful terms, the model must report insufficient content.
+The processor never fills missing keywords with invented values.
+
+Input limits: 60,000 article characters and 16,000 serialized metadata characters.
+Metadata must be a JSON object. Nothing is silently truncated.
+Bad input raises `ValueError`. Invalid model output raises `ArticleProcessingError`.
+Transport errors from `fuego.ai` remain `AIError`. There are no extra model retries here.
+Format checks cannot prove that the keywords and summary are factually correct.
+Review the real output, especially names, numbers, missing facts, and ad removal.
+
+## Article smoke test
+
+This uses the real `article_processing` module and the real `ai.py` client.
+There are no mock responses in the runner. It sends the supplied text to NVIDIA.
+
+```bash
+source .env
+python3 -B -m integration.smoke_article_processing --article integration/article_sample.txt --timeout 120
+```
+
+The bundled sample is fictional and has an ad to check that the model removes it.
+To use your own article and optional metadata:
+
+```bash
+python3 -B -m integration.smoke_article_processing --article /path/to/article.txt --metadata /path/to/metadata.json --timeout 120
+```
+
+The article file must contain UTF-8 text, not a URL. Use `--article -` to read stdin.
+You can also run `python3 -B integration/smoke_article_processing.py` with the same options.
+The runner defaults to 2048 output tokens and zero retries. Other AI settings come from the environment.
+It prints the result JSON to stdout and progress to stderr. It writes no files.
+Exit codes: 0 success, 1 API failure, 2 input/configuration error, 3 invalid model result, 130 interrupted.
+`PASS` means a real response met the output contract. It does not prove factual quality.
+
+Run all offline tests with `python3 -B -m unittest discover -s test -v`.
