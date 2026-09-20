@@ -1,13 +1,13 @@
 {
   "schema_version": "fuego-response.v1",
   "request_type": "cluster",
-  "generated_at": "2026-09-20T12:41:29.840000Z",
+  "generated_at": "2026-09-20T13:00:05.326000Z",
   "parameters": {
     "bucket_count": 18,
     "articles_per_bucket": 10
   },
   "stats": {
-    "total_articles_considered": 19,
+    "total_articles_considered": 35,
     "returned_buckets": 18
   },
   "buckets": [

@@ -20,7 +20,6 @@ ROOT = Path(__file__).resolve().parents[1]
 def record():
     return {"Record_ID": "news-1", "Publication_Date": 1789256700000,
             "Source_Name": "News", "Title": "A title", "Article_Link": "https://example.com/news",
-            "Tone": "-4,1,6", "People": "Alice", "Organizations": "Transit", "Themes": "Transport",
             "Article_Text": "A transit agency announced an electric bus pilot."}
 
 
@@ -42,9 +41,14 @@ class ArticleInputTests(unittest.TestCase):
         prepared = prepare_article(original)
         self.assertEqual(prepared["text"], original["Article_Text"])
         self.assertEqual(prepared["fields"]["published_at"], original["Publication_Date"])
-        self.assertEqual(prepared["metadata"]["Tone"], original["Tone"])
+        self.assertEqual(set(prepared["metadata"]), set(original) - {"Article_Text"})
         self.assertNotIn("Article_Text", prepared["metadata"])
         self.assertEqual(original, record())
+
+    def test_removed_fields_are_ignored(self):
+        value = dict(record(), Tone=None, People=[], Organizations={}, Themes=False, Theme="old")
+        prepared = prepare_article(value)
+        self.assertEqual(set(prepared["metadata"]), set(record()) - {"Article_Text"})
 
     def test_real_processing_and_sqlite_round_trip(self):
         self.assertEqual(self.store.ingest(record()), {"status": "stored", "id": "news-1"})
@@ -74,7 +78,7 @@ class ArticleInputTests(unittest.TestCase):
         bad = [None, [], {}, dict(record(), Record_ID=" "), dict(record(), Article_Text=""),
                dict(record(), Publication_Date=True), dict(record(), Publication_Date=-1),
                dict(record(), Publication_Date=2**63), dict(record(), Source_Name=[]),
-               dict(record(), Tone="x"*17000)]
+               dict(record(), Title="x"*17000)]
         for value in bad:
             with self.assertRaises(ValueError):
                 self.store.ingest(value)
@@ -135,13 +139,29 @@ class ArticleInputTests(unittest.TestCase):
 
 
 class SmokeArticleInputTests(unittest.TestCase):
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        self.input = Path(temp.name) / "input.json"
+        self.input.write_text(json.dumps(record()))
+
+    def test_supplied_six_field_sample(self):
+        rows = json.loads((ROOT / "integration/article_input_sample.json").read_text())
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(set(rows[0]), set(record()))
+        with patch("integration.smoke_article_input.NemotronClient") as client, redirect_stdout(io.StringIO()) as out, redirect_stderr(io.StringIO()):
+            self.assertEqual(main([]), 0)
+        self.assertEqual(json.loads(out.getvalue())["status"], "filtered")
+        client.assert_not_called()
+
+
     def test_smoke_real_processing_with_mocked_api(self):
         out, err = io.StringIO(), io.StringIO()
         with patch("integration.smoke_article_input.AIConfig.from_env", return_value=AIConfig(api_key="test-key")), \
              patch("integration.smoke_article_input.NemotronClient") as client, \
              redirect_stdout(out), redirect_stderr(err):
             client.return_value.complete.return_value = reply()
-            self.assertEqual(main([]), 0)
+            self.assertEqual(main(["--input", str(self.input)]), 0)
             client.return_value.complete.assert_called_once()
         self.assertEqual(err.getvalue().count("PASS"), 3)
         self.assertTrue(json.loads(out.getvalue())["semantic_text"])
@@ -151,13 +171,13 @@ class SmokeArticleInputTests(unittest.TestCase):
         with patch("integration.smoke_article_input.AIConfig.from_env", return_value=AIConfig(api_key="test-key")), \
              patch("integration.smoke_article_input.NemotronClient") as client, redirect_stderr(io.StringIO()):
             client.return_value.complete.side_effect = AIError("network")
-            self.assertEqual(main([]), 1)
+            self.assertEqual(main(["--input", str(self.input)]), 1)
             client.return_value.complete.side_effect = None
             client.return_value.complete.return_value = {"choices": []}
-            self.assertEqual(main([]), 3)
+            self.assertEqual(main(["--input", str(self.input)]), 3)
             self.assertEqual(main(["--input", "/missing/input.json"]), 2)
         with patch("integration.smoke_article_input.AIConfig.from_env", side_effect=ValueError()), redirect_stderr(io.StringIO()):
-            self.assertEqual(main([]), 2)
+            self.assertEqual(main(["--input", str(self.input)]), 2)
 
     def test_module_and_script_help(self):
         for command in ([sys.executable, "-B", "-m", "integration.smoke_article_input", "--help"],

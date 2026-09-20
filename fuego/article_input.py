@@ -8,7 +8,7 @@ from fuego import article_processing
 
 MAX_ARTICLE_CHARS = 10000
 DEFAULT_DATABASE = Path(__file__).resolve().parents[1] / "db" / "articles.sqlite3"
-TEXT_FIELDS = ("Source_Name", "Tone", "Title", "Article_Link", "People", "Organizations", "Themes")
+TEXT_FIELDS = ("Source_Name", "Title", "Article_Link")
 
 
 def prepare_article(record):

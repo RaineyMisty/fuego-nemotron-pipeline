@@ -17,23 +17,30 @@ from fuego.article_processing import ArticleProcessingError
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Test article input with real NVIDIA processing and temporary SQLite.")
-    parser.add_argument("--input", type=Path, help="One UTF-8 JSON article object. Default: fictional sample.")
+    parser = argparse.ArgumentParser(description="Test article input with real AI processing and temporary SQLite.")
+    parser.add_argument("--input", type=Path, default=Path(__file__).with_name("article_input_sample.json"),
+                        help="One article object or a one-item list. Default: article_input_sample.json.")
     parser.add_argument("--timeout", type=float, default=30)
     parser.add_argument("--max-tokens", type=int, default=2048)
     args = parser.parse_args(argv)
     try:
-        if args.input:
-            record = json.loads(args.input.read_text(encoding="utf-8"))
-        else:
-            record = {"Record_ID": "smoke-article", "Publication_Date": 1789256700000,
-                      "Source_Name": "Fictional smoke sample", "Title": "Local transit pilot", "Article_Link": "",
-                      "Article_Text": Path(__file__).with_name("article_sample.txt").read_text(encoding="utf-8")}
+        record = json.loads(args.input.read_text(encoding="utf-8"))
+        if isinstance(record, list):
+            if len(record) != 1:
+                raise ValueError("This smoke test needs one article.")
+            record = record[0]
         if prepare_article(record) is None:
-            raise ValueError("The smoke article must not exceed 10000 characters.")
+            with tempfile.TemporaryDirectory(prefix="fuego-article-input-") as directory:
+                store = ArticleInput(Path(directory)/"articles.sqlite3")
+                result = store.ingest(record)
+                if result["status"] != "filtered" or store.get(record["Record_ID"]) is not None:
+                    raise ValueError("Long input filter failed.")
+            print("PASS input/SQLite: long article filtered; no AI call or stored article.", file=sys.stderr)
+            print(json.dumps(result))
+            return 0
         config = replace(AIConfig.from_env(), timeout=args.timeout, max_tokens=args.max_tokens, max_retries=0)
     except (OSError, ValueError, RecursionError):
-        print("FAIL [input/config]: check the JSON article and exported NVIDIA settings.", file=sys.stderr)
+        print("FAIL [input/config]: check the JSON article and exported AI settings.", file=sys.stderr)
         return 2
     try:
         with tempfile.TemporaryDirectory(prefix="fuego-article-input-") as directory:

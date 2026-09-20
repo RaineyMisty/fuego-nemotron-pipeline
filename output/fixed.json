@@ -1,13 +1,13 @@
 {
   "schema_version": "fuego-response.v1",
   "request_type": "fixed",
-  "generated_at": "2026-09-20T12:41:29.829000Z",
+  "generated_at": "2026-09-20T12:59:50.632000Z",
   "parameters": {
     "bucket_count": 20,
     "articles_per_bucket": 10
   },
   "stats": {
-    "total_articles_considered": 19,
+    "total_articles_considered": 35,
     "returned_buckets": 20
   },
   "buckets": [
@@ -32,21 +32,26 @@
     {
       "id": "bucket-world-affairs",
       "type": "fixed",
-      "name": "Bill Maher's Critique of the Left's Shift in Post-9/11 World",
+      "name": "Shift from Support to Tolerance in the Post-9/11 World",
       "description": "international relations; diplomacy; foreign policy; treaties; armed conflict; peace talks; humanitarian aid",
-      "summary": "Bill Maher's critique of the left's role in the post-9/11 world highlights how they have shifted from supporting the West to supporting a system that tolerates terrorism, while ignoring progress in areas like Gaza. The article shows the left's moral confusion and the broader implications of their actions.",
+      "summary": "Bill Maher's critique highlights how the left has shifted from supporting the West to supporting a system that tolerates terrorism, while ignoring progress in areas like Gaza. The article shows the left's moral confusion and the broader implications of their actions. The U.S. following the midterm elections faces ongoing challenges, including immigration policies, economic issues, and conflicts in Iran and the Persian Gulf. The article points out three attitudes that worry Democrats and progressives: complacency, defeatism, and cynicism, emphasizing the need to work hard to secure both chambers of Congress.",
       "members": [
         {
           "article_id": "20260912233000-591",
           "similarity": 0.44243911663215635,
           "rank": 1
+        },
+        {
+          "article_id": "20260919211500-317",
+          "similarity": 0.4230259831889375,
+          "rank": 2
         }
       ],
       "activity": {
-        "current_count": 0,
+        "current_count": 1,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -56,15 +61,21 @@
     {
       "id": "bucket-economy",
       "type": "fixed",
-      "name": "Economy",
+      "name": "U.S. Leadership and Policy Challenges",
       "description": "inflation; employment; economic growth; interest rates; central banks; trade; recession",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "The article discusses the current state of the U.S. following the midterm elections, highlighting challenges faced by Trump's administration, including his immigration policies, economic issues, and conflicts in Iran and the Persian Gulf. It also points out ongoing problems with the U.S. economy and trade with Canada. The article warns of three attitudes that worry Democrats and progressives: complacency, defeatism, and cynicism, emphasizing the need to work hard to secure both chambers of Congress.",
+      "members": [
+        {
+          "article_id": "20260919211500-317",
+          "similarity": 0.4942744987529511,
+          "rank": 1
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 1,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -188,15 +199,21 @@
     {
       "id": "bucket-education",
       "type": "fixed",
-      "name": "Education",
+      "name": "Islamophobia and Indoctrination in Education",
       "description": "schools; universities; students; teachers; tuition; curriculum; scholarships; campus life",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "The article discusses how schools in Virginia and other places are teaching students not to center the 9/11 attacks or the individuals involved, focusing on Islamophobia and the teaching of extremist ideologies. The curriculum is seen as a radical attempt to indoctrinate students, leading to systemic issues and long-term consequences. The article highlights the ongoing efforts to address these issues through education and the broader societal context of indoctrination.",
+      "members": [
+        {
+          "article_id": "20260919213000-551",
+          "similarity": 0.41372572435740906,
+          "rank": 1
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 1,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -206,15 +223,21 @@
     {
       "id": "bucket-crime-justice",
       "type": "fixed",
-      "name": "Crime and Justice",
+      "name": "FBI Director's Role in Political Manipulation",
       "description": "crime; policing; criminal investigations; courts; trials; sentencing; justice system",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "The article discusses how the FBI Director, Kash Patel, is seen as a problematic figure in the administration, with his unconfirmed appointment and lack of legal expertise. The focus is on the ongoing efforts to unmake democracy through the cancellation of prominent figures, including those involved in the fake electors and cancel culture schemes. The article also highlights the broader implications of these actions and the potential for them to influence political outcomes.",
+      "members": [
+        {
+          "article_id": "20260919211500-379",
+          "similarity": 0.4252198012621769,
+          "rank": 1
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 1,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -278,31 +301,46 @@
     {
       "id": "bucket-entertainment",
       "type": "fixed",
-      "name": "Dysfunctional Love Story Behind Pizza Bomber Case at Toronto International Film Festival",
+      "name": "Ed Sheeran's tour cancellation and reorganization",
       "description": "movies; television; music; celebrities; concerts; streaming shows; film releases",
-      "summary": "Courteney Cox's thriller 'Evil Genius' explores the convoluted plot of a pizza bomber case involving Brian Wells, a man with bipolar disorder who was convicted of a robbery. The film delves into the emotional and tragic elements of the story, including the love story between Marjorie Diehl-Armstrong and Bill Rothstein. The movie is set at the Toronto International Film Festival. The article also highlights the film's connection to a 2018 Netflix documentary series and features Academy Award winner Patricia Arquette and 'Stranger Things' actor David Harbour. Bill Maher's critique of the left's role in the post-9/11 world, while showing moral confusion, is presented in another article. However, the strongest shared topic supported by the articles is the portrayal of a dysfunctional love story centered around a pizza bomber case.",
+      "summary": "Ed Sheeran's tour has been canceled due to pro-Palestinian protests, with his supporting acts and band pulling out. He will perform at Lincoln Financial Field, marking the first of his Loop Tour since Macklemore's removal. The event is pushed back from 5:30 p.m. to 8 p.m. ET, and ticket prices have dropped. The article highlights the reasons behind the changes, including the removal of Macklemore and the impact on fans and the music industry.",
       "members": [
+        {
+          "article_id": "20260919204500-75",
+          "similarity": 0.5537142330992413,
+          "rank": 1
+        },
+        {
+          "article_id": "20260919204500-139",
+          "similarity": 0.5268048121570093,
+          "rank": 2
+        },
+        {
+          "article_id": "20260919213000-144",
+          "similarity": 0.5076330691396397,
+          "rank": 3
+        },
         {
           "article_id": "20260912233000-255",
           "similarity": 0.41823204534132763,
-          "rank": 1
+          "rank": 4
         },
         {
           "article_id": "20260912233000-171",
           "similarity": 0.4056153586463224,
-          "rank": 2
+          "rank": 5
         },
         {
           "article_id": "20260912233000-591",
           "similarity": 0.4054477232702524,
-          "rank": 3
+          "rank": 6
         }
       ],
       "activity": {
-        "current_count": 0,
+        "current_count": 3,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -312,15 +350,21 @@
     {
       "id": "bucket-arts-culture",
       "type": "fixed",
-      "name": "Arts and Culture",
+      "name": "Legal battles over Nazi-looted art in Los Angeles and Auschwitz museums",
       "description": "museums; visual arts; literature; theater; cultural heritage; exhibitions; books",
-      "summary": "No matching articles.",
-      "members": [],
+      "summary": "New laws in California and Congress allow Jewish heirs to claim Nazi-looted art from museums, sparking legal battles over stolen artworks. The lawsuits involve prominent museums and Jewish families, with the issue of ownership and historical significance being central. The legal framework is being strengthened to ensure fair recovery of these artworks, while museums and advocates hope cases will be heard on their merits.",
+      "members": [
+        {
+          "article_id": "20260919213000-56",
+          "similarity": 0.4809114331888378,
+          "rank": 1
+        }
+      ],
       "activity": {
-        "current_count": 0,
+        "current_count": 1,
         "previous_count": 0,
         "change_ratio": null,
-        "status": "stable"
+        "status": "new"
       },
       "direction": {
         "description": "Insufficient temporal data.",
@@ -430,6 +474,33 @@
       ]
     },
     {
+      "id": "20260919211500-317",
+      "title": "We are the leaders we've been waiting for",
+      "url": "https://www.vindy.com/opinion/editorials/2026/09/we-are-the-leaders-weve-been-waiting-for/",
+      "source": "vindy.com",
+      "summary": "The article discusses the current state of the U.S. following the midterm elections, highlighting the challenges faced by Trump's administration, including his policies on immigration, economic issues, and the resulting conflicts in Iran and the Persian Gulf. It also points out the ongoing issues with the U.S. economy and the trade relationship with Canada. The article warns of three attitudes that worry Democrats and progressives: complacency, defeatism, and cynicism, emphasizing the need to work hard to secure both chambers of Congress.",
+      "semantic_text": "midterm elections; unpopular president; self-inflicted problems; war in Iran; oil prices; trade war; deportations; cynicism",
+      "published_at": "2026-09-19T21:15:00Z",
+      "metadata": {
+        "record_id": "20260919211500-317",
+        "publication_date_raw": 1789852500000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-economy",
+          "similarity": 0.4942744987529511
+        },
+        {
+          "bucket_id": "bucket-world-affairs",
+          "similarity": 0.4230259831889375
+        }
+      ]
+    },
+    {
       "id": "20260912233000-567",
       "title": "Another View: Don't let Washington confuse you about vaccines. Talk with your pediatrician &#x2013; Marin Independent Journal",
       "url": "https://www.marinij.com/2026/09/12/another-view-dont-let-washington-confuse-you-about-vaccines-talk-with-your-pediatrician/",
@@ -449,6 +520,121 @@
         {
           "bucket_id": "bucket-health",
           "similarity": 0.49361831081915314
+        }
+      ]
+    },
+    {
+      "id": "20260919213000-551",
+      "title": "Shhh! Whatever you do, don't center the murderous extremists",
+      "url": "https://www.israelnationalnews.com/news/433397",
+      "source": "israelnationalnews.com",
+      "summary": "The article discusses how schools in Virginia and other places are teaching students not to center the 9/11 attacks or the individuals involved, focusing on Islamophobia and the teaching of extremist ideologies. The curriculum is seen as a radical attempt to indoctrinate students, leading to systemic issues and long-term consequences. The article highlights the ongoing efforts to address these issues through education and the broader societal context of indoctrination.",
+      "semantic_text": "9/11 attacks; Islamophobia; American-Israeli; school curriculum; post-9/11",
+      "published_at": "2026-09-19T21:30:00Z",
+      "metadata": {
+        "record_id": "20260919213000-551",
+        "publication_date_raw": 1789853400000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-education",
+          "similarity": 0.41372572435740906
+        }
+      ]
+    },
+    {
+      "id": "20260919211500-379",
+      "title": "FBI at the polls? And another Jan. 6 rioter is up to no good.",
+      "url": "https://www.dailykos.com/stories/2026/9/19/800100103/series/fbi-at-the-polls-and-another-jan-6-rioter-is-up-to-no-good/",
+      "source": "dailykos.com",
+      "summary": "The article discusses how the FBI Director, Kash Patel, is seen as a problematic figure in the administration, with his unconfirmed appointment and lack of legal expertise. The focus is on the ongoing efforts to unmake democracy through the cancellation of prominent figures, including those involved in the fake electors and cancel culture schemes. The article also highlights the broader implications of these actions and the potential for them to influence political outcomes.",
+      "semantic_text": "FBI Director; election crimes; unconfirmed; cancel culture; rioter",
+      "published_at": "2026-09-19T21:15:00Z",
+      "metadata": {
+        "record_id": "20260919211500-379",
+        "publication_date_raw": 1789852500000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-crime-justice",
+          "similarity": 0.4252198012621769
+        }
+      ]
+    },
+    {
+      "id": "20260919204500-75",
+      "title": "Every act on Ed Sheeran's tour has quit. His next show is tomorrow.",
+      "url": "https://www.yahoo.com/news/us/article/every-act-on-ed-sheerans-tour-has-quit-his-next-show-is-tomorrow-174613425.html",
+      "source": "yahoo.com",
+      "summary": "Ed Sheeran's tour has been canceled due to pro-Palestinian protests, with his supporting acts and band pulling out. He will perform at Lincoln Financial Field, marking the first of his Loop Tour since Macklemore's removal. The event is pushed back from 5:30 p.m. to 8 p.m. ET, and ticket prices have dropped. The article highlights the reasons behind the changes, including the removal of Macklemore and the impact on fans and the music industry.",
+      "semantic_text": "Ed Sheeran; pro-Palestinian; tour; Lincoln Financial Field; Macklemore; supporting acts; refund; ticket",
+      "published_at": "2026-09-19T20:45:00Z",
+      "metadata": {
+        "record_id": "20260919204500-75",
+        "publication_date_raw": 1789850700000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.5537142330992413
+        }
+      ]
+    },
+    {
+      "id": "20260919204500-139",
+      "title": "Ed Sheeran to resume tour after acts withdraw over Macklemore comments",
+      "url": "https://www.fox13seattle.com/news/ed-sheeran-concert-philadelphia",
+      "source": "fox13seattle.com",
+      "summary": "Ed Sheeran is expected to resume his tour after supporting acts withdrew in solidarity with Macklemore, who was replaced by a band and a singer. The tour, which was the highest-grossing concert in the world, has faced challenges due to the withdrawal of key performers. Pro-Palestinian organizations plan to protest outside the show, and there are ongoing discussions about the financial and political aspects of the events.",
+      "semantic_text": "Ed Sheeran; tour; Macklemore; pro-Palestinian; Lincoln Financial Field; supporting acts",
+      "published_at": "2026-09-19T20:45:00Z",
+      "metadata": {
+        "record_id": "20260919204500-139",
+        "publication_date_raw": 1789850700000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.5268048121570093
+        }
+      ]
+    },
+    {
+      "id": "20260919213000-144",
+      "title": "Sheeran has not commented publicly since losing the artists' support",
+      "url": "https://www.wsaw.com/2026/09/19/ed-sheeran-return-stage-1st-time-since-macklemore-was-cut-other-acts-withdrew/",
+      "source": "wsaw.com",
+      "summary": "Ed Sheeran is set to return to the stage for the first time since Macklemore was dropped after pro-Palestinian comments. Supporting acts withdrew in solidarity with Macklemore, who was replaced by Lukas Graham and Aaron Rowe. Finneas and Billie Eilish are also set to withdraw. Sheeran has performed solo for several shows, and his company owns a stadium where his tour was scheduled. The show comes after a week marked by Macklemore's drop and a conflict over Palestinian issues. He has not commented publicly since losing support.",
+      "semantic_text": "Ed Sheeran; Macklemore; pro-Palestinian; Lincoln Financial Field; tour; supporting acts",
+      "published_at": "2026-09-19T21:30:00Z",
+      "metadata": {
+        "record_id": "20260919213000-144",
+        "publication_date_raw": 1789853400000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.5076330691396397
         }
       ]
     },
@@ -495,6 +681,29 @@
         {
           "bucket_id": "bucket-entertainment",
           "similarity": 0.4056153586463224
+        }
+      ]
+    },
+    {
+      "id": "20260919213000-56",
+      "title": "New laws trigger a fresh legal fight over Nazi-looted art in Los Angeles and Auschwitz museums",
+      "url": "https://www.wlwt.com/article/nazi-art-los-angeles-auschwitz-museums/73802084",
+      "source": "wlwt.com",
+      "summary": "New laws in California and Congress allow Jewish heirs to claim Nazi-looted art from museums, sparking legal battles over stolen artworks. The lawsuits involve prominent museums and Jewish families, with the issue of ownership and historical significance being central. The legal framework is being strengthened to ensure fair recovery of these artworks, while museums and advocates hope cases will be heard on their merits.",
+      "semantic_text": "Nazi-looted art; Jewish heirs; museums; legal fight",
+      "published_at": "2026-09-19T21:30:00Z",
+      "metadata": {
+        "record_id": "20260919213000-56",
+        "publication_date_raw": 1789853400000,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-arts-culture",
+          "similarity": 0.4809114331888378
         }
       ]
     }
