@@ -116,7 +116,7 @@ def main(argv=None):
     parser.add_argument("--local-files-only", action="store_true")
     parser.add_argument("--min-score", type=float, default=0.4)
     parser.add_argument("--clusters", type=int, default=20)
-    parser.add_argument("--attempts", type=int, default=3)
+    parser.add_argument("--attempts", type=int, choices=(5,), default=5, help="Fixed at 5: one attempt plus four retries.")
     commands = parser.add_subparsers(dest="command", required=True)
     ingest = commands.add_parser("ingest", help="Queue a JSON article list. Processing is separate.")
     ingest.add_argument("input", type=Path)
@@ -145,7 +145,8 @@ def main(argv=None):
                 pipeline.retry_failed()
             report = pipeline.run_pending()
             print(serialize_output(report))
-            return 1 if any(j["status"] == "failed" for j in report["jobs"]) else 0
+            return 1 if (report["summary"]["failed"] or report["refresh_status"] == "failed"
+                         or report["synthesis"]["failed_buckets"]) else 0
         elif args.command == "refresh":
             pipeline.refresh(force_clusters=args.force_clusters, as_of=args.as_of)
             print("Prepared feeds refreshed.")

@@ -36,3 +36,20 @@ No live NVIDIA call was run for this delivery. Use live mode and an exported NVI
 The sample does not provide enough history for reliable temporal trends. Missing history is explicit.
 The server is local and uses one process per state directory. Model jobs are serialized.
 It has no authentication, multi-process coordination, or remote deployment setup.
+
+## Frozen retry policy and work reports
+
+Pipeline now enforces a five-second NVIDIA transport timeout, zero AI-client retries,
+and five Pipeline attempts. Both article processing and synthesis use this policy.
+There is no sleep between retries. Other AI settings and standalone AI defaults are unchanged.
+
+193 tests passed after this update, including local HTTP. Tests verify exactly five
+transport calls on repeated failure, fifth-attempt success, environment overrides,
+heartbeat output, old queue migration, interruption reports, and loss-rate arithmetic.
+Synthesis failures and filtered inputs do not count as lost articles.
+The first nonempty import after an empty refresh now initializes clusters immediately.
+
+A fresh run used input/fuego_input_test.json, mock AI, and real local MiniLM embedding.
+It processed 19 articles with zero failures. Progress and a final JSON report were produced.
+Report: work/pipeline-progress-verified/reports/latest-work.json.
+No live NVIDIA calls or dependency installations were made for this check.

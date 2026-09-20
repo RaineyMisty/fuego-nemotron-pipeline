@@ -14,7 +14,7 @@ source .venv/bin/activate
 python -B -m integration.smoke_pipeline --mock-ai --local-files-only
 ```
 
-The actual supplied file is `input/fuedo_input_test.json` (spelled fuedo). It has 19 records.
+The actual supplied file is `input/fuego_input_test.json`. It has 19 records.
 The smoke uses that file by default. Use --input to choose another JSON list.
 It writes `output/pipeline-smoke/fixed.json`, `cluster.json`, `query.json`, and `jobs.json`.
 Its durable state is in `work/pipeline-delivery/`. SQLite files are under db/ and vectors under map/.
@@ -38,7 +38,7 @@ Use a different state directory for live and mock AI. The service rejects mixed 
 Global flags go before the command:
 
 ```bash
-python -B -m fuego --mock-ai --local-files-only ingest input/fuedo_input_test.json
+python -B -m fuego --mock-ai --local-files-only ingest input/fuego_input_test.json
 python -B -m fuego --mock-ai --local-files-only work
 python -B -m fuego --mock-ai status
 python -B -m fuego --mock-ai --local-files-only refresh --force-clusters
@@ -50,13 +50,49 @@ python -B -m fuego --mock-ai --local-files-only export query --topic "New York K
 These commands use `work/pipeline-demo/`. Set --state to use another directory.
 Use `work --retry-failed` to retry failed jobs. Inputs remain in SQLite until success or filtering.
 Completed records clear raw text from the queue. Metadata remains available for output.
-Article processing failures and short keyword outputs are retried, with three job attempts by default.
-The AI client's own bounded transport retries still apply. Set --attempts to change the job budget.
+Pipeline retry settings are fixed: NVIDIA_TIMEOUT=5, NVIDIA_MAX_RETRIES=0, and attempts=5.
+The code enforces these values even if the environment has different timeout or retry values.
+Pipeline is the only retry owner: one initial call plus at most four retries, with no retry sleep.
+This applies to article processing and topic synthesis. --attempts accepts only 5.
+Standalone AI clients keep their own settings; only Pipeline enforces this policy.
 A vector failure can be retried without processing the article again.
 Duplicate Record_ID values keep the first queued record. Correct a bad queued input in a new state/import;
 this CLI does not overwrite existing records silently. The original input file is never changed.
 Publication_Date strings of digits become integer milliseconds; null optional text fields become empty strings.
 Other invalid records remain failed jobs with their payload and error type.
+
+During work, progress goes to stderr and is flushed immediately. It shows the article ID,
+position in the batch, stage, attempt out of five, result, and elapsed time.
+A heartbeat prints the active stage every five seconds during long work.
+Embedding, K-means, bucket processing, and cache hits are visible too.
+The five-second timeout applies to NVIDIA transport I/O, not the whole work command or embedding.
+
+After five failed attempts, the article is marked failed (LOST in the log). Its raw input stays
+in the job queue. No original input file is deleted. Use work --retry-failed to try again.
+At the end, a human-readable summary goes to stderr and the full JSON report goes to stdout.
+Reports are also saved under the state directory:
+
+- reports/work-<UTC timestamp>.json keeps each run.
+- reports/latest-work.json holds the latest run.
+
+The report has run_summary for this run and summary for all unique queued article IDs.
+The loss rate is failed / (done + failed). Long articles filtered by policy are excluded.
+Pending articles are listed separately, including after Ctrl+C. A zero denominator gives zero.
+failed_articles lists IDs, attempts, error types, and failure stages. Synthesis failures are
+reported separately and do not count as lost articles. Refresh errors still produce a report.
+work exits with code 1 if articles, synthesis, or refresh failed; Ctrl+C exits with 130.
+
+For the supplied input, run live AI processing with progress and a final report:
+
+```bash
+source .env
+python -B -m fuego --local-files-only ingest input/fuego_input_test.json
+python -B -m fuego --local-files-only work --retry-failed
+```
+
+The default live report is work/pipeline-live/reports/latest-work.json.
+When using --state, use the same path for ingest and work. Add --mock-ai to both commands
+only when testing fake AI replies. The input file is input/fuego_input_test.json.
 
 Fixed feeds are prepared after offline work. Synthesis results are reused for unchanged source summaries.
 Clusters rebuild on first use, after 100 new articles, or with --force-clusters.
@@ -86,7 +122,7 @@ Do not expose it publicly without adding deployment controls.
 
 ```bash
 curl http://127.0.0.1:8000/health
-curl -H 'Content-Type: application/json' --data-binary @input/fuedo_input_test.json http://127.0.0.1:8000/ingest
+curl -H 'Content-Type: application/json' --data-binary @input/fuego_input_test.json http://127.0.0.1:8000/ingest
 curl http://127.0.0.1:8000/fixed
 curl -H 'Content-Type: application/json' -d '{"topic":"New York Knicks basketball"}' http://127.0.0.1:8000/query
 ```
@@ -101,12 +137,12 @@ Failed jobs need an explicit retry. Stop the server before using CLI maintenance
 
 ```bash
 source .env
-python -B -m fuego --local-files-only ingest input/fuedo_input_test.json
+python -B -m fuego --local-files-only ingest input/fuego_input_test.json
 python -B -m fuego --local-files-only work
 python -B -m fuego --local-files-only serve
 ```
 
-Live mode uses `work/pipeline-live/` and the existing NVIDIA settings.
+Live mode uses `work/pipeline-live/`. Pipeline fixes timeout to 5 seconds and client retries to zero; other NVIDIA settings still apply.
 No key is needed just to enqueue or inspect jobs. Processing and synthesis need a key.
 Use --model-cache to select your cached model folder. Omit --local-files-only to allow model downloads.
 No packages are installed automatically. The delivered run used mock AI, not a live NVIDIA request.
@@ -174,6 +210,8 @@ The caller handles truncated answers, refusals, and any task-specific output for
 Only text messages with system, user, or assistant roles are supported. Streaming is off.
 
 ## Settings
+
+These defaults apply to standalone AI calls. Pipeline overrides timeout to 5 seconds and retries to zero.
 
 | Variable | Default |
 | --- | --- |

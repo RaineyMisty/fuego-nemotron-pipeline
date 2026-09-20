@@ -12,7 +12,8 @@ A lock serializes model work and state updates inside one process. Run one proce
 
 1. Enqueue each input record by Record_ID. Keep raw input until processing succeeds.
 2. Normalize CSV-style date strings and null text fields at the boundary.
-3. Use ArticleInput and article_processing. Retry API and model-output failures with a bounded job budget.
+3. Use ArticleInput and article_processing. Retry API and model-output failures at most five times total. Pipeline alone owns retries.
+   NVIDIA timeout is fixed at five seconds and client retries at zero. No retry sleeps are added.
 4. Embed semantic_text. Add to MapStore. Retry unfinished jobs without repeating successful article processing.
 5. Keep metadata separately for output. Clear successful raw input from the queue.
 6. Run the cluster update check. A full update can be requested explicitly.
@@ -49,3 +50,12 @@ mock_query supplies a test topic only when a request omits its topic.
 Embedding stays real in the delivered input-file smoke run. Unit tests inject small deterministic vectors.
 State records the model and mock mode so a live process cannot reuse mock article results by accident.
 No dependencies are installed by this task. No prompt files are changed.
+
+## Work progress and reports
+
+Work prints each article, stage, attempt, failure, and completion to stderr with immediate flushing.
+A five-second heartbeat covers long model and local computation steps.
+Each run writes a timestamped JSON report and reports/latest-work.json in its state directory.
+Reports separate article failures, filtered inputs, pending work, synthesis failures, and refresh failures.
+Loss rate is failed / (done + failed); filtered and pending records are excluded.
+Failed raw inputs remain retryable. An interrupted run also saves its partial report.

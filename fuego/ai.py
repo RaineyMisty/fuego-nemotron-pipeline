@@ -47,7 +47,7 @@ class AIConfig:
             raise ValueError("enable_thinking must be a boolean.")
 
     @classmethod
-    def from_env(cls):
+    def from_env(cls, *, timeout=None, max_retries=None):
         try:
             thinking = os.environ.get("NVIDIA_ENABLE_THINKING", "false").lower()
             if thinking not in ("true", "false"):
@@ -55,11 +55,11 @@ class AIConfig:
             return cls(
                 api_key=os.environ.get("NVIDIA_API_KEY", ""),
                 model=os.environ.get("NVIDIA_MODEL", DEFAULT_MODEL),
-                timeout=float(os.environ.get("NVIDIA_TIMEOUT", "20")),
+                timeout=float(os.environ.get("NVIDIA_TIMEOUT", "20")) if timeout is None else timeout,
                 max_tokens=int(os.environ.get("NVIDIA_MAX_TOKENS", "16384")),
                 temperature=float(os.environ.get("NVIDIA_TEMPERATURE", "0")),
                 enable_thinking=thinking == "true",
-                max_retries=int(os.environ.get("NVIDIA_MAX_RETRIES", "2")),
+                max_retries=int(os.environ.get("NVIDIA_MAX_RETRIES", "2")) if max_retries is None else max_retries,
             )
         except ValueError:
             raise ValueError("Invalid NVIDIA configuration. Check the API key and settings.") from None

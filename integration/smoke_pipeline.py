@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Run the full pipeline and write three JSON responses.")
-    parser.add_argument("--input", type=Path, default=ROOT/"input"/"fuedo_input_test.json")
+    parser.add_argument("--input", type=Path, default=ROOT/"input"/"fuego_input_test.json")
     parser.add_argument("--state", type=Path, default=ROOT/"work"/"pipeline-delivery")
     parser.add_argument("--output", type=Path, default=ROOT/"output"/"pipeline-smoke")
     parser.add_argument("--mock-ai", action="store_true")

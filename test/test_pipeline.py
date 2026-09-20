@@ -29,7 +29,7 @@ class PipelineTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.config = PipelineConfig(Path(self.temp.name), mock_ai=True, mock_query="solar", attempts=2)
+        self.config = PipelineConfig(Path(self.temp.name), mock_ai=True, mock_query="solar", attempts=5)
         self.pipeline = Pipeline(self.config, embedder=TinyEmbedder())
 
     def process(self, records=None):
