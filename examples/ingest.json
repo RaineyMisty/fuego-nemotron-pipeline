@@ -1,6 +1,0 @@
-{
-  "articles": [
-    {"id": "demo-ai", "title": "Demo: AI workshop", "url": "https://example.com/demo-ai", "source": "Fictional demo source", "published_at": "2026-09-19T12:00:00Z", "text": "In this fictional demo, a Pittsburgh university opens registration for an AI workshop on September 21."},
-    {"id": "demo-robots", "title": "Demo: robot event", "url": "https://example.com/demo-robots", "source": "Fictional demo source", "published_at": "2026-09-19T13:00:00Z", "text": "In this fictional demo, a Pittsburgh school hosts a robotics event on September 23."}
-  ]
-}

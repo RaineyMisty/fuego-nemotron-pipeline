@@ -1,5 +1,5 @@
-"""Store news schemes and create digests with NVIDIA Nemotron."""
+"""NVIDIA Nemotron API access."""
 
-from .workflow import Workflow
+from .ai import AIConfig, AIError, NemotronClient
 
-__all__ = ["Workflow"]
+__all__ = ["AIConfig", "AIError", "NemotronClient"]
