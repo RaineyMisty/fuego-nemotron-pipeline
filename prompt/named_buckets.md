@@ -23,3 +23,32 @@
 > 找到top10只是一般情况。
 - 如果整个空间都没有10篇文章，也不用硬找，有多少给多少。
 - 在空间质量很差的时候，设定阈值，比如说相关性只有0.3的东西就不需要硬凑数了。
+
+## 测试
+```{bash}
+python -B -m integration.smoke_named_buckets
+python -B -m unittest discover -s test -p 'test_named_buckets.py' -v
+```
+
+## Fixed buckets
+
+- Politics
+- World Affairs
+- Economy
+- Business
+- Technology
+- Science
+- Health
+- Environment
+- Energy
+- Education
+- Crime and Justice
+- Transportation
+- Housing
+- Sports
+- Entertainment
+- Arts and Culture
+- Gaming
+- Food
+- Travel
+- Weather

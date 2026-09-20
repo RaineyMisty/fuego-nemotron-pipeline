@@ -280,3 +280,75 @@ It checks disk reload, duplicate IDs, matrix values, and single and batch scores
 Expected scores are 1, 0.707107, and 0. It prints five PASS lines.
 It uses a temporary folder and removes it when done. Your map is not changed.
 No API key, model download, or extra package is needed. Exit code 0 means success; 1 means failure.
+
+## Named buckets
+
+`fuego/named_buckets.py` finds articles for 20 fixed news topics.
+The static definitions are in `fuego/bucket_definitions.py`.
+Each short English prototype is embedded once with the same MiniLM model as articles.
+These are topic descriptions, not LLM instructions. No Nemotron call is needed.
+
+```python
+from fuego.embedding import Embedder
+from fuego.map_store import MapStore
+from fuego.named_buckets import NamedBuckets
+
+buckets = NamedBuckets(
+    MapStore(),
+    embedder=Embedder(cache_folder="work/onnx-models", local_files_only=True),
+)
+definitions = buckets.definitions()
+article_ids_by_bucket = buckets.query(min_score=0.4)
+```
+
+Use your existing model cache folder. The default Embedder can download the model on first use.
+`query()` uses one map batch query and returns `{bucket_id: [article_id, ...]}`.
+Each list has at most ten IDs, sorted by cosine score. Scores below min_score are dropped.
+The default min_score is 0.4. This is a starting value, not a measured quality threshold.
+A score equal to the threshold is included. One article can appear in several buckets.
+Empty maps return 20 empty lists without loading the model. Small maps return fewer IDs.
+Topics cover different news areas, but their real semantic separation is not guaranteed.
+
+`load_vectors()` loads or builds the 20 unit vectors. `load_vectors(rebuild=True)` rebuilds them.
+The default cache is `map/buckets/vectors.json`. Set cache_directory to use another folder.
+The cache key includes topic definitions, model name, backend, dimensions, and format version.
+Missing, stale, or invalid caches are rebuilt. Reload the object after editing static definitions.
+Rebuild the cache and article map together if you change the embedding model or its behavior.
+Map files must use the same model; their format does not record model identity.
+Use one cache writer at a time. Embedding and map errors keep their original error types.
+Invalid bucket vectors or cache write failures raise NamedBucketsError.
+
+```bash
+python -B -m integration.smoke_named_buckets
+python -B -m unittest discover -s test -p 'test_named_buckets.py' -v
+```
+
+Direct run: `python -B integration/smoke_named_buckets.py`.
+The smoke test uses real map files and queries with known sample vectors.
+It checks cosine scores, ranking, filtering, the ten-ID limit, cache reload, and empty maps.
+Only the embedder is replaced with fixed vectors. This does not test real model quality.
+It uses a temporary folder, needs no extra packages, and does not change your map.
+Exit code 0 means success; 1 means failure.
+
+## Fixed buckets
+
+- Politics
+- World Affairs
+- Economy
+- Business
+- Technology
+- Science
+- Health
+- Environment
+- Energy
+- Education
+- Crime and Justice
+- Transportation
+- Housing
+- Sports
+- Entertainment
+- Arts and Culture
+- Gaming
+- Food
+- Travel
+- Weather
