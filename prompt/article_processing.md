@@ -26,6 +26,12 @@ python3 -B -m integration.smoke_article_processing \
   --article integration/article_sample.txt \
   --timeout 20
 ```
+```
+export AI_PROVIDER=ollama
+export OLLAMA_MODEL=qwen3:0.6b
+
+python -B -m integration.smoke_article_processing
+```
 
 ## 后续改进
 - `article_processing`的第100行有一个判断是关于输出的key数量是否是20个，我改成了至少是20个，但是实际上这样写还是不太好。同时如果小于20个要重新跑，这个在最后的逻辑里面要考虑到。

@@ -91,13 +91,23 @@ class Pipeline:
         self.root = Path(config.state_dir)
         self.lock = threading.RLock()
         self.client = client if client is not None else (MockAI() if config.mock_ai else None)
+        self._ai_config = None
+        self.ai_timeout = AI_TIMEOUT
         if isinstance(self.client, NemotronClient):
-            self.client.config = replace(self.client.config, timeout=AI_TIMEOUT, max_retries=0)
+            timeout = AI_TIMEOUT if self.client.config.provider == "nvidia" else self.client.config.timeout
+            self.client.config = replace(self.client.config, timeout=timeout, max_retries=0)
+            self._ai_config = self.client.config
+        elif client is None and os.environ.get("AI_PROVIDER", "nvidia").strip().lower() == "ollama":
+            self._ai_config = AIConfig.from_env(max_retries=0)
+        if self._ai_config is not None:
+            self.ai_timeout = self._ai_config.timeout
         self._stage = "idle"
         self._synthesis_events = []
         self._synthesis_calls = 0
         self._collect_synthesis = False
         self.ai_model = getattr(getattr(client, "config", None), "model", os.environ.get("NVIDIA_MODEL", DEFAULT_MODEL))
+        if self._ai_config is not None:
+            self.ai_model = self._ai_config.model
         self.embedder = embedder if embedder is not None else Embedder(
             cache_folder=config.model_cache, local_files_only=config.local_files_only)
         self.store = ArticleInput(self.root/"db"/"articles.sqlite3", client=self.client)
@@ -118,10 +128,14 @@ class Pipeline:
             columns = {row[1] for row in db.execute("PRAGMA table_info(jobs)")}
             if "error_stage" not in columns:
                 db.execute("ALTER TABLE jobs ADD COLUMN error_stage TEXT")
-            signature = json.dumps({"embedding": MODEL_NAME, "backend": "fastembed-onnxruntime", "mock_ai": config.mock_ai, "ai_model": self.ai_model}, sort_keys=True)
+            identity = {"embedding": MODEL_NAME, "backend": "fastembed-onnxruntime",
+                        "mock_ai": config.mock_ai, "ai_model": self.ai_model}
+            if self._ai_config is not None and self._ai_config.provider == "ollama":
+                identity.update(provider="ollama", endpoint=self._ai_config.endpoint)
+            signature = json.dumps(identity, sort_keys=True)
             old = db.execute("SELECT value FROM settings WHERE key='signature'").fetchone()
             if old and old[0] != signature:
-                raise ValueError("State mode or embedding model differs. Use another state directory.")
+                raise ValueError("State mode, AI provider, AI model, or embedding model differs. Use another state directory.")
             db.execute("INSERT OR IGNORE INTO settings VALUES ('signature', ?)", (signature,))
             db.commit()
 
@@ -130,7 +144,7 @@ class Pipeline:
 
     def _ai(self):
         if self.client is None:
-            self.client = NemotronClient(AIConfig.from_env(timeout=AI_TIMEOUT, max_retries=0))
+            self.client = NemotronClient(self._ai_config or AIConfig.from_env(timeout=AI_TIMEOUT, max_retries=0))
             self.store.client = self.client
         return self.client
 
@@ -217,7 +231,9 @@ class Pipeline:
                       elapsed_seconds=round(time.monotonic()-started, 3), interrupted=interrupted,
                       refresh_status=refresh_status, refresh_error=refresh_error,
                       retry_policy={"nvidia_timeout": AI_TIMEOUT, "nvidia_max_retries": 0,
-                                    "pipeline_attempts": PIPELINE_ATTEMPTS},
+                                    "pipeline_attempts": PIPELINE_ATTEMPTS,
+                                    "ai_provider": self._ai_config.provider if self._ai_config else "nvidia",
+                                    "ai_timeout": self.ai_timeout, "ai_max_retries": 0},
                       failed_articles=[job for job in report["jobs"] if job["status"] == "failed"],
                       synthesis={"ai_attempts": self._synthesis_calls,
                                  "failed_buckets": [event for event in self._synthesis_events if event["status"] == "failed"]})
@@ -249,7 +265,7 @@ class Pipeline:
 
     def run_pending(self, *, refresh=True):
         started = time.monotonic()
-        self._info("WORK starting | AI timeout=5s, AI retries=0, Pipeline attempts=5")
+        self._info(f"WORK starting | AI timeout={self.ai_timeout:g}s, AI retries=0, Pipeline attempts=5")
         with self._heartbeat(started), self.lock:
             self._synthesis_events = []
             self._synthesis_calls = 0
@@ -278,7 +294,7 @@ class Pipeline:
                             prepared = prepare_article(record)
                             if prepared is not None and self.store.get(article_id) is None:
                                 stage = "article_ai"
-                                self._info(f"{label} attempt={attempt}/5 stage={stage} timeout=5s")
+                                self._info(f"{label} attempt={attempt}/5 stage={stage} timeout={self.ai_timeout:g}s")
                                 self.store.client = self._ai()
                             result = self.store.ingest(record)
                             if result["status"] != "filtered":
@@ -347,7 +363,7 @@ class Pipeline:
         for attempt in range(1, PIPELINE_ATTEMPTS+1):
             self._synthesis_calls += 1
             started = time.monotonic()
-            self._info(f"SYNTHESIS topic={name!r} articles={len(inputs)} attempt={attempt}/5 timeout=5s")
+            self._info(f"SYNTHESIS topic={name!r} articles={len(inputs)} attempt={attempt}/5 timeout={self.ai_timeout:g}s")
             try:
                 result = synthesize_topic(inputs, client=self._ai())
                 with self._db() as db:

@@ -3,9 +3,9 @@ import json
 import unittest
 from unittest.mock import Mock, patch
 
-from fuego.ai import AIError
+from fuego.ai import AIConfig, AIError, NemotronClient
 from fuego.article_processing import (ArticleProcessingError, build_messages, parse_response,
-                                      process_article, MAX_ARTICLE_CHARS, MAX_METADATA_CHARS)
+                                      process_article, ARTICLE_SCHEMA, MAX_ARTICLE_CHARS, MAX_METADATA_CHARS)
 
 KEYWORDS = ["Pittsburgh", "university", "robotics", "laboratory", "students", "engineers", "sensors",
             "navigation", "accessibility", "wheelchairs", "testing", "volunteers", "research",
@@ -27,6 +27,44 @@ class ArticleProcessingTests(unittest.TestCase):
         self.assertEqual(json.loads(messages[1]["content"]), {"article":article,"metadata":metadata})
         self.assertNotIn(article,messages[0]["content"])
         self.assertEqual(metadata,original)
+
+    def test_labeled_ad_paragraph_is_removed_before_ai_call(self):
+        article = "A city opened a library.\n\nADVERTISEMENT: Buy shoes.\nSale ends today.\n\nThe library has 30 staff."
+        payload = json.loads(build_messages(article)[1]["content"])
+        self.assertEqual(payload["article"], "A city opened a library.\n\nThe library has 30 staff.")
+        self.assertNotIn("shoes", payload["article"])
+
+    def test_news_about_ads_and_unlabeled_text_are_kept(self):
+        for article in ("A city banned billboard advertisements.",
+                        "The mayor said ADVERTISEMENT: Buy shoes was a misleading label.",
+                        "Subscribe was the name of the new art show."):
+            self.assertEqual(json.loads(build_messages(article)[1]["content"])["article"], article)
+
+    def test_ad_only_text_fails_before_ai_call(self):
+        with patch("fuego.article_processing.NemotronClient") as client, self.assertRaises(ValueError):
+            process_article("ADVERTISEMENT: Buy shoes today.")
+        client.assert_not_called()
+
+    def test_too_few_keywords_are_not_filled_or_retried(self):
+        client = Mock()
+        client.complete.return_value = response({**RESULT, "keywords": KEYWORDS[:12]})
+        with self.assertRaisesRegex(ArticleProcessingError, "at least 20"):
+            process_article("A short article.", client=client)
+        client.complete.assert_called_once()
+
+    def test_ollama_receives_schema_and_returns_same_contract(self):
+        client = NemotronClient(AIConfig(provider="ollama", model="qwen3:0.6b"))
+        with patch.object(client, "complete", return_value=response()) as call:
+            result = process_article("A news article.", client=client)
+        self.assertEqual(call.call_args.kwargs, {"response_schema": ARTICLE_SCHEMA})
+        self.assertEqual(result["overview"], "; ".join(KEYWORDS))
+        call.assert_called_once()
+
+    def test_nvidia_keeps_existing_call(self):
+        client = NemotronClient(AIConfig(api_key="test-key"))
+        with patch.object(client, "complete", return_value=response()) as call:
+            process_article("A news article.", client=client)
+        self.assertEqual(call.call_args.kwargs, {})
 
     def test_optional_metadata(self):
         self.assertEqual(json.loads(build_messages("Article")[1]["content"])["metadata"],{})

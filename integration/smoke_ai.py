@@ -9,12 +9,12 @@ import time
 if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from fuego.ai import AIConfig, AIError, ENDPOINT, NemotronClient
+from fuego.ai import AIConfig, AIError, NemotronClient
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Call NVIDIA Nemotron and check for a complete text reply.")
-    parser.add_argument("--timeout", type=float, default=None, help="Seconds per attempt. Default: NVIDIA_TIMEOUT or 20.")
+    parser = argparse.ArgumentParser(description="Call NVIDIA or Ollama and check for a complete text reply.")
+    parser.add_argument("--timeout", type=float, default=None, help="Seconds per attempt. Default: provider timeout.")
     parser.add_argument("--max-tokens", type=int, default=64, help="Output token limit. Default: 64.")
     parser.add_argument("--retries", type=int, default=0, help="Retries after the first attempt. Default: 0.")
     args = parser.parse_args(argv)
@@ -24,10 +24,10 @@ def main(argv=None):
                          timeout=config.timeout if args.timeout is None else args.timeout)
     except ValueError as exc:
         print("FAIL [config]: " + str(exc), file=sys.stderr)
-        print("Load your key first: source .env", file=sys.stderr)
+        print("For local Ollama, set AI_PROVIDER=ollama. For NVIDIA, export NVIDIA_API_KEY.", file=sys.stderr)
         return 2
 
-    print("Endpoint: " + ENDPOINT, flush=True)
+    print("Endpoint: " + config.endpoint, flush=True)
     print("Model: " + config.model, flush=True)
     print(f"Timeout: {config.timeout}s; max_tokens: {config.max_tokens}; retries: {config.max_retries}; thinking: {config.enable_thinking}", flush=True)
     print("Sending a real request through fuego.ai...", flush=True)
@@ -42,6 +42,8 @@ def main(argv=None):
         return 130
     except (AIError, OSError) as exc:
         print(f"FAIL [request] after {time.monotonic() - start:.2f}s: {exc}", file=sys.stderr)
+        if config.provider == "ollama":
+            print("Check that Ollama is running. Use ollama list to check the model name.", file=sys.stderr)
         print("For HTTP 401/403, check the key and access. For 404, check the model name.", file=sys.stderr)
         print("For 429, check quota. For connection errors, check DNS, TLS, proxy settings, and timeout.", file=sys.stderr)
         return 1
@@ -59,10 +61,10 @@ def main(argv=None):
             choice = response["choices"][0]
             if isinstance(choice, dict):
                 print("Finish reason: " + str(choice.get("finish_reason")), file=sys.stderr)
-        print("If the reply was cut off, raise --max-tokens or disable NVIDIA_ENABLE_THINKING.", file=sys.stderr)
+        print("If the reply was cut off, raise --max-tokens or disable the provider ENABLE_THINKING setting.", file=sys.stderr)
         return 3
     print("Reply: " + content, flush=True)
-    print("PASS: fuego.ai returned a complete text reply from NVIDIA.", flush=True)
+    print(f"PASS: fuego.ai returned a complete text reply from {config.provider}.", flush=True)
     return 0
 
 

@@ -1,5 +1,47 @@
 # Fuego AI
 
+## Local Ollama
+
+No new Python package is needed. Start Ollama before use.
+Use `ollama serve` if the server is not running.
+
+```bash
+export AI_PROVIDER=ollama
+export OLLAMA_MODEL=qwen3:0.6b
+export OLLAMA_TIMEOUT=120
+python -B -m integration.smoke_ai
+```
+
+The default server is `http://localhost:11434`.
+Set `OLLAMA_BASE_URL` to change it. Use the server URL without an API path.
+Ollama uses `/api/chat`. Its reply is converted to the existing `choices` format.
+See the [Ollama chat API](https://docs.ollama.com/api/chat).
+No API key is sent. Thinking is off by default.
+Optional settings are `OLLAMA_MAX_TOKENS`, `OLLAMA_TEMPERATURE`,
+`OLLAMA_ENABLE_THINKING`, and `OLLAMA_MAX_RETRIES`.
+Standalone Ollama calls use no retries by default.
+The existing `NemotronClient` name still works for both providers.
+
+Use a new state directory for Ollama:
+
+```bash
+python -B -m fuego --state work/pipeline-ollama --local-files-only ingest input/fuego_input_test.json
+python -B -m fuego --state work/pipeline-ollama --local-files-only work
+```
+
+Use the same environment and state directory for later commands.
+Pipeline uses `OLLAMA_TIMEOUT` (120 seconds by default) and five attempts.
+Pipeline disables client retries. It is the only retry owner.
+NVIDIA still uses the fixed five-second Pipeline timeout.
+The report includes `ai_provider`, `ai_timeout`, and `ai_max_retries` in `retry_policy`.
+The old `nvidia_*` fields describe the NVIDIA policy only.
+`--local-files-only` only controls the MiniLM cache. It does not select the AI provider.
+The embedding model stays unchanged. The old state is not deleted.
+
+Set `AI_PROVIDER=nvidia` to use NVIDIA again. NVIDIA remains the default provider.
+Keep using `NVIDIA_API_KEY` and `NVIDIA_MODEL` for NVIDIA.
+Export settings in your shell. This app does not load `.env` files itself.
+
 ## Complete local pipeline
 
 The service design is in `docs/pipeline-design.md`.
@@ -50,11 +92,11 @@ python -B -m fuego --mock-ai --local-files-only export query --topic "New York K
 These commands use `work/pipeline-demo/`. Set --state to use another directory.
 Use `work --retry-failed` to retry failed jobs. Inputs remain in SQLite until success or filtering.
 Completed records clear raw text from the queue. Metadata remains available for output.
-Pipeline retry settings are fixed: NVIDIA_TIMEOUT=5, NVIDIA_MAX_RETRIES=0, and attempts=5.
+NVIDIA Pipeline settings are fixed: NVIDIA_TIMEOUT=5, NVIDIA_MAX_RETRIES=0, and attempts=5.
 The code enforces these values even if the environment has different timeout or retry values.
 Pipeline is the only retry owner: one initial call plus at most four retries, with no retry sleep.
 This applies to article processing and topic synthesis. --attempts accepts only 5.
-Standalone AI clients keep their own settings; only Pipeline enforces this policy.
+Standalone AI clients keep their own settings. Ollama uses its configured timeout in Pipeline.
 A vector failure can be retried without processing the article again.
 Duplicate Record_ID values keep the first queued record. Correct a bad queued input in a new state/import;
 this CLI does not overwrite existing records silently. The original input file is never changed.
@@ -289,12 +331,18 @@ print(result["overview"])
 print(result["summary"])
 ```
 
-`keywords` contains exactly 20 distinct content words or short phrases.
+`keywords` contains at least 20 distinct content words or short phrases.
+The Ollama schema requests exactly 20. The parser still accepts larger valid lists.
 `overview` joins these terms with semicolons for later embedding. It is not a second summary.
 `summary` is a short text for a reader. The model uses the article's language.
 Names can include small words, such as "University of Pittsburgh". Standalone articles
 and common English prepositions are rejected as keywords.
-The prompt asks the model to remove ads and keep facts, names, numbers, and uncertainty.
+The processor removes paragraphs that start with `ADVERTISEMENT:` or `ADVERT:`.
+It keeps news about advertising. The prompt asks the model to ignore other ads
+and keep facts, names, numbers, and uncertainty.
+Ollama uses a [JSON schema](https://docs.ollama.com/capabilities/structured-outputs)
+to constrain the fields and keyword count. Python still checks the result.
+The schema also allows an insufficient-content error. It does not prove factual accuracy.
 Metadata is source context. It cannot override article facts or the instructions.
 If there is not enough news for 20 useful terms, the model must report insufficient content.
 The processor never fills missing keywords with invented values.
@@ -309,12 +357,24 @@ Review the real output, especially names, numbers, missing facts, and ad removal
 ## Article smoke test
 
 This uses the real `article_processing` module and the real `ai.py` client.
-There are no mock responses in the runner. It sends the supplied text to NVIDIA.
+There are no mock responses in the runner. It uses the selected AI provider.
+The bundled fictional sample is the default input.
 
 ```bash
-source .env
-python3 -B -m integration.smoke_article_processing --article integration/article_sample.txt --timeout 120
+export AI_PROVIDER=ollama
+export OLLAMA_MODEL=qwen3:0.6b
+python3 -B -m integration.smoke_article_processing
 ```
+
+Use another article and save the JSON:
+
+```bash
+python3 -B -m integration.smoke_article_processing --article integration/article_sample.txt --timeout 120 > /tmp/fuego-article-result.json
+```
+
+JSON goes to stdout. Progress and errors go to stderr.
+A failed call returns a nonzero exit code. Check the exit code before using the output file.
+Set `AI_PROVIDER=nvidia` and export `NVIDIA_API_KEY` to use NVIDIA instead.
 
 The bundled sample is fictional and has an ad to check that the model removes it.
 To use your own article and optional metadata:
