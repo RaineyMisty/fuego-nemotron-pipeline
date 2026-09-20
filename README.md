@@ -58,10 +58,10 @@ python -B -m integration.smoke_pipeline --mock-ai --local-files-only
 
 The actual supplied file is `input/fuego_input_test.json`. It has 19 records.
 The smoke uses that file by default. Use --input to choose another JSON list.
-It writes `output/pipeline-smoke/fixed.json`, `cluster.json`, `query.json`, and `jobs.json`.
+It writes `output/pipeline-smoke/fixed.json`, `cluster.json`, `query.json`. Internal jobs are saved under the state directory in `reports/jobs.json`.
 Its durable state is in `work/pipeline-delivery/`. SQLite files are under db/ and vectors under map/.
 It uses real FastEmbed, SQLite, map queries, K-means, and JSON output.
-Only AI replies are simulated. The output says mock_ai=true and contains a warning.
+Only AI replies are simulated. Mock output contains a warning.
 Mock summaries are test data, not production summaries or evidence of Nemotron quality.
 The smoke sets the activity endpoint to the latest input publication time for a repeatable historical test.
 
@@ -201,8 +201,12 @@ These fields describe changes in collected coverage, not real-world event rates 
 Sparse input cannot establish a reliable trend. No temporal data is invented.
 Set `PipelineConfig.window_ms` in Python for another window. CLI refresh accepts --as-of milliseconds.
 
-Responses follow fuego-response.v1 and add test flags, warnings, summary_status, indexed_articles,
-and pending_cluster_articles where relevant. Embeddings and input metadata are included.
+Responses follow fuego-response.v1. Public articles omit embeddings.
+Metadata uses record_id, publication_date_raw, tone_raw, people, organizations, and gdelt_themes.
+Parameters contain only bucket_count and articles_per_bucket.
+Stats contain only total_articles_considered and returned_buckets.
+Fixed bucket IDs and article references use the bucket- prefix.
+Internal summary status and job reports are not part of feed data.
 Query output uses a temporary SQLite snapshot and never replaces fixed bucket links.
 JSON exports are atomic. Existing output examples and prompt files remain unchanged.
 
@@ -822,7 +826,7 @@ json_text = serialize_output(response)
 
 Bucket specs need an id and a synthesis object with title and summary.
 Description is optional. The synthesis title becomes the output bucket name.
-Bucket IDs are used exactly as given; no prefix is added.
+Fixed bucket IDs use the bucket- prefix in public output. Internal IDs stay unchanged.
 Members and similarities come from article_buckets. Store the selected links before packaging.
 The module does not select topics, apply a similarity threshold, or run synthesis itself.
 A bucket with no stored links has an empty members list.
@@ -883,3 +887,7 @@ Exit code 0 means success; 1 means failure.
 - Food
 - Travel
 - Weather
+
+Public feed formatting also applies to older cached feeds. No AI refresh is needed.
+`/jobs` remains an internal status endpoint; it is not a fuego-response.v1 feed.
+Old exported JSON files are not rewritten. Export the feeds again to get the current format.

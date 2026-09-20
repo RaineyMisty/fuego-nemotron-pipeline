@@ -6,12 +6,8 @@
   "Record_ID":"20260912234500-81",
   "Publication_Date":1789256700000,
   "Source_Name":"idahostatejournal.com",
-  "Tone":"-4.72837022132797,1.91146881287726,6.63983903420523,8.5513078470825,21.8812877263581,0.402414486921529,1838",
   "Title":"AP News in Brief at 6:04 p.m. EDT",
   "Article_Link":"",
-  "People":"",
-  "Organizations":"",
-  "Themes":"",
   "Article_Text":""
 }
 ```

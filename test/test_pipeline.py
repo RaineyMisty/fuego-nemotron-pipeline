@@ -40,12 +40,32 @@ class PipelineTests(unittest.TestCase):
         self.process()
         for result in (self.pipeline.feed("fixed"), self.pipeline.feed("cluster"), self.pipeline.query()):
             self.assertEqual(result["schema_version"], "fuego-response.v1")
-            self.assertTrue(result["parameters"]["mock_ai"])
+            self.assertEqual(set(result["parameters"]), {"bucket_count", "articles_per_bucket"})
             self.assertTrue(result["articles"])
-            self.assertEqual(len(result["articles"][0]["embedding"]), 384)
-            self.assertEqual(result["articles"][0]["metadata"]["Publication_Date"], 1789256700000)
+            self.assertNotIn("embedding", result["articles"][0])
+            self.assertEqual(result["articles"][0]["metadata"]["publication_date_raw"], 1789256700000)
             self.assertEqual(json.loads(json.dumps(result)), result)
         self.assertEqual(len(self.pipeline.feed("fixed")["buckets"]), 20)
+
+    def test_cached_legacy_feed_is_formatted_without_refresh(self):
+        self.process()
+        old = self.pipeline.feed("fixed")
+        old["parameters"]["mock_ai"] = True
+        old["stats"]["indexed_articles"] = 1
+        old["articles"][0]["embedding"] = [0.0] * 384
+        for bucket in old["buckets"]:
+            bucket["id"] = bucket["id"].removeprefix("bucket-")
+            bucket["summary_status"] = "ready"
+        for link in old["articles"][0]["buckets"]:
+            link["bucket_id"] = link["bucket_id"].removeprefix("bucket-")
+        with sqlite3.connect(self.pipeline.store.db_path) as db:
+            db.execute("UPDATE prepared SET response=? WHERE kind='fixed'", (json.dumps(old),))
+        with patch.object(self.pipeline.client, "complete", side_effect=AssertionError("No AI call")):
+            feed = self.pipeline.feed("fixed")
+        self.assertNotIn("embedding", feed["articles"][0])
+        self.assertNotIn("mock_ai", feed["parameters"])
+        self.assertTrue(all(b["id"].startswith("bucket-") for b in feed["buckets"]))
+        self.assertTrue(all(link["bucket_id"].startswith("bucket-") for link in feed["articles"][0]["buckets"]))
 
     def test_input_durable_and_success_clears_raw(self):
         self.pipeline.enqueue([record()])
@@ -117,7 +137,7 @@ class PipelineTests(unittest.TestCase):
         self.pipeline.run_pending(refresh=False)
         with patch("fuego.pipeline.synthesize_topic", side_effect=AIError("offline")):
             response = self.pipeline.query("solar")
-        self.assertEqual(response["buckets"][0]["summary_status"], "failed")
+        self.assertNotIn("summary_status", response["buckets"][0])
         self.assertIn("unavailable", response["buckets"][0]["summary"])
         self.assertTrue(response["articles"])
         self.assertGreater(len(response["warnings"]), 1)
@@ -127,7 +147,7 @@ class PipelineTests(unittest.TestCase):
             self.pipeline.feed("fixed")
         response = self.pipeline.query("solar")
         self.assertEqual(response["articles"], [])
-        self.assertEqual(response["buckets"][0]["summary_status"], "empty")
+        self.assertNotIn("summary_status", response["buckets"][0])
         self.pipeline.refresh()
         self.assertEqual(self.pipeline.feed("cluster")["articles"], [])
 
@@ -138,9 +158,9 @@ class PipelineTests(unittest.TestCase):
     def test_clusters_wait_for_batch(self):
         self.process()
         self.process([record("b")])
-        self.assertEqual(self.pipeline.feed("cluster")["stats"]["pending_cluster_articles"], 1)
+        self.assertEqual(len(self.pipeline.feed("cluster")["articles"]), 1)
         self.pipeline.refresh(force_clusters=True)
-        self.assertEqual(self.pipeline.feed("cluster")["stats"]["pending_cluster_articles"], 0)
+        self.assertEqual(len(self.pipeline.feed("cluster")["articles"]), 2)
 
     def test_invalid_inputs_and_config(self):
         for data in ({}, [None], [{"Record_ID": ""}]):

@@ -10,7 +10,6 @@
     "total_articles_considered": 1000,
     "returned_buckets": 20
   },
-
   "buckets": [
     {
       "id": "bucket-ai",
@@ -47,7 +46,6 @@
       }
     }
   ],
-
   "articles": [
     {
       "id": "article-001",
@@ -57,26 +55,25 @@
       "published_at": "2026-09-19T14:30:00Z",
       "summary": "NVIDIA announced a new robotics platform focused on autonomous systems.",
       "semantic_text": "NVIDIA robotics autonomous systems AI inference model release",
-      "embedding": [
-        0.012,
-        -0.281,
-        0.441
-      ],
       "buckets": [
         {
-          "bucket_id": "ai",
+          "bucket_id": "bucket-ai",
           "similarity": 0.91
         },
         {
-          "bucket_id": "technology",
+          "bucket_id": "bucket-technology",
           "similarity": 0.86
         }
       ],
       "metadata": {
+        "record_id": "article-001",
+        "publication_date_raw": null,
+        "tone_raw": "",
+        "people": "",
+        "organizations": "",
         "gdelt_themes": [
           "TECHNOLOGY"
-        ],
-        "tone": 1.24
+        ]
       }
     }
   ]

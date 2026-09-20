@@ -7,7 +7,7 @@ import sys
 import tempfile
 import unittest
 
-from fuego.write_output import build_output, serialize_output
+from fuego.write_output import build_output, serialize_output, public_response
 from integration.smoke_write_output import seed_database
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +33,29 @@ class WriteOutputTests(unittest.TestCase):
         self.assertEqual(result["schema_version"], "fuego-response.v1")
         self.assertEqual(json.loads(serialize_output(result)), result)
 
+    def test_legacy_feed_format_and_idempotence(self):
+        result = self.build(metadata={"a": {"Record_ID": "raw-a", "Publication_Date": 123,
+                            "Tone": "1,2", "People": "Alice", "Organizations": "City",
+                            "Themes": "ENERGY", "Title": "duplicate", "Article_Link": "duplicate"}})
+        article = result["articles"][0]
+        self.assertEqual(article["metadata"], {"record_id": "raw-a", "publication_date_raw": 123,
+                         "tone_raw": "1,2", "people": "Alice", "organizations": "City", "gdelt_themes": "ENERGY"})
+        result["parameters"].update(mock_ai=True, min_score=0.4, window_ms=123, mock_query=True)
+        result["stats"].update(indexed_articles=2, pending_cluster_articles=1)
+        result["buckets"][0]["summary_status"] = "ready"
+        article["embedding"] = [0.0] * 384
+        cleaned = public_response(result)
+        self.assertEqual(set(cleaned["parameters"]), {"bucket_count", "articles_per_bucket"})
+        self.assertEqual(set(cleaned["stats"]), {"total_articles_considered", "returned_buckets"})
+        self.assertNotIn("embedding", cleaned["articles"][0])
+        self.assertNotIn("summary_status", cleaned["buckets"][0])
+        ids = {bucket["id"] for bucket in cleaned["buckets"]}
+        self.assertTrue(all(key.startswith("bucket-") for key in ids))
+        self.assertTrue(all(link["bucket_id"] in ids for a in cleaned["articles"] for link in a["buckets"]))
+        self.assertEqual(public_response(cleaned), cleaned)
+        self.assertIn("embedding", article)
+        self.assertEqual(json.loads(serialize_output(result)), cleaned)
+
     def test_db_fields_members_and_deduplication(self):
         result = self.build()
         self.assertEqual([a["id"] for a in result["articles"]], ["a", "b"])
@@ -53,20 +76,20 @@ class WriteOutputTests(unittest.TestCase):
 
     def test_missing_optional_data_is_explicit(self):
         result = self.build()
-        self.assertEqual(result["articles"][0]["embedding"], [])
-        self.assertEqual(result["articles"][0]["metadata"], {})
+        self.assertNotIn("embedding", result["articles"][0])
+        self.assertEqual(result["articles"][0]["metadata"]["record_id"], "a")
         activity = result["buckets"][0]["activity"]
         self.assertIsNone(activity["previous_count"])
         self.assertIsNone(activity["change_ratio"])
         self.assertEqual(activity["status"], "insufficient_data")
 
     def test_optional_data_and_unicode_are_copied(self):
-        metadata = {"a": {"source_note": "太阳能"}}
+        metadata = {"a": {"people": "太阳能"}}
         vectors = {"a": [1.0]+[0.0]*383}
         result = self.build(metadata=metadata, embeddings=vectors)
-        result["articles"][0]["metadata"]["source_note"] = "changed"
-        result["articles"][0]["embedding"][0] = 5
-        self.assertEqual(metadata["a"]["source_note"], "太阳能")
+        result["articles"][0]["metadata"]["people"] = "changed"
+        self.assertNotIn("embedding", result["articles"][0])
+        self.assertEqual(metadata["a"]["people"], "太阳能")
         self.assertEqual(vectors["a"][0], 1)
         self.assertIn("太阳能", serialize_output(self.build(metadata=metadata)))
 

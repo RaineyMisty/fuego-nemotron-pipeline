@@ -44,12 +44,12 @@ def main(argv=None):
                 if len(bucket["members"]) > 10 or any(m["article_id"] not in returned for m in bucket["members"]):
                     raise ValueError("Invalid bucket members.")
             write_json(args.output/f"{kind}.json", response)
-        write_json(args.output/"jobs.json", report)
+        write_json(args.state/"reports"/"jobs.json", report)
         if any(j["status"] == "failed" for j in report["jobs"]):
             raise ValueError("Some jobs failed. Inputs remain in the state database.")
         if not responses["cluster"]["articles"]:
             raise ValueError("No article output was produced.")
-        print(f"PASS: wrote fixed.json, cluster.json, query.json, and jobs.json to {args.output}", file=sys.stderr)
+        print(f"PASS: wrote fixed.json, cluster.json, and query.json to {args.output}; jobs are in {args.state}/reports/jobs.json", file=sys.stderr)
         return 0
     except Exception as exc:
         print(f"FAIL: {type(exc).__name__}: {exc}", file=sys.stderr)

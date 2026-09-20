@@ -26,7 +26,7 @@ from fuego.topic_clusters import TopicClusters
 from fuego.topic_synthesis import synthesize_topic
 from fuego.trend_activity import activity, DAY_MS
 from fuego.trend_direction import direction
-from fuego.write_output import build_output
+from fuego.write_output import build_output, public_response
 
 
 AI_TIMEOUT = 8
@@ -415,13 +415,9 @@ class Pipeline:
             current = [vectors[key] for key in ids if timestamp-self.config.window_ms < articles[key]["published_at"] <= timestamp]
             previous = [vectors[key] for key in ids if timestamp-2*self.config.window_ms < articles[key]["published_at"] <= timestamp-self.config.window_ms]
             bucket["direction"] = direction(current, previous, topics) if bucket["activity"]["status"] != "insufficient_data" else direction([], [], [])
-            bucket["summary_status"] = statuses[bucket["id"]]
-        response["parameters"].update(mock_ai=self.config.mock_ai, min_score=self.config.min_score,
-                                      window_ms=self.config.window_ms, mock_query=self.config.mock_query is not None)
         response["warnings"] = ["AI replies are simulated. This output is not an AI quality result."] if self.config.mock_ai else []
         response["warnings"] += [f"Synthesis failed for {key}." for key, state in statuses.items() if state == "failed"]
-        response["stats"]["indexed_articles"] = len(vectors)
-        return response
+        return public_response(response)
 
     def refresh(self, *, force_clusters=False, as_of=None):
         with self.lock:
@@ -459,7 +455,6 @@ class Pipeline:
                 hits.sort(key=lambda hit: hit["score"], reverse=True)
                 cluster_groups.append((f"cluster-{index}", f"Topic cluster {index+1}", "Articles grouped by K-means.", hits))
             clusters = self._package("cluster", cluster_groups, articles, vectors, as_of=as_of)
-            clusters["stats"]["pending_cluster_articles"] = len(set(vectors)-set(clustered["assignments"]))
             with self._db() as db:
                 for kind, response in (("fixed", fixed), ("cluster", clusters)):
                     db.execute("INSERT OR REPLACE INTO prepared VALUES (?, ?)", (kind, json.dumps(response, allow_nan=False)))
@@ -475,7 +470,7 @@ class Pipeline:
             row = db.execute("SELECT response FROM prepared WHERE kind=?", (kind,)).fetchone()
         if row is None:
             raise LookupError("Feed is not ready. Run offline processing first.")
-        return json.loads(row[0])
+        return public_response(json.loads(row[0]))
 
     def query(self, topic=None, *, as_of=None):
         topic = self.config.mock_query if topic is None else topic

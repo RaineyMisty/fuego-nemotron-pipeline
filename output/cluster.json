@@ -1,0 +1,864 @@
+{
+  "schema_version": "fuego-response.v1",
+  "request_type": "cluster",
+  "generated_at": "2026-09-20T12:41:29.840000Z",
+  "parameters": {
+    "bucket_count": 18,
+    "articles_per_bucket": 10
+  },
+  "stats": {
+    "total_articles_considered": 19,
+    "returned_buckets": 18
+  },
+  "buckets": [
+    {
+      "id": "cluster-0",
+      "type": "cluster",
+      "name": "Knicks' Tyler Kolek: 'There's definitely a lot left for me to show'",
+      "description": "Articles grouped by K-means.",
+      "summary": "The Knicks are in a position to be a champion, with Tyler Kolek as a key player. He is a proven guard, with the potential to be a champion. He has already taken some steps to improve his game, including being efficient in the paint and around the rim. He is also known for his defensive skills. The Knicks are loaded with players, including Jalen Brunson, Miles McBride, and Jose Alvarado. Kolek is expected to be a significant part of the team's success. The article highlights the ongoing struggles of the Knicks, as they face challenges in the Eastern Conference. The Knicks are expected to continue their dominance, with Kolek playing a crucial role in their success.",
+      "members": [
+        {
+          "article_id": "20260912234500-12",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-1",
+      "type": "cluster",
+      "name": "Bill Maher's Critique of the Left's Shift in Post-9/11 World",
+      "description": "Articles grouped by K-means.",
+      "summary": "Bill Maher's critique of the left's role in the post-9/11 world highlights how they have shifted from supporting the West to supporting a system that tolerates terrorism, while ignoring progress in areas like Gaza. The article shows the left's moral confusion and the broader implications of their actions.",
+      "members": [
+        {
+          "article_id": "20260912233000-591",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-2",
+      "type": "cluster",
+      "name": "Record Identifier and Publication Date",
+      "description": "Articles grouped by K-means.",
+      "summary": "The provided data includes a record ID of 20260912231500-379 and a publication date of 1789254900000. There is no specific information provided in the data to support a detailed analysis or interpretation. The data appears to be a record identifier and publication date, which may be used for reference purposes only.",
+      "members": [
+        {
+          "article_id": "20260912231500-379",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-3",
+      "type": "cluster",
+      "name": "Los colores del follaje de otoño en EE. UU. se acercan",
+      "description": "Articles grouped by K-means.",
+      "summary": "Los colores del follaje de otoño en EE. UU. se acercan con colores máximos entre finales de septiembre y mediados de octubre, dependiendo de la ubicación y condiciones climáticas. En regiones como el septentrión y la costa sur, hay expectativas de mejores observaciones. La sequía puede afectar las condiciones, con tormentas tropicales o derribas antaño retrasando el proceso. Los colores se retrasan debido a temperaturas elevadas y sequías prolongadas.",
+      "members": [
+        {
+          "article_id": "20260912233000-T269",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-4",
+      "type": "cluster",
+      "name": "Dysfunctional Love Story Behind Pizza Bomber Case at Toronto International Film Festival",
+      "description": "Articles grouped by K-means.",
+      "summary": "Courteney Cox's thriller 'Evil Genius' follows the convoluted plot of a man who robbed a bank and killed himself, with the main characters being Patricia Arquette and David Harbour. The story centers on the dysfunctional love between Marjorie Diehl-Armstrong and Bill Rothstein, set in the context of a murder and inheritance dispute. The film also explores the Toronto International Film Festival, where the story is set. The metadata indicates that the article is from a radio source published at 1789255800000.",
+      "members": [
+        {
+          "article_id": "20260912233000-540",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-5",
+      "type": "cluster",
+      "name": "Penn State quarterback Rocco Becht's performance and team dynamics",
+      "description": "Articles grouped by K-means.",
+      "summary": "Penn State quarterback Rocco Becht, who played for three or four years, completed 21-of-27 passes for 268 yards and three touchdowns, leading the team to a 27-9 victory over Temple. He has completed 75.6% of his passes for 539 yards and seven touchdowns. Becht's father, Anthony, grew up in Delaware County and starred at Monsignor Bonner High School. He estimated that there were about 500 people in attendance, including relatives and friends. The team's home game was at Lincoln Financial Field, where Becht entertained the crowd. The team's running game was less than 5.0 yards per rush for the second time in as many games, with 148 yards on 34 carries. The Lions had a first down at the Temple 5 in the first quarter after Tony Rojas' interception. They netted 3 yards on 3 attempts before Becht threw a fourth-down incompletion. The team's tight ends were Gabe Burkle, Ben Brahmer, and Finn Furmanek, with Brahmer having five receptions for 79 yards and Rappleyea having one for 5 yards. The injury of defensive end Max Granville affected the team's unity and future. The team is still not equal, and they need to improve. The team is still recovering from the injury of defensive end Max Granville, who had a pass breakup and a quarterback hurry last week.",
+      "members": [
+        {
+          "article_id": "20260912234500-95",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-6",
+      "type": "cluster",
+      "name": "Vaccination Misinformation and Parental Health in Pennsylvania",
+      "description": "Articles grouped by K-means.",
+      "summary": "The article discusses recent measles deaths in Pennsylvania and the challenges faced by parents due to misinformation from political figures. It emphasizes the importance of routine childhood vaccinations and the need for medical guidance to protect children's health. The Marin Independent Journal highlights the need for parents to seek medical advice rather than relying on political figures for information, underscoring the critical role of public health initiatives in safeguarding children's well-being.",
+      "members": [
+        {
+          "article_id": "20260912233000-567",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-7",
+      "type": "cluster",
+      "name": "Aztecs lose backup quarterback to broken collarbone",
+      "description": "Articles grouped by K-means.",
+      "summary": "San Diego State's backup quarterback Stone Saunders is expected to miss the next six to eight weeks following surgery for a broken collarbone. Draiden Trudeau replaced Jayden Denegal in the final two minutes of the game, throwing an incomplete pass. Bert Emanuel Jr. was the Aztecs' emergency quarterback. Saunders was injured in a sack during the game, and he did not accompany the team on Saturday's road trip. Saunders, a former high school quarterback, set state passing records and was among SDSU's most coveted transfers. The Aztecs had six punts of at least 77 yards since 2021, with Tashi Dorje being the ninth-longest. There were 941 FBS games last season, and the Aztecs had a rare 0-0 first half between SDSU and UCLA.",
+      "members": [
+        {
+          "article_id": "20260912231500-249",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-8",
+      "type": "cluster",
+      "name": "Astros announce Yordan Alvarez's injury update ahead of Rays game",
+      "description": "Articles grouped by K-means.",
+      "summary": "The Astros have announced that Yordan Alvarez will not be in the lineup Friday night as the team opens a series against the Tampa Bay Rays. Alvarez is recovering from a minor ankle injury, which could be the reason he is out of the lineup. The Astros have not indicated that Alvarez is dealing with a serious injury, but his ankle could be the reason he is being kept out of the lineup. The Astros have not indicated that Alvarez is dealing with a serious injury, but his ankle could be the reason he is being kept out of the lineup.",
+      "members": [
+        {
+          "article_id": "20260912234500-56",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-9",
+      "type": "cluster",
+      "name": "Penn State quarterback's performance and team dynamics",
+      "description": "Articles grouped by K-means.",
+      "summary": "Penn State quarterback Rocco Becht, who had 500 relatives and friends in attendance at his home game, expressed appreciation for the crowd. He completed 21-of-27 passes and led the team to a 27-9 victory. The team's passing game had a low-yard per rush, and Becht's performance included touchdowns against the Owls. Defensive end Max Granville, who had a pass breakup and rushed for 148 yards, was out for the rest of the year. The team is still improving, and Becht's teammates are supportive.",
+      "members": [
+        {
+          "article_id": "20260912233000-580",
+          "similarity": 0.9999999999999999,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-10",
+      "type": "cluster",
+      "name": "Penn State's defense and Becht/Brahmer's partnership led to a win",
+      "description": "Articles grouped by K-means.",
+      "summary": "Penn State's first road game in the Matt Campbell era was a slow start with five consecutive possessions and a strong defense. Becht and Brahmer played together since 2023, and the team made adjustments after the first quarter, improving in the second half and leading to a win against Temple.",
+      "members": [
+        {
+          "article_id": "20260912233000-18",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-11",
+      "type": "cluster",
+      "name": "Knicks' Team Efforts Amid Mitchell Robinson's Loss",
+      "description": "Articles grouped by K-means.",
+      "summary": "The New York Knicks won their first NBA Championship in 53 years, setting fans up for an entire summer of elation. However, the team's efforts were overshadowed by the loss of Mitchell Robinson, a key player, after just four days of the 2026-27 regular season. The organizational refusal to pass the salary cap led to the loss of center Mitchell Robinson, who was replaced by Karl-Anthony Towns. Despite the team's talent, they need backup to handle the loss of Robinson. The Knicks are reportedly confident in the duo of Karl-Anthony Towns and Andre Drummond, with the team's confidence in the duo, despite the loss of a key player.",
+      "members": [
+        {
+          "article_id": "20260912234500-128",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-12",
+      "type": "cluster",
+      "name": "Dysfunctional Love Story Behind Pizza Bomber Case at Toronto International Film Festival",
+      "description": "Articles grouped by K-means.",
+      "summary": "Courteney Cox's thriller 'Evil Genius' follows the convoluted plot of a 2003 PNC Bank robbery, with the protagonist, Marjorie Diehl-Armstrong, involved in a bipolar disorder-related case. The story centers on the relationship between her former fiancé and accomplice, highlighting the emotional and chaotic aspects of their bond. The film also explores the dynamics of Marjorie's past and the complexities of her relationship with her former partner, which is set in the Toronto International Film Festival. The metadata indicates that the article is published at a specific time, but the summary focuses on the narrative and its connection to the festival.",
+      "members": [
+        {
+          "article_id": "20260912233000-358",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-13",
+      "type": "cluster",
+      "name": "Dysfunctional Love Story Behind Pizza Bomber Case at Toronto International Film Festival",
+      "description": "Articles grouped by K-means.",
+      "summary": "Courteney Cox's thriller 'Evil Genius' explores the convoluted plot of a pizza bomber case involving Brian Wells, a man with bipolar disorder who was convicted of the robbery. The film delves into the relationship between Marjorie Diehl-Armstrong and her former fiancé Bill Rothstein, as well as the motivations behind the events. The movie is set at the Toronto International Film Festival, which is a significant event in the film industry.",
+      "members": [
+        {
+          "article_id": "20260912233000-255",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-14",
+      "type": "cluster",
+      "name": "Courteney Cox's 'Evil Genius' explores a pizza bomber case's emotional and tragic elements",
+      "description": "Articles grouped by K-means.",
+      "summary": "Courteney Cox's thriller 'Evil Genius' follows the convoluted plot of a pizza bomber case involving Brian Wells, set in the aftermath of a 2003 robbery. The story centers on Marjorie Diehl-Armstrong, her estranged father, and her former fiancé, Bill Rothstein. Courteney Cox draws inspiration from the relationship between Diehl-Armstrong and Rothstein, highlighting the emotional and tragic aspects of the case. The film explores the characters' personal struggles and the broader narrative of the case's emotional depth.",
+      "members": [
+        {
+          "article_id": "20260912233000-546",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-15",
+      "type": "cluster",
+      "name": "Dysfunctional Love Story Behind Pizza Bomber Case",
+      "description": "Articles grouped by K-means.",
+      "summary": "Courteney Cox's thriller 'Evil Genius' follows Brian Wells, a man with bipolar disorder, who was convicted of a robbery. The film explores the convoluted plot of the case, highlighting the emotional and tragic elements, including the love story between Marjorie Diehl-Armstrong and Bill Rothstein. The film is based on a 2018 Netflix documentary series and features Academy Award winner Patricia Arquette and 'Stranger Things' actor David Harbour.",
+      "members": [
+        {
+          "article_id": "20260912233000-171",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-16",
+      "type": "cluster",
+      "name": "Dysfunctional love story behind pizza bomber case",
+      "description": "Articles grouped by K-means.",
+      "summary": "Courteney Cox's thriller 'Evil Genius' explores the chaotic love story behind the heist and the emotional undercurrents of the events involving Brian Wells, a man with bipolar disorder, and his former fiancé, Bill Rothstein. The film delves into the complex dynamics of their relationship, highlighting the emotional challenges they face while navigating the intense and unpredictable world of the pizza bomber case.",
+      "members": [
+        {
+          "article_id": "20260912233000-426",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "cluster-17",
+      "type": "cluster",
+      "name": "Dysfunctional love story behind pizza bomber case",
+      "description": "Articles grouped by K-means.",
+      "summary": "Courteney Cox's thriller 'Evil Genius' explores the convoluted plot of Brian Wells' 2003 pizza bomber case, featuring themes of bipolar disorder and a dysfunctional love story between Marjorie Diehl-Armstrong and Bill Rothstein. The story is set at the TIFF festival, highlighting the complexities of the characters and the personal struggles they face.",
+      "members": [
+        {
+          "article_id": "20260912233000-140",
+          "similarity": 1.0,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    }
+  ],
+  "warnings": [],
+  "articles": [
+    {
+      "id": "20260912234500-12",
+      "title": "Knicks' Tyler Kolek: 'There's definitely a lot left for me to show'",
+      "url": "https://www.nydailynews.com/2026/09/12/knicks-tyler-kolek-nba-champion-guard-brunson-mcbride/",
+      "source": "nydailynews.com",
+      "summary": "The Knicks are in a position to be a champion, with Tyler Kolek as a key player. He is a proven guard, with the potential to be a champion. He has already taken some steps to improve his game, including being efficient in the paint and around the rim. He is also known for his defensive skills. The Knicks are loaded with players, including Jalen Brunson, Miles McBride, and Jose Alvarado. Kolek is expected to be a significant part of the team's success. The article highlights the ongoing struggles of the Knicks, as they face challenges in the Eastern Conference. The Knicks are expected to continue their dominance, with Kolek playing a crucial role in their success.",
+      "semantic_text": "NBA champion; Knicks roster; guard; reigning Finals MVP; flamethrower; contract extension; team; pro level; minutes; champion; stints; proven guards; 3-point range; efficiency; paint; offense; defense; court; aggressive; playtime",
+      "published_at": "2026-09-12T23:45:00Z",
+      "metadata": {
+        "record_id": "20260912234500-12",
+        "publication_date_raw": 1789256700000,
+        "tone_raw": "0.354924578527063,2.30700976042591,1.95208518189885,4.25909494232476,22.4489795918367,1.68589174800355,1028",
+        "people": "Andrew Wiggins,3268;Joel Embiid,2611;Tyler Kolek,11;Tyler Kolek,1154;Tyler Kolek,1195;Tyler Kolek,2911;Tyler Kolek,3024;Tyler Kolek,4957;Tyler Kolek,4990;Klay Thompson,3231;Dillon Jones,3939;Giannis Antetokounmpo,3215;Scott Taetsch Getty,1174;Scott Taetsch Getty,1319;Mitchell Robinson,3812;Jeff Chiu,4976;Jeff Chiu,5057;Sarah Stier Getty,3003;Sarah Stier Getty,3125;Mike Brown,900;Bam Adeabayo,3251;Jalen Brunson,339;Tyrese Maxey,2626;Jose Alvarado,567;Tom Thibodeau,846;Ariel Hukporti,3924;Lebron James,2251;Kawhi Leonard,3349;Jaylen Brown,2266",
+        "organizations": "Golden State Warriors,1111",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-0",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-591",
+      "title": "Bill Maher Destroys the Left Over 9/11, and It's Brilliant",
+      "url": "https://pjmedia.com/matt-margolis/2026/09/12/bill-maher-destroys-the-left-over-911-and-its-brilliant-n4957172",
+      "source": "pjmedia.com",
+      "summary": "Bill Maher's critique of the left's role in the post-9/11 world highlights how they've shifted from supporting the West to supporting a system that tolerates terrorism, while ignoring the progress made in areas like Gaza. The article shows the left's moral confusion and the broader implications of their actions.",
+      "semantic_text": "9/11; leftist; terrorist; democracy; media",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-591",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.54391371340524,3.54391371340524,7.08782742681048,10.6317411402157,21.7257318952234,0.924499229583975,580",
+        "people": "Luigi Mangione,2079;Bill Maher,453;Bill Maher,3317",
+        "organizations": "Democrat Party,2894;Democrat Party,3588",
+        "gdelt_themes": "GENERAL_GOVERNMENT,2597;EXTREMISM,1569;TAX_POLITICAL_PARTY_DEMOCRAT,2888;TAX_POLITICAL_PARTY_DEMOCRAT,3582;USPEC_POLITICS_GENERAL1,2561;USPEC_POLITICS_GENERAL1,2894;USPEC_POLITICS_GENERAL1,3588;TERROR,810;ARMEDCONFLICT,810;MEDIA_MSM,952;MEDIA_MSM,1107;TAX_POLITICAL_PARTY_DEMOCRAT_PARTY,2894;TAX_POLITICAL_PARTY_DEMOCRAT_PARTY,3588;RELIGION,1723;CRISISLEX_C03_WELLBEING_HEALTH,2470;KILL,605;TAX_FNCACT_WOMEN,1757;TAX_ETHNICITY_AMERICANS,232;TAX_ETHNICITY_AMERICANS,672;TAX_ETHNICITY_AMERICANS,2003;TAX_FNCACT_LEFTISTS,2168;TAX_FNCACT_LEFTIST,2337;TAX_FNCACT_LEFTIST,2787;LGBT,1735;WB_678_DIGITAL_GOVERNMENT,1075;WB_678_DIGITAL_GOVERNMENT,3461;WB_678_DIGITAL_GOVERNMENT,3567;WB_694_BROADCAST_AND_MEDIA,1075;WB_694_BROADCAST_AND_MEDIA,3461;WB_694_BROADCAST_AND_MEDIA,3567;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,1075;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,3461;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,3567;MEDIA_SOCIAL,3283;SELF_IDENTIFIED_ATROCITY,2255;WB_2507_HUMAN_RIGHTS_ABUSES_AND_VIOLATIONS,2255;WB_2203_HUMAN_RIGHTS,2255;WB_2509_GENOCIDE,2255;PROTEST,2347;MOVEMENT_GENERAL,2347;TAX_FNCACT_ACTIVISTS,2347;SELF_IDENTIFIED_HUMAN_RIGHTS,1723;TAX_ETHNICITY_AMERICAN,1412;WB_2467_TERRORISM,967;WB_2433_CONFLICT_AND_VIOLENCE,967;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,967;WB_2462_POLITICAL_VIOLENCE_AND_WAR,967;EPU_CATS_NATIONAL_SECURITY,967;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-1",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912231500-379",
+      "title": "AP News Summary at 5:27 p.m. EDT",
+      "url": "https://www.nvdaily.com/associated_press_national/ap-news-summary-at-5-27-p-m-edt/article_4bce1a11-7508-5983-9f59-1b33a0906d8a.html",
+      "source": "nvdaily.com",
+      "summary": "The provided data includes a record ID of 20260912231500-379 and a publication date of 1789254900000. There is no specific information provided in the data to support a detailed analysis or interpretation. The data appears to be a record identifier and publication date, which may be used for reference purposes only.",
+      "semantic_text": "20260912231500-379",
+      "published_at": "2026-09-12T23:15:00Z",
+      "metadata": {
+        "record_id": "20260912231500-379",
+        "publication_date_raw": 1789254900000,
+        "tone_raw": "-5.88737201365188,2.13310580204778,8.02047781569966,10.1535836177474,22.6109215017065,0.170648464163823,1099",
+        "people": "Donald Trump,1254;Donald Trump,2804;Donald Trump,5411;Donald Trump,5860;Vladimir Putin,4416;Volodymyr Zelenskyy,4813;Joe Biden,5523;Barack Obama,5511;Bill Clinton,5496;Catherine Connolly,3386;Bab El-Mandeb Strait,592;Bab El-Mandeb Strait,1055;Narendra Modi,4085;Doug Burgum,5677",
+        "organizations": "Labor Department,6611;National Memorial,5726;Police In Jackson,2214;World Trade Center,5288;United Nations,391",
+        "gdelt_themes": "TAX_FNCACT_LEADERS,3461;TAX_FNCACT_LEADERS,3574;TAX_FNCACT_LEADERS,3715;TAX_FNCACT_LEADERS,3945;TAX_FNCACT_LEADERS,4859;PROTEST,3050;UNREST_BELLIGERENT,4762;SOC_GENERALCRIME,2106;SOC_GENERALCRIME,2262;TAX_FNCACT_SECRETARY,5665;USPEC_POLICY1,6216;USPEC_POLICY1,6969;EPU_ECONOMY,6216;EPU_ECONOMY,6969;EPU_ECONOMY_HISTORIC,6216;EPU_ECONOMY_HISTORIC,6969;ELECTION,5974;ELECTION,6563;AFFECT,371;DISPLACED,371;CRISISLEX_CRISISLEXREC,371;TERROR,31;TERROR,495;WB_2433_CONFLICT_AND_VIOLENCE,31;WB_2433_CONFLICT_AND_VIOLENCE,495;WB_2451_REBELS_GUERRILLAS_AND_INSURGENTS,31;WB_2451_REBELS_GUERRILLAS_AND_INSURGENTS,495;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,31;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,495;WB_2445_NON_STATE_SECURITY_ACTORS,31;WB_2445_NON_STATE_SECURITY_ACTORS,495;ACT_MAKESTATEMENT,5691;WB_549_OIL_AND_GAS_SYSTEMS,659;WB_1768_OIL_AND_GAS_PIPELINE,659;ECON_INFLATION,6274;ECON_INFLATION,6387;ECON_INFLATION,6754;ECON_INFLATION,6894;WB_1104_MACROECONOMIC_VULNERABILITY_AND_DEBT,6274;WB_1104_MACROECONOMIC_VULNERABILITY_AND_DEBT,6387;WB_1104_MACROECONOMIC_VULNERABILITY_AND_DEBT,6754;WB_1104_MACROECONOMIC_VULNERABILITY_AND_DEBT,6894;WB_442_INFLATION,6274;WB_442_INFLATION,6387;WB_442_INFLATION,6754;WB_442_INFLATION,6894;TAX_ETHNICITY_BLACK,2152;ECON_GASOLINEPRICE,6424;ECON_HEATINGOIL,6424;TAX_FNCACT_WOMAN,2158;SECURITY_SERVICES,2028;SECURITY_SERVICES,2092;SECURITY_SERVICES,2203;SECURITY_SERVICES,2368;SECURITY_SERVICES,2454;SECURITY_SERVICES,2607;TAX_FNCACT_POLICE,2028;TAX_FNCACT_POLICE,2092;TAX_FNCACT_POLICE,2203;TAX_FNCACT_POLICE,2368;TAX_FNCACT_POLICE,2454;TAX_FNCACT_POLICE,2607;SANCTIONS,3520;SANCTIONS,3676;SANCTIONS,3979;SANCTIONS,4018;EPU_POLICY_POLITICAL,2828;WB_135_TRANSPORT,1808;GOV_LOCALGOV,4390;TAX_FNCACT_VICE_PRESIDENT,5548;TAX_FNCACT_VICE_PRESIDENT,5877;CRISISLEX_C05_NEED_OF_SHELTERS,182;LEADER,1241;LEADER,2791;LEADER,3367;LEADER,4401;LEADER,4793;LEADER,5398;LEADER,5548;LEADER,5847;LEADER,5877;TAX_FNCACT_PRESIDENT,1241;TAX_FNCACT_PRESIDENT,2791;TAX_FNCACT_PRESIDENT,3367;TAX_FNCACT_PRESIDENT,4401;TAX_FNCACT_PRESIDENT,4793;TAX_FNCACT_PRESIDENT,5398;TAX_FNCACT_PRESIDENT,5548;TAX_FNCACT_PRESIDENT,5847;TAX_FNCACT_PRESIDENT,5877;USPEC_POLITICS_GENERAL1,1241;USPEC_POLITICS_GENERAL1,2791;USPEC_POLITICS_GENERAL1,3367;USPEC_POLITICS_GENERAL1,4401;USPEC_POLITICS_GENERAL1,4793;USPEC_POLITICS_GENERAL1,5398;USPEC_POLITICS_GENERAL1,5548;USPEC_POLITICS_GENERAL1,5847;USPEC_POLITICS_GENERAL1,5877;KILL,4192;KILL,4323;ENV_OIL,650;ENV_OIL,1141;TAX_ETHNICITY_IRISH,3072;TAX_ETHNICITY_IRISH,3357;TAX_WORLDLANGUAGES_IRISH,3072;TAX_WORLDLANGUAGES_IRISH,3357;TAX_ETHNICITY_RUSSIAN,4203;TAX_ETHNICITY_RUSSIAN,4303;TAX_WORLDLANGUAGES_RUSSIAN,4203;TAX_WORLDLANGUAGES_RUSSIAN,4303;TAX_DISEASE_COVID,6992;WB_698_TRADE,835;WB_698_TRADE,5281;EPU_CATS_MIGRATION_FEAR_FEAR,76;SELF_IDENTIFIED_HUMANITARIAN_CRISIS,462;REBELLION,484;WB_739_POLITICAL_VIOLENCE_AND_CIVIL_WAR,484;WB_738_SOCIAL_COHESION,484;WB_134_SOCIAL_DEVELOPMENT,484;ECON_DIESELPRICE,1356;ECON_DIESELPRICE,1473;ECON_DIESELPRICE,1773;TAX_ETHNICITY_INDIAN,4056;MANMADE_DISASTER_IMPLIED,659;MANMADE_DISASTER_IMPLIED,919;WB_2299_PIPELINES,659;WB_2299_PIPELINES,919;WB_539_OIL_AND_GAS_POLICY_STRATEGY_AND_INSTITUTIONS,659;WB_539_OIL_AND_GAS_POLICY_STRATEGY_AND_INSTITUTIONS,919;WB_507_ENERGY_AND_EXTRACTIVES,659;WB_507_ENERGY_AND_EXTRACTIVES,919;WB_548_PPP_IN_OIL_AND_GAS,659;WB_548_PPP_IN_OIL_AND_GAS,919;CLOSURE,899;GENERAL_GOVERNMENT,328;EPU_POLICY_GOVERNMENT,328;TAX_WORLDFISH_PERCH,564;REBELS,92;REBELS,789;REBELS,1089;CRISISLEX_C07_SAFETY,92;CRISISLEX_C07_SAFETY,789;CRISISLEX_C07_SAFETY,1089;TAX_ETHNICITY_HOUTHI,85;TAX_ETHNICITY_HOUTHI,782;TAX_FNCACT_EXAMINER,2295;FUELPRICES,6315;WB_1160_SHOCKS_AND_VULNERABILITY,2553;WB_695_POVERTY,2553;TAX_FNCACT_MINISTER,3087;TAX_FNCACT_MINISTER,4071;SOC_EXPRESSSUPPORT,3153;MEDIA_MSM,2229;TAX_WORLDLANGUAGES_RUSSIA,3993;TAX_WORLDLANGUAGES_RUSSIA,4508;TAX_WORLDLANGUAGES_RUSSIA,4553;TAX_WORLDLANGUAGES_RUSSIA,4594;TAX_WORLDLANGUAGES_RUSSIA,4745;UNGP_FORESTS_RIVERS_OCEANS,153;TAX_FNCACT_OFFICIALS,4390;TAX_FNCACT_OFFICIALS,5915;HEALTH_PANDEMIC,7001;WB_635_PUBLIC_HEALTH,7001;WB_2165_HEALTH_EMERGENCIES,7001;WB_2166_HEALTH_EMERGENCY_PREPAREDNESS_AND_DISASTER_RESPONSE,7001;WB_621_HEALTH_NUTRITION_AND_POPULATION,7001;WB_2167_PANDEMICS,7001;UNGP_HEALTHCARE,7001;ARMEDCONFLICT,484;ARMEDCONFLICT,1317;ARMEDCONFLICT,1582;EPU_CATS_NATIONAL_SECURITY,484;EPU_CATS_NATIONAL_SECURITY,1317;EPU_CATS_NATIONAL_SECURITY,1582;TAX_ETHNICITY_AMERICAN,2894;TAX_FNCACT_TROOPS,4267;TAX_FNCACT_TROOPS,4456;ECON_ELECTRICALGRID,4628;TAX_FNCACT_PRESIDENTS,3293;TAX_FNCACT_PRESIDENTS,5466;TAX_ETHNICITY_UKRAINIAN,4783;TAX_WORLDLANGUAGES_UKRAINIAN,4783;WOUND,4345;CRISISLEX_T02_INJURED,4345;USPEC_UNCERTAINTY1,3958;ARREST,2035;ARREST,2667;TAX_FNCACT_MAN,2041;TAX_FNCACT_MAN,2112;TAX_FNCACT_MAN,2249;WB_2448_MILITIA,880;TAX_FNCACT_LEADER,2901;TAX_FNCACT_MEDICAL_EXAMINER,2295;GENERAL_HEALTH,2286;MEDICAL,2286;CRISISLEX_C03_WELLBEING_HEALTH,2286;TAX_POLITICAL_PARTY_REPUBLICAN,5816;TAX_POLITICAL_PARTY_REPUBLICAN,5905;CRISISLEX_T03_DEAD,2054;CRISISLEX_T03_DEAD,2125;CRISISLEX_T03_DEAD,2345;TAX_ECON_PRICE,1356;TAX_ECON_PRICE,1473;TAX_ECON_PRICE,1773;TAX_ECON_PRICE,6315;TAX_ECON_PRICE,6424;TAX_ECON_PRICE,6941;TAX_FNCACT_VICTIM,5153;TAX_FNCACT_VICTIM,5601;TAX_FNCACT_PRIME_MINISTER,3087;TAX_FNCACT_PRIME_MINISTER,4071;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-2",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-T269",
+      "title": "Los mapas muestran predicciones del follaje de oto&#xF1;o de 2026. &#xBF;Cu&#xE1;ndo alcanzar&#xE1;n su punto mayor los colores?",
+      "url": "https://bitacora.com.uy/los-mapas-muestran-predicciones-del-follaje-de-otono-de-2026-cuando-alcanzaran-su-punto-mayor-los-colores/",
+      "source": "bitacora.com.uy",
+      "summary": "El follaje de otoño en EE. UU. se acerca con colores máximos entre finales de septiembre y mediados de octubre, dependiendo de la ubicación y condiciones climáticas. En regiones como el septentrión y la costa sur, hay expectativas de mejores observaciones. La sequía puede afectar las condiciones, con tormentas tropicales o derribas antaño retrasando el proceso. Los colores se retrasan debido a temperaturas elevadas y sequías prolongadas.",
+      "semantic_text": "colores vibrantes; follaje de otoño; otoño; colores del follaje",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-T269",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-1.73812282734647,2.43337195828505,4.17149478563152,6.60486674391657,24.1019698725377,0.579374275782155,798",
+        "people": "",
+        "organizations": "",
+        "gdelt_themes": "WB_566_ENVIRONMENT_AND_NATURAL_RESOURCES,1502;WB_566_ENVIRONMENT_AND_NATURAL_RESOURCES,1742;WB_1777_FORESTS,1502;WB_1777_FORESTS,1742;WB_590_ECOSYSTEMS,1502;WB_590_ECOSYSTEMS,1742;UNGP_FORESTS_RIVERS_OCEANS,1502;UNGP_FORESTS_RIVERS_OCEANS,1742;ENV_CLIMATECHANGE,4496;ENV_CLIMATECHANGE,4565;ENV_CLIMATECHANGE,4864;WB_567_CLIMATE_CHANGE,4496;WB_567_CLIMATE_CHANGE,4565;WB_567_CLIMATE_CHANGE,4864;UNGP_CLIMATE_CHANGE_ACTION,4496;UNGP_CLIMATE_CHANGE_ACTION,4565;UNGP_CLIMATE_CHANGE_ACTION,4864;AFFECT,1511;EDUCATION,4883;TAX_FNCACT_TEACHER,4883;TAX_FNCACT_ASSISTANT,4893;IDEOLOGY,3779;TAX_WORLDBIRDS_COCKATIEL,2741;TAX_FNCACT_METEOROLOGIST,922;TAX_FNCACT_METEOROLOGIST,3453;CRISISLEX_CRISISLEXREC,1755;MEDIA_MSM,1474;MEDIA_MSM,1779;MEDIA_MSM,2005;WATER_SECURITY,1085;WATER_SECURITY,1525;WATER_SECURITY,2386;WATER_SECURITY,2455;WATER_SECURITY,2540;WATER_SECURITY,2696;WATER_SECURITY,2867;WATER_SECURITY,2968;NATURAL_DISASTER_DROUGHT,1085;NATURAL_DISASTER_DROUGHT,1525;NATURAL_DISASTER_DROUGHT,2386;NATURAL_DISASTER_DROUGHT,2455;NATURAL_DISASTER_DROUGHT,2540;NATURAL_DISASTER_DROUGHT,2696;NATURAL_DISASTER_DROUGHT,2867;NATURAL_DISASTER_DROUGHT,2968;NATURAL_DISASTER_TROPICAL_STORMS,3700;WB_1979_NATURAL_RESOURCE_MANAGEMENT,2194;WB_1979_NATURAL_RESOURCE_MANAGEMENT,2944;WB_1979_NATURAL_RESOURCE_MANAGEMENT,3673;WB_435_AGRICULTURE_AND_FOOD_SECURITY,2194;WB_435_AGRICULTURE_AND_FOOD_SECURITY,2944;WB_435_AGRICULTURE_AND_FOOD_SECURITY,3673;WB_1986_MOUNTAINS,2194;WB_1986_MOUNTAINS,2944;WB_1986_MOUNTAINS,3673;CRISISLEX_O01_WEATHER,377;WB_286_TELECOMMUNICATIONS_AND_BROADBAND_ACCESS,4690;WB_2120_SATELLITES,4690;WB_2329_ACCESS_AND_CONNECTIVITY,4690;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,4690;CRISISLEX_C04_LOGISTICS_TRANSPORT,4786;MANMADE_DISASTER_IMPLIED,4910;NATURAL_DISASTER_STRONG_WINDS,3219;DELAY,3948;DELAY,4060;DELAY,4171;USPEC_UNCERTAINTY1,3948;USPEC_UNCERTAINTY1,4060;USPEC_UNCERTAINTY1,4171;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-3",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-540",
+      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF",
+      "url": "https://b93radio.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
+      "source": "b93radio.com",
+      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case involving Brian Wells, set in the Toronto International Film Festival. The film follows the convoluted plot of a man who robbed a bank and killed himself, with the main characters being Patricia Arquette and David Harbour. The story centers on the dysfunctional love between Marjorie Diehl-Armstrong and Bill Rothstein, set in the context of a murder and inheritance dispute.",
+      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; Brian Wells; Bipolar Disorder; Pizza Bomb; Dysfunctional Love Story; Academy Award; Netflix",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-540",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
+        "people": "James Roden,1294;David Harbour,338;Alistair Bell,2364;Courteney Cox,72;Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Patricia Arquette,300;Brian Wells,691",
+        "organizations": "Netflix,483;Reuters,50;Academy Award,275",
+        "gdelt_themes": "TAX_FNCACT_PROSECUTORS,995;CRISISLEX_CRISISLEXREC,152;UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_WOMAN,913;TAX_FNCACT_ACTOR,324;TAX_FNCACT_DELIVERY_MAN,679;TRIAL,970;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;KILL,857;KILL,1350;TAX_ETHNICITY_BLACK,430;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;TAX_FNCACT_DIRECTOR,401;TAX_FNCACT_HIT_MAN,1053;CRISISLEX_T03_DEAD,1911;TAX_FNCACT_FATHER,1090;CRIME_COMMON_ROBBERY,698;TAX_DISEASE_BIPOLAR_DISORDER,935;SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-4",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912234500-95",
+      "title": "Penn State notes: Rocco Becht entertains about 500 relatives, friends in win",
+      "url": "https://www.pottsmerc.com/2026/09/12/penn-state-notes-rocco-becht-entertains-about-500-relatives-friends-in-win/",
+      "source": "pottsmerc.com",
+      "summary": "Penn State quarterback Rocco Becht, who played for three or four years, completed 21-of-27 passes for 268 yards and three touchdowns, leading the team to a 27-9 victory over Temple. He has completed 75.6% of his passes for 539 yards and seven touchdowns. Becht's father, Anthony, grew up in Delaware County and starred at Monsignor Bonner High School. He estimated that there were about 500 people in attendance, including relatives and friends. The team's home game was at Lincoln Financial Field, where Becht entertained the crowd. The team's running game was less than 5.0 yards per rush for the second time in as many games, with 148 yards on 34 carries. The Lions had a first down at the Temple 5 in the first quarter after Tony Rojas' interception. They netted 3 yards on 3 attempts before Becht threw a fourth-down incompletion. The team's tight ends were Gabe Burkle, Ben Brahmer, and Finn Furmanek, with Brahmer having five receptions for 79 yards and Rappleyea having one for 5 yards. The injury of defensive end Max Granville affected the team's unity and future. The team is still not equal, and they need to improve. The team is still recovering from the injury of defensive end Max Granville, who had a pass breakup and a quarterback hurry last week.",
+      "semantic_text": "Penn State; Rocco Becht; Lincoln Financial Field; 500 relatives and friends; home game; 61,714; Delaware County; Monsignor Bonner High School; support; pass; 21-of-27; 268 yards; touchdown; 27-9; 539 yards; 75.6%; touchdowns; Ben Brahmer; 23-yarders; Kolin Dinkins",
+      "published_at": "2026-09-12T23:45:00Z",
+      "metadata": {
+        "record_id": "20260912234500-95",
+        "publication_date_raw": 1789256700000,
+        "tone_raw": "0.65359477124183,3.00653594771242,2.35294117647059,5.35947712418301,24.4444444444444,2.35294117647059,709",
+        "people": "Tony Roja,2674;Rocco Becht,70;Carson Hansen,2780;Finn Furmanek,3486;Nittany Lions,883;Quinton Martin Jr,2928;Yvan Kemajou,2315;Gabe Burkle,3447;Ben Brahmer,1046;Matt Campbell,1702;Kolin Dinkins,1194;Max Granville,1466",
+        "organizations": "Anthony,243;Monsignor Bonner High School,329",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-5",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-567",
+      "title": "Another View: Don't let Washington confuse you about vaccines. Talk with your pediatrician &#x2013; Marin Independent Journal",
+      "url": "https://www.marinij.com/2026/09/12/another-view-dont-let-washington-confuse-you-about-vaccines-talk-with-your-pediatrician/",
+      "source": "marinij.com",
+      "summary": "The article highlights recent measles deaths in Pennsylvania and the challenges faced by parents due to misinformation from political figures. It emphasizes the importance of routine childhood vaccinations and the need for medical guidance to protect children's health.",
+      "semantic_text": "measles; vaccines; president; healthcare; children",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-567",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-0.94488188976378,3.1496062992126,4.09448818897638,7.24409448818898,19.5275590551181,1.41732283464567,579",
+        "people": "Donald Trump,1007",
+        "organizations": "Department Of Health,817;American Academy Of Pediatrics,3844;Tribune Content Agency,3876;American Academy Of Pediatric,2853;United States,66;United States,1501;United States,2053;Human Services,834",
+        "gdelt_themes": "CRISISLEX_T11_UPDATESSYMPATHY,401;TAX_FNCACT_SECRETARY,789;EPU_CATS_MIGRATION_FEAR_FEAR,378;TAX_FNCACT_EXECUTIVE,1027;CRISISLEX_CRISISLEXREC,189;AFFECT,3240;HEALTH_VACCINATION,236;HEALTH_VACCINATION,723;HEALTH_VACCINATION,2991;TAX_DISEASE_HEPATITIS_A,3069;GENERAL_GOVERNMENT,653;EPU_POLICY_GOVERNMENT,653;TAX_FNCACT_DOCTOR,1092;TAX_ETHNICITY_AMERICAN,2832;TAX_ETHNICITY_AMERICAN,3822;MEDICAL,687;MEDICAL,1758;MEDICAL,2922;EDUCATION,2335;SOC_POINTSOFINTEREST_SCHOOL,2335;TAX_FNCACT_DOCTORS,2123;CRISISLEX_C03_WELLBEING_HEALTH,318;CRISISLEX_C03_WELLBEING_HEALTH,2174;TAX_DISEASE_MENINGOCOCCAL_DISEASE,3109;GENERAL_HEALTH,434;GENERAL_HEALTH,3109;TAX_DISEASE_DISEASE,434;TAX_DISEASE_DISEASE,3109;WB_1406_DISEASES,434;WB_1406_DISEASES,3109;WB_621_HEALTH_NUTRITION_AND_POPULATION,434;WB_621_HEALTH_NUTRITION_AND_POPULATION,3109;TAX_FNCACT_CHILDREN,335;TAX_FNCACT_CHILDREN,1655;TAX_FNCACT_CHILDREN,1886;TAX_FNCACT_CHILDREN,1965;TAX_FNCACT_CHILDREN,2250;TAX_FNCACT_CHILDREN,2310;TAX_FNCACT_CHILDREN,2706;TAX_FNCACT_CHILDREN,3119;TAX_FNCACT_CHILDREN,3735;TAX_DISEASE_INFLUENZA,3049;WB_1421_INFLUENZA,3049;WB_1415_COMMUNICABLE_DISEASE,3049;LEADER,773;LEADER,994;LEADER,3806;TAX_FNCACT_PRESIDENT,773;TAX_FNCACT_PRESIDENT,994;TAX_FNCACT_PRESIDENT,3806;USPEC_POLITICS_GENERAL1,773;USPEC_POLITICS_GENERAL1,994;USPEC_POLITICS_GENERAL1,3806;MANMADE_DISASTER_IMPLIED,1108;MANMADE_DISASTER_IMPLIED,1785;TAX_DISEASE_ROTAVIRUS,3085;TAX_FNCACT_POLITICIANS,2192;KILL,77;KILL,419;KILL,1268;WB_642_CHILD_HEALTH,469;WB_642_CHILD_HEALTH,1422;WB_642_CHILD_HEALTH,1568;WB_642_CHILD_HEALTH,2361;WB_1459_IMMUNIZATIONS,469;WB_1459_IMMUNIZATIONS,1422;WB_1459_IMMUNIZATIONS,1568;WB_1459_IMMUNIZATIONS,2361;WB_639_REPRODUCTIVE_MATERNAL_AND_CHILD_HEALTH,469;WB_639_REPRODUCTIVE_MATERNAL_AND_CHILD_HEALTH,1422;WB_639_REPRODUCTIVE_MATERNAL_AND_CHILD_HEALTH,1568;WB_639_REPRODUCTIVE_MATERNAL_AND_CHILD_HEALTH,2361;TAX_FNCACT_PEDIATRICIAN,1137;TAX_FNCACT_PEDIATRICIAN,3407;TAX_DISEASE_RUBELLA,1386;TAX_DISEASE_MEASLES,90;TAX_DISEASE_MEASLES,173;TAX_DISEASE_MEASLES,566;TAX_DISEASE_MEASLES,1261;TAX_DISEASE_MEASLES,1368;TAX_DISEASE_MEASLES,1838;TAX_DISEASE_MEASLES,2531;TAX_DISEASE_MEASLES,3037;UNGP_HEALTHCARE,90;UNGP_HEALTHCARE,173;UNGP_HEALTHCARE,566;UNGP_HEALTHCARE,1261;UNGP_HEALTHCARE,1368;UNGP_HEALTHCARE,1838;UNGP_HEALTHCARE,2531;UNGP_HEALTHCARE,3037;WB_1973_FINANCIAL_RISK_REDUCTION,2816;WB_435_AGRICULTURE_AND_FOOD_SECURITY,2816;WB_337_INSURANCE,2816;WB_1967_AGRICULTURAL_RISK_AND_SECURITY,2816;TAX_DISEASE_HEPATITIS,3067;HEALTH_SEXTRANSDISEASE,3067;TAX_WORLDMAMMALS_HUMAN,825;WB_635_PUBLIC_HEALTH,2494;WB_2165_HEALTH_EMERGENCIES,2494;WB_2166_HEALTH_EMERGENCY_PREPAREDNESS_AND_DISASTER_RESPONSE,2494;WB_2167_PANDEMICS,2494;TAX_FNCACT_BABIES,344;TAX_ECON_PRICE,1671;TAX_DISEASE_DISEASES,3017;TAX_FNCACT_CHILD,3431;TAX_FNCACT_CHILD,3667;EPU_POLICY_POLITICAL,2076;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-6",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912231500-249",
+      "title": "Aztecs lose backup quarterback to broken collarbone",
+      "url": "https://www.sandiegouniontribune.com/2026/09/12/aztecs-lose-backup-quarterback-to-broken-collarbone/",
+      "source": "sandiegouniontribune.com",
+      "summary": "San Diego State's backup quarterback Stone Saunders is expected to miss the next six to eight weeks following surgery for a broken collarbone. Draiden Trudeau replaced Jayden Denegal in the final two minutes of the game, throwing an incomplete pass. Bert Emanuel Jr. was the Aztecs' emergency quarterback. Saunders was injured in a sack during the game, and he did not accompany the team on Saturday's road trip. Saunders, a former high school quarterback, set state passing records and was among SDSU's most coveted transfers. The Aztecs had six punts of at least 77 yards since 2021, with Tashi Dorje being the ninth-longest. There were 941 FBS games last season, and the Aztecs had a rare 0-0 first half between SDSU and UCLA.",
+      "semantic_text": "backpack quarterback; collarbone injury; backup quarterback; redshirt freshman; quarterback; punt; punt returner; punt return",
+      "published_at": "2026-09-12T23:15:00Z",
+      "metadata": {
+        "record_id": "20260912231500-249",
+        "publication_date_raw": 1789254900000,
+        "tone_raw": "-1.2779552715655,1.59744408945687,2.87539936102236,4.47284345047923,24.6006389776358,0,287",
+        "people": "Bert Emanuel Jr,417;Jayden Denegal,322;Charlton Luniewski,719;Draiden Trudeau,273",
+        "organizations": "Mission Viejo,1639",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-7",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912234500-56",
+      "title": "Astros announce latest update on Yordan Alvarez's injury ahead of Rays game",
+      "url": "https://www.thebiglead.com/astros-yordan-alvarez-ankle-injury-rays-lineup-update/",
+      "source": "thebiglead.com",
+      "summary": "The Astros lineup update shows that Yordan Alvarez will not be in the lineup Friday night as the team opens a series against the Tampa Bay Rays. Alvarez is recovering from a minor ankle injury, which could be the reason he is out of the lineup. The Astros have not indicated that Alvarez is dealing with a serious injury, but his ankle could be the reason he is being kept out of the lineup. The Astros have not indicated that Alvarez is dealing with a serious injury, but his ankle could be the reason he is being kept out of the lineup. The Astros have not indicated that Alvarez is dealing with a serious injury, but his ankle could be the reason he is being kept out of the lineup. The Astros have not indicated that Alvarez is dealing with a serious injury, but his ankle could be the reason he is being kept out of the lineup.",
+      "semantic_text": "Astros lineup update; Yordan Alvarez injury; Houston Astros; Triple Crown; Philadelphia Phillies; American League; Houston series; Tampa Bay Rays; Bo Bichette; Mets future; Yordan Alvarez's health; Astros team; playoff push; slagger; game schedule; rest day; injury decision; health concerns; home runs; RBIs",
+      "published_at": "2026-09-12T23:45:00Z",
+      "metadata": {
+        "record_id": "20260912234500-56",
+        "publication_date_raw": 1789256700000,
+        "tone_raw": "-0.65359477124183,1.63398692810458,2.28758169934641,3.92156862745098,23.202614379085,0,293",
+        "people": "Yordan Alvarez,14",
+        "organizations": "American League,1045",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-8",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-580",
+      "title": "Penn State notes: Rocco Becht entertains about 500 relatives, friends in win",
+      "url": "https://www.mainlinemedianews.com/2026/09/12/penn-state-notes-rocco-becht-entertains-about-500-relatives-friends-in-win/",
+      "source": "mainlinemedianews.com",
+      "summary": "Penn State quarterback Rocco Becht, who had 500 relatives and friends in attendance at his home game, expressed appreciation for the crowd. He completed 21-of-27 passes and led the team to a 27-9 victory. The team's passing game had a low-yard per rush, and Becht's performance included touchdowns against the Owls. Defensive end Max Granville, who had a pass breakup and rushed for 148 yards, was out for the rest of the year. The team is still improving, and Becht's teammates are supportive.",
+      "semantic_text": "Penn State; Rocco Becht; 500 relatives; 500 friends; team; passing game",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-580",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "0.65359477124183,3.00653594771242,2.35294117647059,5.35947712418301,24.4444444444444,2.35294117647059,709",
+        "people": "Tony Roja,2674;Gabe Burkle,3447;Kolin Dinkins,1194;Matt Campbell,1702;Carson Hansen,2780;Yvan Kemajou,2315;Rocco Becht,70;Ben Brahmer,1046;Nittany Lions,883;Max Granville,1466;Quinton Martin Jr,2928;Finn Furmanek,3486",
+        "organizations": "Anthony,243;Monsignor Bonner High School,329",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-9",
+          "similarity": 0.9999999999999999
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-18",
+      "title": "Penn State overcomes slow start to beat Temple behind Becht, Brahmer",
+      "url": "https://www.mainlinemedianews.com/2026/09/12/no-16-penn-state-overcomes-slow-start-to-beat-temple-behind-becht-brahmer/",
+      "source": "mainlinemedianews.com",
+      "summary": "Penn State's first road game in the Matt Campbell era was a slow start, with the team scoring on five consecutive possessions to erase any thought of history repeating. The team's defense made big plays, and Becht and Brahmer played together since 2023. Despite a slow start, the team made adjustments after the first quarter and improved in the second half, leading to a win.",
+      "semantic_text": "Penn State; Becht; Brahmer; Temple; field goal; run; interception",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-18",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "0.495049504950495,2.14521452145215,1.65016501650165,3.7953795379538,23.2673267326733,3.46534653465347,556",
+        "people": "Tony Rojas,1424;Carson Hansen,968;Andrew Rappleyea,1650;Ryan Barker,1766;Ben Brahmer,338;Rocco Becht,276;Jeremiah Cooper,2390;Nittany Lions,161;Matt Campbell,136;Jaxon Smolik,1493",
+        "organizations": "",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-10",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912234500-128",
+      "title": "Knicks seem ready to take fans' worst Mitchell Robinson fear head-on",
+      "url": "https://dailyknicks.com/knicks-ready-worst-mitchell-robinson-fear",
+      "source": "dailyknicks.com",
+      "summary": "The New York Knicks won their first NBA Championship in 53 years, setting fans up for an entire summer of elation. However, the team's efforts were overshadowed by the loss of Mitchell Robinson, a key player, after just four days of the 2026-27 regular season. The organizational refusal to pass the salary cap led to the loss of center Mitchell Robinson, who was replaced by Karl-Anthony Towns. Despite the team's talent, they need backup to handle the loss of Robinson. The Knicks are reportedly confident in the duo of Towns and Andre Drummond, with the",
+      "semantic_text": "NBA Championship; basketball suicide; 2026-27 regular season; salary cap; team governor; Mitchell Robinson; Boston Celtics; Philadelphia 76ers; center; Karl-Anthony Towns; Andre Drummond; strong degree of confidence; backup; survive; foul trouble; physicality; wing defenders; Miles McBride; Anunoby; center position",
+      "published_at": "2026-09-12T23:45:00Z",
+      "metadata": {
+        "record_id": "20260912234500-128",
+        "publication_date_raw": 1789256700000,
+        "tone_raw": "-0.6,2.6,3.2,5.8,26,0,461",
+        "people": "Mike Brown,1482;Mitchell Robinson,521;Ian Begley,883;James Dolan,241;Andre Drummond,953;Ariel Hukporti,620",
+        "organizations": "New York Knicks,19",
+        "gdelt_themes": ""
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-11",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-358",
+      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF",
+      "url": "https://wdez.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
+      "source": "wdez.com",
+      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case involving Brian Wells, set in the Toronto International Film Festival. The film follows the convoluted plot of a 2003 PNC Bank robbery, with the protagonist, Marjorie Diehl-Armstrong, involved in a bipolar disorder-related case. The story centers on the relationship between her former fiancé and accomplice, highlighting the emotional and chaotic aspects of their bond.",
+      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; Brian Wells; James Roden; Crimes; Dysfunctional Love Story",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-358",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
+        "people": "Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Patricia Arquette,300;Brian Wells,691;James Roden,1294;David Harbour,338;Alistair Bell,2364;Courteney Cox,72",
+        "organizations": "Academy Award,275;Reuters,50;Netflix,483",
+        "gdelt_themes": "CRISISLEX_T03_DEAD,1911;TAX_FNCACT_FATHER,1090;CRIME_COMMON_ROBBERY,698;TAX_DISEASE_BIPOLAR_DISORDER,935;SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;TAX_FNCACT_PROSECUTORS,995;CRISISLEX_CRISISLEXREC,152;TAX_FNCACT_ACTOR,324;UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_WOMAN,913;TAX_FNCACT_DELIVERY_MAN,679;TRIAL,970;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;KILL,857;KILL,1350;TAX_ETHNICITY_BLACK,430;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;TAX_FNCACT_DIRECTOR,401;TAX_FNCACT_HIT_MAN,1053;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-12",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-255",
+      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF | 100.7 MIX-FM | Today's Hit Music",
+      "url": "https://mymixfm.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
+      "source": "mymixfm.com",
+      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case involving Brian Wells, a man with bipolar disorder who was convicted of the robbery. The film explores the convoluted plot of the heist, the relationship between Marjorie Diehl-Armstrong and her former fiancé Bill Rothstein, and the motivations behind the events. The movie is set at the Toronto International Film Festival.",
+      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; pizza bomber case; dysfunctional love story; crime thriller; movie",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-255",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
+        "people": "Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Patricia Arquette,300;Brian Wells,691;James Roden,1294;David Harbour,338;Alistair Bell,2364;Courteney Cox,72",
+        "organizations": "Academy Award,275;Netflix,483;Reuters,50",
+        "gdelt_themes": "SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;TAX_DISEASE_BIPOLAR_DISORDER,935;CRIME_COMMON_ROBBERY,698;TAX_FNCACT_FATHER,1090;CRISISLEX_T03_DEAD,1911;TAX_FNCACT_HIT_MAN,1053;TAX_FNCACT_DIRECTOR,401;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;TAX_ETHNICITY_BLACK,430;KILL,857;KILL,1350;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;TRIAL,970;TAX_FNCACT_DELIVERY_MAN,679;TAX_FNCACT_WOMAN,913;UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_ACTOR,324;CRISISLEX_CRISISLEXREC,152;TAX_FNCACT_PROSECUTORS,995;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-13",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-546",
+      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF",
+      "url": "https://wxerfm.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
+      "source": "wxerfm.com",
+      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case involving Brian Wells, set in the aftermath of a 2003 robbery. The film follows the convoluted plot of the case, featuring the characters of Marjorie Diehl-Armstrong, her estranged father, and her former fiancé, Bill Rothstein. The story explores the emotional and tragic elements of the case, with the protagonist, Courteney Cox, drawing inspiration from the relationship between Diehl-Armstrong and Rothstein.",
+      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; Brian Wells; Bipolar Disorder; Pizza Bomber Case; Dysfunctional Love Story",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-546",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
+        "people": "Courteney Cox,72;James Roden,1294;David Harbour,338;Alistair Bell,2364;Brian Wells,691;Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Patricia Arquette,300",
+        "organizations": "Academy Award,275;Netflix,483;Reuters,50",
+        "gdelt_themes": "TAX_FNCACT_FATHER,1090;CRISISLEX_T03_DEAD,1911;SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;TAX_DISEASE_BIPOLAR_DISORDER,935;CRIME_COMMON_ROBBERY,698;KILL,857;KILL,1350;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;TRIAL,970;TAX_FNCACT_DELIVERY_MAN,679;TAX_FNCACT_WOMAN,913;UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_ACTOR,324;CRISISLEX_CRISISLEXREC,152;TAX_FNCACT_PROSECUTORS,995;TAX_FNCACT_HIT_MAN,1053;TAX_FNCACT_DIRECTOR,401;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;TAX_ETHNICITY_BLACK,430;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-14",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-171",
+      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF",
+      "url": "https://www.1049thewolf.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
+      "source": "1049thewolf.com",
+      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case that centers on Brian Wells, a man with bipolar disorder who was convicted of a robbery. The film follows the convoluted plot of the case, highlighting the emotional and tragic elements of the story, including the love story between Marjorie Diehl-Armstrong and Bill Rothstein. The film is based on a 2018 Netflix documentary series and features Academy Award winner Patricia Arquette and 'Stranger Things' actor David Harbour.",
+      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; Brian Wells; pizza bomber case; dysfunctional love story; movie; film",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-171",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
+        "people": "Brian Wells,691;Patricia Arquette,300;Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Courteney Cox,72;Alistair Bell,2364;James Roden,1294;David Harbour,338",
+        "organizations": "Netflix,483;Reuters,50;Academy Award,275",
+        "gdelt_themes": "TAX_FNCACT_HIT_MAN,1053;TAX_FNCACT_DIRECTOR,401;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;TAX_ETHNICITY_BLACK,430;KILL,857;KILL,1350;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;TRIAL,970;TAX_FNCACT_DELIVERY_MAN,679;TAX_FNCACT_ACTOR,324;UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_WOMAN,913;CRISISLEX_CRISISLEXREC,152;TAX_FNCACT_PROSECUTORS,995;SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;TAX_DISEASE_BIPOLAR_DISORDER,935;CRIME_COMMON_ROBBERY,698;TAX_FNCACT_FATHER,1090;CRISISLEX_T03_DEAD,1911;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-15",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-426",
+      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF | 104.1 WIKY",
+      "url": "https://wiky.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
+      "source": "wiky.com",
+      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case involving Brian Wells, a man with bipolar disorder, and his former fiancé, Bill Rothstein. The film explores the chaotic love story behind the heist and the emotional undercurrents of the events.",
+      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; Brian Wells; pizza bomber case; dysfunctional love story; Academy Award; Netflix",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-426",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
+        "people": "Brian Wells,691;Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Patricia Arquette,300;Courteney Cox,72;James Roden,1294;David Harbour,338;Alistair Bell,2364",
+        "organizations": "Academy Award,275;Reuters,50;Netflix,483",
+        "gdelt_themes": "TAX_FNCACT_FATHER,1090;CRISISLEX_T03_DEAD,1911;SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;TAX_DISEASE_BIPOLAR_DISORDER,935;CRIME_COMMON_ROBBERY,698;KILL,857;KILL,1350;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;TRIAL,970;TAX_FNCACT_DELIVERY_MAN,679;TAX_FNCACT_WOMAN,913;UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_ACTOR,324;CRISISLEX_CRISISLEXREC,152;TAX_FNCACT_PROSECUTORS,995;TAX_FNCACT_HIT_MAN,1053;TAX_FNCACT_DIRECTOR,401;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;TAX_ETHNICITY_BLACK,430;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-16",
+          "similarity": 1.0
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-140",
+      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF",
+      "url": "https://y94.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
+      "source": "y94.com",
+      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case, featuring the convoluted plot of Brian Wells' 2003 robbery, with themes of bipolar disorder and a dysfunctional love story between Marjorie Diehl-Armstrong and Bill Rothstein.",
+      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; Brian Wells; Bipolar Disorder; Pizza Bombing Case; Dysfunctional Love Story",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-140",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
+        "people": "Alistair Bell,2364;David Harbour,338;James Roden,1294;Courteney Cox,72;Patricia Arquette,300;Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Brian Wells,691",
+        "organizations": "Academy Award,275;Reuters,50;Netflix,483",
+        "gdelt_themes": "UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_WOMAN,913;TAX_FNCACT_ACTOR,324;TAX_FNCACT_DELIVERY_MAN,679;TAX_FNCACT_PROSECUTORS,995;CRISISLEX_CRISISLEXREC,152;KILL,857;KILL,1350;TRIAL,970;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;TAX_ETHNICITY_BLACK,430;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;TAX_FNCACT_DIRECTOR,401;TAX_FNCACT_HIT_MAN,1053;CRISISLEX_T03_DEAD,1911;TAX_FNCACT_FATHER,1090;CRIME_COMMON_ROBBERY,698;TAX_DISEASE_BIPOLAR_DISORDER,935;SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "cluster-17",
+          "similarity": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 """Package stored articles and topic synthesis results for the backend."""
 
 from contextlib import closing
+from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 import json
 import math
@@ -102,7 +103,6 @@ def build_output(buckets, *, db_path=DEFAULT_DATABASE, request_type="fixed",
                 article = {field: _text(row[field], field, allow_empty=True)
                            for field in ("id", "title", "url", "source", "summary", "semantic_text")}
                 article["published_at"] = _date(row["published_at"])
-                article["embedding"] = vectors.get(article_id, [])
                 article["metadata"] = article_metadata.get(article_id, {})
                 article["buckets"] = [{"bucket_id": link["bucket_id"], "similarity": _score(link["similarity"])}
                                       for link in connection.execute(
@@ -115,13 +115,45 @@ def build_output(buckets, *, db_path=DEFAULT_DATABASE, request_type="fixed",
                                    "activity": {"current_count": len(members), "previous_count": None,
                                                 "change_ratio": None, "status": "insufficient_data"},
                                    "direction": {"description": "Insufficient temporal data.", "related_topics": []}})
-    return {"schema_version": SCHEMA_VERSION, "request_type": request_type,
+    response = {"schema_version": SCHEMA_VERSION, "request_type": request_type,
             "generated_at": now.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
             "parameters": {"bucket_count": len(specs), "articles_per_bucket": articles_per_bucket},
             "stats": {"total_articles_considered": total, "returned_buckets": len(output_buckets)},
             "buckets": output_buckets, "articles": output_articles}
+    return public_response(response)
+
+
+def public_response(response):
+    """Format public feeds, including feeds saved by older versions."""
+    if not isinstance(response, dict) or response.get("schema_version") != SCHEMA_VERSION:
+        return response
+    result = {key: deepcopy(value) for key, value in response.items() if key != "articles"}
+    result["parameters"] = {key: response["parameters"][key]
+                            for key in ("bucket_count", "articles_per_bucket")}
+    result["stats"] = {key: response["stats"][key]
+                       for key in ("total_articles_considered", "returned_buckets")}
+    fixed = response["request_type"] == "fixed"
+    def bucket_id(key):
+        return "bucket-" + key if fixed and not key.startswith("bucket-") else key
+    for bucket in result["buckets"]:
+        bucket["id"] = bucket_id(bucket["id"])
+        bucket.pop("summary_status", None)
+    result["articles"] = []
+    fields = {"record_id": "Record_ID", "publication_date_raw": "Publication_Date",
+              "tone_raw": "Tone", "people": "People", "organizations": "Organizations",
+              "gdelt_themes": "Themes"}
+    for original in response["articles"]:
+        article = {key: deepcopy(value) for key, value in original.items() if key != "embedding"}
+        raw = article.get("metadata", {})
+        defaults = {"record_id": article["id"], "publication_date_raw": None,
+                    "tone_raw": "", "people": "", "organizations": "", "gdelt_themes": ""}
+        article["metadata"] = {key: raw.get(key, raw.get(old, defaults[key])) for key, old in fields.items()}
+        for link in article.get("buckets", []):
+            link["bucket_id"] = bucket_id(link["bucket_id"])
+        result["articles"].append(article)
+    return result
 
 
 def serialize_output(response, *, indent=2):
     """Serialize a built response as strict JSON. Do not write or send it."""
-    return json.dumps(response, ensure_ascii=False, allow_nan=False, indent=indent)
+    return json.dumps(public_response(response), ensure_ascii=False, allow_nan=False, indent=indent)

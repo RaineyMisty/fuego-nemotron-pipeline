@@ -1,0 +1,502 @@
+{
+  "schema_version": "fuego-response.v1",
+  "request_type": "fixed",
+  "generated_at": "2026-09-20T12:41:29.829000Z",
+  "parameters": {
+    "bucket_count": 20,
+    "articles_per_bucket": 10
+  },
+  "stats": {
+    "total_articles_considered": 19,
+    "returned_buckets": 20
+  },
+  "buckets": [
+    {
+      "id": "bucket-politics",
+      "type": "fixed",
+      "name": "Politics",
+      "description": "elections; government; parliament; public policy; political parties; voting; legislation",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-world-affairs",
+      "type": "fixed",
+      "name": "Bill Maher's Critique of the Left's Shift in Post-9/11 World",
+      "description": "international relations; diplomacy; foreign policy; treaties; armed conflict; peace talks; humanitarian aid",
+      "summary": "Bill Maher's critique of the left's role in the post-9/11 world highlights how they have shifted from supporting the West to supporting a system that tolerates terrorism, while ignoring progress in areas like Gaza. The article shows the left's moral confusion and the broader implications of their actions.",
+      "members": [
+        {
+          "article_id": "20260912233000-591",
+          "similarity": 0.44243911663215635,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-economy",
+      "type": "fixed",
+      "name": "Economy",
+      "description": "inflation; employment; economic growth; interest rates; central banks; trade; recession",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-business",
+      "type": "fixed",
+      "name": "Business",
+      "description": "companies; corporate earnings; mergers; entrepreneurship; retail; business strategy; industry",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-technology",
+      "type": "fixed",
+      "name": "Technology",
+      "description": "software; computing; artificial intelligence; semiconductors; cybersecurity; digital products; robotics",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-science",
+      "type": "fixed",
+      "name": "Science",
+      "description": "scientific research; physics; chemistry; astronomy; space exploration; laboratory discoveries; experiments",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-health",
+      "type": "fixed",
+      "name": "Vaccination Misinformation and Parental Health in Pennsylvania",
+      "description": "medicine; public health; hospitals; disease prevention; clinical trials; treatments; mental health",
+      "summary": "The article discusses recent measles deaths in Pennsylvania and the challenges faced by parents due to misinformation from political figures. It emphasizes the importance of routine childhood vaccinations and the need for medical guidance to protect children's health. The Marin Independent Journal highlights the need for parents to seek medical advice rather than relying on political figures for information, underscoring the critical role of public health initiatives in safeguarding children's well-being.",
+      "members": [
+        {
+          "article_id": "20260912233000-567",
+          "similarity": 0.49361831081915314,
+          "rank": 1
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-environment",
+      "type": "fixed",
+      "name": "Environment",
+      "description": "climate change; biodiversity; conservation; pollution; forests; wildlife; ecosystems",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-energy",
+      "type": "fixed",
+      "name": "Energy",
+      "description": "electricity; solar power; wind power; oil; natural gas; nuclear power; energy storage; power grids",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-education",
+      "type": "fixed",
+      "name": "Education",
+      "description": "schools; universities; students; teachers; tuition; curriculum; scholarships; campus life",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-crime-justice",
+      "type": "fixed",
+      "name": "Crime and Justice",
+      "description": "crime; policing; criminal investigations; courts; trials; sentencing; justice system",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-transportation",
+      "type": "fixed",
+      "name": "Transportation",
+      "description": "public transit; railways; roads; traffic; aviation; cycling; transport infrastructure",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-housing",
+      "type": "fixed",
+      "name": "Housing",
+      "description": "housing; rent; real estate; home prices; zoning; construction; tenants; affordable homes",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-sports",
+      "type": "fixed",
+      "name": "Sports",
+      "description": "competitive sports; athletes; teams; leagues; tournaments; match results; championships",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-entertainment",
+      "type": "fixed",
+      "name": "Dysfunctional Love Story Behind Pizza Bomber Case at Toronto International Film Festival",
+      "description": "movies; television; music; celebrities; concerts; streaming shows; film releases",
+      "summary": "Courteney Cox's thriller 'Evil Genius' explores the convoluted plot of a pizza bomber case involving Brian Wells, a man with bipolar disorder who was convicted of a robbery. The film delves into the emotional and tragic elements of the story, including the love story between Marjorie Diehl-Armstrong and Bill Rothstein. The movie is set at the Toronto International Film Festival. The article also highlights the film's connection to a 2018 Netflix documentary series and features Academy Award winner Patricia Arquette and 'Stranger Things' actor David Harbour. Bill Maher's critique of the left's role in the post-9/11 world, while showing moral confusion, is presented in another article. However, the strongest shared topic supported by the articles is the portrayal of a dysfunctional love story centered around a pizza bomber case.",
+      "members": [
+        {
+          "article_id": "20260912233000-255",
+          "similarity": 0.41823204534132763,
+          "rank": 1
+        },
+        {
+          "article_id": "20260912233000-171",
+          "similarity": 0.4056153586463224,
+          "rank": 2
+        },
+        {
+          "article_id": "20260912233000-591",
+          "similarity": 0.4054477232702524,
+          "rank": 3
+        }
+      ],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-arts-culture",
+      "type": "fixed",
+      "name": "Arts and Culture",
+      "description": "museums; visual arts; literature; theater; cultural heritage; exhibitions; books",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-gaming",
+      "type": "fixed",
+      "name": "Gaming",
+      "description": "video games; game studios; console games; PC gaming; esports; game releases; game design",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-food",
+      "type": "fixed",
+      "name": "Food",
+      "description": "restaurants; cooking; recipes; chefs; cuisine; dining; food festivals; local food",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-travel",
+      "type": "fixed",
+      "name": "Travel",
+      "description": "tourism; destinations; vacations; hotels; sightseeing; travel guides; visitor attractions",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    },
+    {
+      "id": "bucket-weather",
+      "type": "fixed",
+      "name": "Weather",
+      "description": "weather forecasts; storms; rainfall; snow; heat waves; hurricanes; flooding; weather alerts",
+      "summary": "No matching articles.",
+      "members": [],
+      "activity": {
+        "current_count": 0,
+        "previous_count": 0,
+        "change_ratio": null,
+        "status": "stable"
+      },
+      "direction": {
+        "description": "Insufficient temporal data.",
+        "related_topics": []
+      }
+    }
+  ],
+  "warnings": [],
+  "articles": [
+    {
+      "id": "20260912233000-591",
+      "title": "Bill Maher Destroys the Left Over 9/11, and It's Brilliant",
+      "url": "https://pjmedia.com/matt-margolis/2026/09/12/bill-maher-destroys-the-left-over-911-and-its-brilliant-n4957172",
+      "source": "pjmedia.com",
+      "summary": "Bill Maher's critique of the left's role in the post-9/11 world highlights how they've shifted from supporting the West to supporting a system that tolerates terrorism, while ignoring the progress made in areas like Gaza. The article shows the left's moral confusion and the broader implications of their actions.",
+      "semantic_text": "9/11; leftist; terrorist; democracy; media",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-591",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.54391371340524,3.54391371340524,7.08782742681048,10.6317411402157,21.7257318952234,0.924499229583975,580",
+        "people": "Luigi Mangione,2079;Bill Maher,453;Bill Maher,3317",
+        "organizations": "Democrat Party,2894;Democrat Party,3588",
+        "gdelt_themes": "GENERAL_GOVERNMENT,2597;EXTREMISM,1569;TAX_POLITICAL_PARTY_DEMOCRAT,2888;TAX_POLITICAL_PARTY_DEMOCRAT,3582;USPEC_POLITICS_GENERAL1,2561;USPEC_POLITICS_GENERAL1,2894;USPEC_POLITICS_GENERAL1,3588;TERROR,810;ARMEDCONFLICT,810;MEDIA_MSM,952;MEDIA_MSM,1107;TAX_POLITICAL_PARTY_DEMOCRAT_PARTY,2894;TAX_POLITICAL_PARTY_DEMOCRAT_PARTY,3588;RELIGION,1723;CRISISLEX_C03_WELLBEING_HEALTH,2470;KILL,605;TAX_FNCACT_WOMEN,1757;TAX_ETHNICITY_AMERICANS,232;TAX_ETHNICITY_AMERICANS,672;TAX_ETHNICITY_AMERICANS,2003;TAX_FNCACT_LEFTISTS,2168;TAX_FNCACT_LEFTIST,2337;TAX_FNCACT_LEFTIST,2787;LGBT,1735;WB_678_DIGITAL_GOVERNMENT,1075;WB_678_DIGITAL_GOVERNMENT,3461;WB_678_DIGITAL_GOVERNMENT,3567;WB_694_BROADCAST_AND_MEDIA,1075;WB_694_BROADCAST_AND_MEDIA,3461;WB_694_BROADCAST_AND_MEDIA,3567;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,1075;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,3461;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,3567;MEDIA_SOCIAL,3283;SELF_IDENTIFIED_ATROCITY,2255;WB_2507_HUMAN_RIGHTS_ABUSES_AND_VIOLATIONS,2255;WB_2203_HUMAN_RIGHTS,2255;WB_2509_GENOCIDE,2255;PROTEST,2347;MOVEMENT_GENERAL,2347;TAX_FNCACT_ACTIVISTS,2347;SELF_IDENTIFIED_HUMAN_RIGHTS,1723;TAX_ETHNICITY_AMERICAN,1412;WB_2467_TERRORISM,967;WB_2433_CONFLICT_AND_VIOLENCE,967;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,967;WB_2462_POLITICAL_VIOLENCE_AND_WAR,967;EPU_CATS_NATIONAL_SECURITY,967;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.4054477232702524
+        },
+        {
+          "bucket_id": "bucket-world-affairs",
+          "similarity": 0.44243911663215635
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-567",
+      "title": "Another View: Don't let Washington confuse you about vaccines. Talk with your pediatrician &#x2013; Marin Independent Journal",
+      "url": "https://www.marinij.com/2026/09/12/another-view-dont-let-washington-confuse-you-about-vaccines-talk-with-your-pediatrician/",
+      "source": "marinij.com",
+      "summary": "The article highlights recent measles deaths in Pennsylvania and the challenges faced by parents due to misinformation from political figures. It emphasizes the importance of routine childhood vaccinations and the need for medical guidance to protect children's health.",
+      "semantic_text": "measles; vaccines; president; healthcare; children",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-567",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-0.94488188976378,3.1496062992126,4.09448818897638,7.24409448818898,19.5275590551181,1.41732283464567,579",
+        "people": "Donald Trump,1007",
+        "organizations": "Department Of Health,817;American Academy Of Pediatrics,3844;Tribune Content Agency,3876;American Academy Of Pediatric,2853;United States,66;United States,1501;United States,2053;Human Services,834",
+        "gdelt_themes": "CRISISLEX_T11_UPDATESSYMPATHY,401;TAX_FNCACT_SECRETARY,789;EPU_CATS_MIGRATION_FEAR_FEAR,378;TAX_FNCACT_EXECUTIVE,1027;CRISISLEX_CRISISLEXREC,189;AFFECT,3240;HEALTH_VACCINATION,236;HEALTH_VACCINATION,723;HEALTH_VACCINATION,2991;TAX_DISEASE_HEPATITIS_A,3069;GENERAL_GOVERNMENT,653;EPU_POLICY_GOVERNMENT,653;TAX_FNCACT_DOCTOR,1092;TAX_ETHNICITY_AMERICAN,2832;TAX_ETHNICITY_AMERICAN,3822;MEDICAL,687;MEDICAL,1758;MEDICAL,2922;EDUCATION,2335;SOC_POINTSOFINTEREST_SCHOOL,2335;TAX_FNCACT_DOCTORS,2123;CRISISLEX_C03_WELLBEING_HEALTH,318;CRISISLEX_C03_WELLBEING_HEALTH,2174;TAX_DISEASE_MENINGOCOCCAL_DISEASE,3109;GENERAL_HEALTH,434;GENERAL_HEALTH,3109;TAX_DISEASE_DISEASE,434;TAX_DISEASE_DISEASE,3109;WB_1406_DISEASES,434;WB_1406_DISEASES,3109;WB_621_HEALTH_NUTRITION_AND_POPULATION,434;WB_621_HEALTH_NUTRITION_AND_POPULATION,3109;TAX_FNCACT_CHILDREN,335;TAX_FNCACT_CHILDREN,1655;TAX_FNCACT_CHILDREN,1886;TAX_FNCACT_CHILDREN,1965;TAX_FNCACT_CHILDREN,2250;TAX_FNCACT_CHILDREN,2310;TAX_FNCACT_CHILDREN,2706;TAX_FNCACT_CHILDREN,3119;TAX_FNCACT_CHILDREN,3735;TAX_DISEASE_INFLUENZA,3049;WB_1421_INFLUENZA,3049;WB_1415_COMMUNICABLE_DISEASE,3049;LEADER,773;LEADER,994;LEADER,3806;TAX_FNCACT_PRESIDENT,773;TAX_FNCACT_PRESIDENT,994;TAX_FNCACT_PRESIDENT,3806;USPEC_POLITICS_GENERAL1,773;USPEC_POLITICS_GENERAL1,994;USPEC_POLITICS_GENERAL1,3806;MANMADE_DISASTER_IMPLIED,1108;MANMADE_DISASTER_IMPLIED,1785;TAX_DISEASE_ROTAVIRUS,3085;TAX_FNCACT_POLITICIANS,2192;KILL,77;KILL,419;KILL,1268;WB_642_CHILD_HEALTH,469;WB_642_CHILD_HEALTH,1422;WB_642_CHILD_HEALTH,1568;WB_642_CHILD_HEALTH,2361;WB_1459_IMMUNIZATIONS,469;WB_1459_IMMUNIZATIONS,1422;WB_1459_IMMUNIZATIONS,1568;WB_1459_IMMUNIZATIONS,2361;WB_639_REPRODUCTIVE_MATERNAL_AND_CHILD_HEALTH,469;WB_639_REPRODUCTIVE_MATERNAL_AND_CHILD_HEALTH,1422;WB_639_REPRODUCTIVE_MATERNAL_AND_CHILD_HEALTH,1568;WB_639_REPRODUCTIVE_MATERNAL_AND_CHILD_HEALTH,2361;TAX_FNCACT_PEDIATRICIAN,1137;TAX_FNCACT_PEDIATRICIAN,3407;TAX_DISEASE_RUBELLA,1386;TAX_DISEASE_MEASLES,90;TAX_DISEASE_MEASLES,173;TAX_DISEASE_MEASLES,566;TAX_DISEASE_MEASLES,1261;TAX_DISEASE_MEASLES,1368;TAX_DISEASE_MEASLES,1838;TAX_DISEASE_MEASLES,2531;TAX_DISEASE_MEASLES,3037;UNGP_HEALTHCARE,90;UNGP_HEALTHCARE,173;UNGP_HEALTHCARE,566;UNGP_HEALTHCARE,1261;UNGP_HEALTHCARE,1368;UNGP_HEALTHCARE,1838;UNGP_HEALTHCARE,2531;UNGP_HEALTHCARE,3037;WB_1973_FINANCIAL_RISK_REDUCTION,2816;WB_435_AGRICULTURE_AND_FOOD_SECURITY,2816;WB_337_INSURANCE,2816;WB_1967_AGRICULTURAL_RISK_AND_SECURITY,2816;TAX_DISEASE_HEPATITIS,3067;HEALTH_SEXTRANSDISEASE,3067;TAX_WORLDMAMMALS_HUMAN,825;WB_635_PUBLIC_HEALTH,2494;WB_2165_HEALTH_EMERGENCIES,2494;WB_2166_HEALTH_EMERGENCY_PREPAREDNESS_AND_DISASTER_RESPONSE,2494;WB_2167_PANDEMICS,2494;TAX_FNCACT_BABIES,344;TAX_ECON_PRICE,1671;TAX_DISEASE_DISEASES,3017;TAX_FNCACT_CHILD,3431;TAX_FNCACT_CHILD,3667;EPU_POLICY_POLITICAL,2076;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-health",
+          "similarity": 0.49361831081915314
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-255",
+      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF | 100.7 MIX-FM | Today's Hit Music",
+      "url": "https://mymixfm.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
+      "source": "mymixfm.com",
+      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case involving Brian Wells, a man with bipolar disorder who was convicted of the robbery. The film explores the convoluted plot of the heist, the relationship between Marjorie Diehl-Armstrong and her former fiancé Bill Rothstein, and the motivations behind the events. The movie is set at the Toronto International Film Festival.",
+      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; pizza bomber case; dysfunctional love story; crime thriller; movie",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-255",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
+        "people": "Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Patricia Arquette,300;Brian Wells,691;James Roden,1294;David Harbour,338;Alistair Bell,2364;Courteney Cox,72",
+        "organizations": "Academy Award,275;Netflix,483;Reuters,50",
+        "gdelt_themes": "SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;TAX_DISEASE_BIPOLAR_DISORDER,935;CRIME_COMMON_ROBBERY,698;TAX_FNCACT_FATHER,1090;CRISISLEX_T03_DEAD,1911;TAX_FNCACT_HIT_MAN,1053;TAX_FNCACT_DIRECTOR,401;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;TAX_ETHNICITY_BLACK,430;KILL,857;KILL,1350;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;TRIAL,970;TAX_FNCACT_DELIVERY_MAN,679;TAX_FNCACT_WOMAN,913;UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_ACTOR,324;CRISISLEX_CRISISLEXREC,152;TAX_FNCACT_PROSECUTORS,995;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.41823204534132763
+        }
+      ]
+    },
+    {
+      "id": "20260912233000-171",
+      "title": "Courteney Cox thriller tells 'dysfunctional love story' behind pizza bomber case at TIFF",
+      "url": "https://www.1049thewolf.com/2026/09/12/courteney-cox-thriller-tells-dysfunctional-love-story-behind-pizza-bomber-case-at-tiff/",
+      "source": "1049thewolf.com",
+      "summary": "Courteney Cox's thriller 'Evil Genius' tells the story of a pizza bomber case that centers on Brian Wells, a man with bipolar disorder who was convicted of a robbery. The film follows the convoluted plot of the case, highlighting the emotional and tragic elements of the story, including the love story between Marjorie Diehl-Armstrong and Bill Rothstein. The film is based on a 2018 Netflix documentary series and features Academy Award winner Patricia Arquette and 'Stranger Things' actor David Harbour.",
+      "semantic_text": "Courteney Cox; Evil Genius; Toronto International Film Festival; Patricia Arquette; David Harbour; Brian Wells; pizza bomber case; dysfunctional love story; movie; film",
+      "published_at": "2026-09-12T23:30:00Z",
+      "metadata": {
+        "record_id": "20260912233000-171",
+        "publication_date_raw": 1789255800000,
+        "tone_raw": "-3.57142857142857,3.57142857142857,7.14285714285714,10.7142857142857,22.4489795918367,0.255102040816327,350",
+        "people": "Brian Wells,691;Patricia Arquette,300;Ryan Patrick Jones,21;Ryan Patrick Jones,2310;Courteney Cox,72;Alistair Bell,2364;James Roden,1294;David Harbour,338",
+        "organizations": "Netflix,483;Reuters,50;Academy Award,275",
+        "gdelt_themes": "TAX_FNCACT_HIT_MAN,1053;TAX_FNCACT_DIRECTOR,401;SOC_POINTSOFINTEREST_PRISON,1921;WB_2495_DETENTION_PRISON_AND_CORRECTIONS_REFORM,1921;WB_2470_PEACE_OPERATIONS_AND_CONFLICT_MANAGEMENT,1921;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,1921;WB_2490_NATIONAL_PROTECTION_AND_SECURITY,1921;ARREST,847;SOC_GENERALCRIME,83;EPU_CATS_MIGRATION_FEAR_FEAR,83;TAX_ETHNICITY_BLACK,430;KILL,857;KILL,1350;TAX_FNCACT_MAN,679;TAX_FNCACT_MAN,1053;TRIAL,970;TAX_FNCACT_DELIVERY_MAN,679;TAX_FNCACT_ACTOR,324;UNGP_FORESTS_RIVERS_OCEANS,2270;TAX_FNCACT_WOMAN,913;CRISISLEX_CRISISLEXREC,152;TAX_FNCACT_PROSECUTORS,995;SECURITY_SERVICES,1226;TAX_FNCACT_POLICE,1226;CRISISLEX_C07_SAFETY,1226;TAX_DISEASE_BIPOLAR_DISORDER,935;CRIME_COMMON_ROBBERY,698;TAX_FNCACT_FATHER,1090;CRISISLEX_T03_DEAD,1911;"
+      },
+      "buckets": [
+        {
+          "bucket_id": "bucket-entertainment",
+          "similarity": 0.4056153586463224
+        }
+      ]
+    }
+  ]
+}
