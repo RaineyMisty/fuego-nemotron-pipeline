@@ -1,0 +1,121 @@
+{
+  "articles": 19,
+  "mock_ai": true,
+  "jobs": [
+    {
+      "id": "20260912231500-249",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912231500-379",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-140",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-171",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-18",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-255",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-358",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-426",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-540",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-546",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-567",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-580",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-591",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912233000-T269",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912234500-12",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912234500-128",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912234500-387",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912234500-56",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "20260912234500-95",
+      "status": "done",
+      "attempts": 1,
+      "error": null
+    }
+  ],
+  "feeds_stale": true
+}

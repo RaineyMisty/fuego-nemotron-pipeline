@@ -233,3 +233,6 @@ work/
 # Local article database
 /db/*
 !/db/.gitkeep
+
+# ONNX Runtime local telemetry session
+/:memory:.ses

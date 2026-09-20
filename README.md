@@ -1,5 +1,143 @@
 # Fuego AI
 
+## Complete local pipeline
+
+The service design is in `docs/pipeline-design.md`.
+`fuego/pipeline.py` separates offline jobs from fixed, query, and cluster requests.
+`python -m fuego` provides local commands and an HTTP server.
+Use the existing virtual environment with FastEmbed and the cached MiniLM model.
+
+Run the full input-file smoke test:
+
+```bash
+source .venv/bin/activate
+python -B -m integration.smoke_pipeline --mock-ai --local-files-only
+```
+
+The actual supplied file is `input/fuedo_input_test.json` (spelled fuedo). It has 19 records.
+The smoke uses that file by default. Use --input to choose another JSON list.
+It writes `output/pipeline-smoke/fixed.json`, `cluster.json`, `query.json`, and `jobs.json`.
+Its durable state is in `work/pipeline-delivery/`. SQLite files are under db/ and vectors under map/.
+It uses real FastEmbed, SQLite, map queries, K-means, and JSON output.
+Only AI replies are simulated. The output says mock_ai=true and contains a warning.
+Mock summaries are test data, not production summaries or evidence of Nemotron quality.
+The smoke sets the activity endpoint to the latest input publication time for a repeatable historical test.
+
+### Independent controls
+
+`--mock-ai` replaces the two Nemotron steps only. Live AI is the default.
+`--mock-query "topic"` supplies a default topic only when no topic is given.
+Explicit request topics always win. This switch does not replace vector search.
+The same controls are PipelineConfig.mock_ai and PipelineConfig.mock_query in Python.
+The input-file smoke sets a basketball query by default. Embedding is always real there.
+Unit tests inject small vectors to run without optional packages.
+Use a different state directory for live and mock AI. The service rejects mixed modes or model IDs.
+
+### Offline operations
+
+Global flags go before the command:
+
+```bash
+python -B -m fuego --mock-ai --local-files-only ingest input/fuedo_input_test.json
+python -B -m fuego --mock-ai --local-files-only work
+python -B -m fuego --mock-ai status
+python -B -m fuego --mock-ai --local-files-only refresh --force-clusters
+python -B -m fuego --mock-ai export fixed --output output/fixed.json
+python -B -m fuego --mock-ai export cluster --output output/clusters.json
+python -B -m fuego --mock-ai --local-files-only export query --topic "New York Knicks basketball" --output output/query.json
+```
+
+These commands use `work/pipeline-demo/`. Set --state to use another directory.
+Use `work --retry-failed` to retry failed jobs. Inputs remain in SQLite until success or filtering.
+Completed records clear raw text from the queue. Metadata remains available for output.
+Article processing failures and short keyword outputs are retried, with three job attempts by default.
+The AI client's own bounded transport retries still apply. Set --attempts to change the job budget.
+A vector failure can be retried without processing the article again.
+Duplicate Record_ID values keep the first queued record. Correct a bad queued input in a new state/import;
+this CLI does not overwrite existing records silently. The original input file is never changed.
+Publication_Date strings of digits become integer milliseconds; null optional text fields become empty strings.
+Other invalid records remain failed jobs with their payload and error type.
+
+Fixed feeds are prepared after offline work. Synthesis results are reused for unchanged source summaries.
+Clusters rebuild on first use, after 100 new articles, or with --force-clusters.
+Until then, pending_cluster_articles reports indexed articles absent from the saved clusters.
+A failed synthesis keeps source articles and uses summary_status=failed plus a warning.
+Empty buckets use summary_status=empty. Neither is reported as a successful AI summary.
+A refresh failure preserves the previous prepared feed. /health reports feeds_stale.
+
+### Local HTTP server
+
+```bash
+python -B -m fuego --mock-ai --mock-query "New York Knicks basketball" --local-files-only serve --port 8000
+```
+
+The server binds to 127.0.0.1 by default. Run one process per state directory.
+It has a durable input queue and a background worker. It is a local service with no authentication.
+Do not expose it publicly without adding deployment controls.
+
+| Request | Result |
+| --- | --- |
+| GET /health | Article count, job states, test mode, and stale-feed flag |
+| GET /jobs | Job status without raw article text |
+| POST /ingest | JSON list of input articles; returns HTTP 202 |
+| GET /fixed | Prepared fixed buckets |
+| GET /clusters | Prepared cluster buckets |
+| POST /query | JSON object with topic; returns a query response |
+
+```bash
+curl http://127.0.0.1:8000/health
+curl -H 'Content-Type: application/json' --data-binary @input/fuedo_input_test.json http://127.0.0.1:8000/ingest
+curl http://127.0.0.1:8000/fixed
+curl -H 'Content-Type: application/json' -d '{"topic":"New York Knicks basketball"}' http://127.0.0.1:8000/query
+```
+
+Feed reads do not call AI. Query requests can call AI and take longer.
+Model operations and updates are serialized. Queue submission and health checks can run during model work.
+Unknown routes return 404, invalid requests 400, and unavailable feeds or processing 503.
+The worker resumes pending jobs and stale feed preparation after restart.
+Failed jobs need an explicit retry. Stop the server before using CLI maintenance on its state directory.
+
+### Live AI
+
+```bash
+source .env
+python -B -m fuego --local-files-only ingest input/fuedo_input_test.json
+python -B -m fuego --local-files-only work
+python -B -m fuego --local-files-only serve
+```
+
+Live mode uses `work/pipeline-live/` and the existing NVIDIA settings.
+No key is needed just to enqueue or inspect jobs. Processing and synthesis need a key.
+Use --model-cache to select your cached model folder. Omit --local-files-only to allow model downloads.
+No packages are installed automatically. The delivered run used mock AI, not a live NVIDIA request.
+
+### Activity, direction, and output
+
+Activity compares two equal publication-time windows (one day by default).
+It counts all matching stored articles, before the top-ten output limit for fixed and cluster feeds.
+Query activity uses its retrieved top-ten sample. It is not a count of every matching article.
+If the indexed corpus does not reach the prior window start, historical values are insufficient_data.
+A zero prior count gives a null ratio; it never produces Infinity.
+Direction compares normalized centroids and ranks fixed topic vectors against the shift vector.
+These fields describe changes in collected coverage, not real-world event rates or causal trends.
+Sparse input cannot establish a reliable trend. No temporal data is invented.
+Set `PipelineConfig.window_ms` in Python for another window. CLI refresh accepts --as-of milliseconds.
+
+Responses follow fuego-response.v1 and add test flags, warnings, summary_status, indexed_articles,
+and pending_cluster_articles where relevant. Embeddings and input metadata are included.
+Query output uses a temporary SQLite snapshot and never replaces fixed bucket links.
+JSON exports are atomic. Existing output examples and prompt files remain unchanged.
+
+```bash
+python -B -m unittest discover -s test -v
+python -B -m integration.smoke_server
+python -B -m integration.smoke_trend_activity
+python -B -m integration.smoke_trend_direction
+```
+
+The server smoke uses loopback HTTP, a filtered input, and temporary state. No model or API is needed.
+
+
 The AI client in `fuego/ai.py` calls NVIDIA Nemotron.
 The article processor in `fuego/article_processing.py` extracts keywords and a reader summary.
 Neither module stores articles.
