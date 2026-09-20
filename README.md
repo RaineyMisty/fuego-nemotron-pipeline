@@ -5,7 +5,7 @@ The article processor in `fuego/article_processing.py` extracts keywords and a r
 Neither module stores articles.
 The files in `prompt/` describe future work. They are read-only.
 
-Use Python 3.11 or newer. No extra packages are needed.
+Use Python 3.11 or newer. AI calls use the standard library. Embedding needs the optional packages below.
 
 ## Setup
 
@@ -155,3 +155,70 @@ Exit codes: 0 success, 1 API failure, 2 input/configuration error, 3 invalid mod
 `PASS` means a real response met the output contract. It does not prove factual quality.
 
 Run all offline tests with `python3 -B -m unittest discover -s test -v`.
+
+
+## Text embedding
+
+`fuego/embedding.py` uses FastEmbed and ONNX Runtime on CPU.
+The only selected model is `sentence-transformers/all-MiniLM-L6-v2`.
+The model name keeps its original prefix; the sentence-transformers package and PyTorch are not needed.
+It does not call Nemotron or use a language-model prompt.
+Install the optional dependency in a virtual environment:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[embedding]'
+```
+
+```python
+from fuego.embedding import Embedder
+
+embedder = Embedder()
+vector = embedder.embed(article_result["overview"])
+vectors = embedder.embed_many(["solar power; clean energy", "renewable electricity"])
+```
+
+Every result is a list of 384 Python floats with L2 norm 1.
+Keep one Embedder instance to reuse the model. Loading happens on the first call.
+This setup supports `device="cpu"` only.
+The first call downloads the ONNX model. Set `cache_folder` to choose the cache location.
+Old Sentence Transformers caches are not compatible. Use a new folder such as `work/onnx-models`.
+Use `local_files_only=True` after the model is cached to avoid downloads.
+The embedding extra does not affect the AI client's dependencies.
+
+The module rejects empty text, text over 20,000 characters, and text over the
+model's token limit. MiniLM normally uses a 256-token limit, including special tokens.
+Nothing is silently truncated. Use the article overview, not the full article.
+This model is designed for English text. Check quality before using non-English overviews.
+Input errors raise ValueError. Model and vector errors raise EmbeddingError.
+
+## Embedding smoke test
+
+```bash
+python -B -m integration.smoke_embedding --cache-folder work/onnx-models
+```
+
+The runner uses the real model. No API key is needed.
+It embeds two fixed sets of 20 related but different terms about clean energy.
+It prints both full vectors and their norms, cosine similarity, cosine distance,
+and Euclidean distance as JSON. Progress goes to stderr.
+Use `python -B integration/smoke_embedding.py` with the same options for a direct run.
+Use `--local-files-only --cache-folder work/onnx-models` to reuse the local cache offline.
+
+The default sample threshold is cosine similarity >= 0.70.
+This is a smoke-test choice, not a universal rule for matching news.
+Use `--min-similarity` to set a different threshold before running the test.
+For unit vectors, cosine distance = 1 - similarity and Euclidean distance squared
+is approximately 2 times cosine distance. Smaller distances mean closer vectors.
+Exit codes: 0 passes the threshold, 1 misses it, 2 is a model/input failure, 130 is cancelled.
+No vectors or cache files are committed to the repository.
+
+Offline tests use small mock vectors. They need no model download:
+
+```bash
+python3 -B -m unittest discover -s test -p 'test*embedding.py' -v
+```
+
+[Model card](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+[FastEmbed guide](https://qdrant.github.io/fastembed/Getting%20Started/)

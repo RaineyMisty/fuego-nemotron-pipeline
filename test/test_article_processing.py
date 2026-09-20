@@ -58,7 +58,7 @@ class ArticleProcessingTests(unittest.TestCase):
             self.assertEqual(parse_response(value)["keywords"],KEYWORDS)
 
     def test_keywords_reject_wrong_count_duplicates_function_words(self):
-        for keywords in [KEYWORDS[:-1], KEYWORDS+["extra"], "words", [" "]+KEYWORDS[1:],
+        for keywords in [KEYWORDS[:-1], "words", [" "]+KEYWORDS[1:],
                          [None]+KEYWORDS[1:], ["the"]+KEYWORDS[1:], ["IN"]+KEYWORDS[1:],
                          ["---"]+KEYWORDS[1:], [" ROBOTICS "]+KEYWORDS[1:], ["x"*81]+KEYWORDS[1:]]:
             with self.subTest(keywords=keywords), self.assertRaises(ArticleProcessingError):
@@ -108,3 +108,7 @@ class ArticleProcessingTests(unittest.TestCase):
         client=Mock();client.complete.side_effect=AIError("API failed")
         with self.assertRaises(AIError):process_article("Article",client=client)
         client.complete.assert_called_once()
+
+    def test_more_than_twenty_keywords_are_allowed(self):
+        value = {**RESULT, "keywords": KEYWORDS + ["accessibility research"]}
+        self.assertEqual(len(parse_response(response(value))["keywords"]), 21)
